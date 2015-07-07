@@ -10,6 +10,11 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.net.InetSocketAddress;
 
+/**
+ * EchoClient
+ * @author 唐延波
+ * @date 2015年7月7日
+ */
 public class EchoClient {
 
 	private final String host;

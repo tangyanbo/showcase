@@ -1,12 +1,16 @@
 package netty.example;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
 
+/**
+ * EchoClientHandler
+ * @author 唐延波
+ * @date 2015年7月7日
+ */
 public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	
 	@Override
@@ -16,8 +20,10 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	}
 
 	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
-		System.out.println("Client received: " + ByteBufUtil.hexDump(msg.readBytes(msg.readableBytes())));
+	protected void messageReceived(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
+		ByteBuf readBytes = msg.readBytes(msg.readableBytes());
+		System.out.println("Client received: " + new String(readBytes.array()));
+		ctx.close();
 	}
 
 	@Override
