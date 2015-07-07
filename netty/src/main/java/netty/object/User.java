@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class User {
+/**
+ * 对象必须要implements java.io.Serializable接口
+ * 否则会出现阻塞现象，发送对象不成功
+ * @author 唐延波
+ * @date 2015年7月7日
+ */
+public class User implements java.io.Serializable{
 
 	private int id;
 
