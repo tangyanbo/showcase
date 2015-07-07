@@ -5,6 +5,11 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+/**
+ * ObjectServerHandler
+ * @author 唐延波
+ * @date 2015年7月7日
+ */
 public class ObjectServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override

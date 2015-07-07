@@ -7,9 +7,16 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-
+import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.codec.serialization.ObjectDecoder;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 import java.net.InetSocketAddress;
 
+/**
+ * ObjectClient
+ * @author 唐延波
+ * @date 2015年7月7日
+ */
 public class ObjectClient {
 
 	private final String host;
@@ -28,6 +35,11 @@ public class ObjectClient {
 					.handler(new ChannelInitializer<SocketChannel>() {
 						@Override
 						protected void initChannel(SocketChannel ch) throws Exception {
+							//添加POJO对象解码器 禁止缓存类加载器
+		                    ch.pipeline().addLast(new ObjectDecoder(1024,
+		                    		ClassResolvers.cacheDisabled(this.getClass().getClassLoader())));
+		                    //设置发送消息编码器
+		                    ch.pipeline().addLast(new ObjectEncoder());
 							ch.pipeline().addLast(new ObjectClientHandler());
 						}
 					});
