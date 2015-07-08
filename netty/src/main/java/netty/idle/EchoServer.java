@@ -1,4 +1,4 @@
-package netty.example;
+package netty.idle;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

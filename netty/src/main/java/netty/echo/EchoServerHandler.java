@@ -1,4 +1,4 @@
-package netty.example;
+package netty.echo;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;

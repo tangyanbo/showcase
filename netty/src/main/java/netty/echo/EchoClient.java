@@ -1,4 +1,4 @@
-package netty.example;
+package netty.echo;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -29,13 +29,16 @@ public class EchoClient {
 		EventLoopGroup group = new NioEventLoopGroup();
 		try {
 			Bootstrap b = new Bootstrap();
-			b.group(group).channel(NioSocketChannel.class).remoteAddress(new InetSocketAddress(host, port))
-					.handler(new ChannelInitializer<SocketChannel>() {
-						@Override
-						protected void initChannel(SocketChannel ch) throws Exception {
-							ch.pipeline().addLast(new EchoClientHandler());
-						}
-					});
+			b.group(group)
+			.channel(NioSocketChannel.class)
+			.remoteAddress(new InetSocketAddress(host, port))
+			.handler(new ChannelInitializer<SocketChannel>() {
+				@Override
+				protected void initChannel(SocketChannel ch) throws Exception {
+					//设置handler
+					ch.pipeline().addLast(new EchoClientHandler());
+				}		
+			});
 			ChannelFuture f = b.connect().sync();
 			f.channel().closeFuture().sync();
 		} finally {
