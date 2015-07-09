@@ -81,12 +81,13 @@ public class LettuceClient implements Runnable{
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
-		ExecutorService pool = Executors.newCachedThreadPool();
+		new LettuceClient().get("x");
+		/*ExecutorService pool = Executors.newCachedThreadPool();
 		for (int i = 0; i < 50; i++) {
 			LettuceClient r = new LettuceClient();
 			r.setIndex(i+1);
 			pool.execute(r);
-		}
+		}*/
 		
 		/*long t1 = 0;
 		long t2 = 0;
