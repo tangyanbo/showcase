@@ -1,0 +1,14 @@
+问题1：mina短连接如何做异步转同步
+用close等待
+
+问题2：mina长连接如果做异步转同步
+将锁对象放入session
+session.setAttribute("result", result);
+write之后调用锁wait
+
+在接收线程里获取锁对象
+Result result = (Result)session.getAttribute("result");
+并唤醒在该对象等待的所有线程
+
+问题3：AtomicLong执行到一定程度，造成线程等待
+可能达到最大值了，无法increament

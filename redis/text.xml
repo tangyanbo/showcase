@@ -1,0 +1,7 @@
+<!-- host: optional: defaults to "localhost" -->
+<!-- port: defaults to "6379" -->
+<!-- database: optional: defaults to "0" -->
+<!-- maxInactiveInterval: optional: defaults to "60" (in seconds) -->
+<Valve className="com.radiadesign.catalina.session.RedisSessionHandlerValve" />
+<Manager className="com.radiadesign.catalina.session.RedisSessionManager"
+	host="localhost" port="6380" database="0" maxInactiveInterval="60" />

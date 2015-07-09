@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://192.168.1.226:61616"/>
+	</bean>
+	
+	<!-- 池,性能更高 -->
+	<bean id="connectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+		<property name="connectionFactory" ref="targetConnectionFactory"/>
+		<property name="maxConnections" value="20"></property>
+	</bean>
+	
+	
+    <!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory
+    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        
+        <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
+    </bean>
+     -->
+    
+
+	<!-- 队列名称-->
+	<bean id="queue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="queue"/>
+	</bean>
+	
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory"/>
+		<!-- 设置默认的消息目的地-->
+		<!-- 由于receiver方法是同步的，所以我们在这里对接收设置超时时间-->
+		<property name="receiveTimeout" value="80000"/>
+	</bean>
+
+</beans>
