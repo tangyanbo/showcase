@@ -1,7 +1,6 @@
 package netty.http;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
@@ -70,7 +69,7 @@ public class HttpClient {
 		URI uri = new URI("http://localhost:8888/paydemo/noticeAccept");
 		
 		String msg = "Are you ok?";
-		DefaultFullHttpRequest request = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET,
+		DefaultFullHttpRequest request = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.POST,
 				uri.toASCIIString(), Unpooled.wrappedBuffer(msg.getBytes("UTF-8")));
 
 		// 构建http请求
