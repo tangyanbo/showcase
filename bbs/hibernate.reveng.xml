@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-name="bbs_area"/>
+  <table-filter match-name="bbs_area_master"/>
+  <table-filter match-name="bbs_footer"/>
+  <table-filter match-name="bbs_myfav_post"/>
+  <table-filter match-name="bbs_oper_log"/>
+  <table-filter match-name="bbs_plate"/>
+  <table-filter match-name="bbs_plate_auditor"/>
+  <table-filter match-name="bbs_plate_master"/>
+  <table-filter match-name="bbs_plate_publisher"/>
+  <table-filter match-name="bbs_plate_reply_auditor"/>
+  <table-filter match-name="bbs_post"/>
+  <table-filter match-name="bbs_post_attach"/>
+  <table-filter match-name="bbs_post_content"/>
+  <table-filter match-name="bbs_post_reply"/>
+  <table-filter match-name="bbs_sensitive" />
+  <table name="bbs_area" class="com.shiyuesoft.bbs.bean.Area"></table>
+  <table name="bbs_area_master" class="com.shiyuesoft.bbs.bean.AreaMaster"></table>
+  <table name="bbs_footer" class="com.shiyuesoft.bbs.bean.Footer"></table>
+  <table name="bbs_myfav_post" class="com.shiyuesoft.bbs.bean.MyfavPost"></table>
+  <table name="bbs_plate_auditor" class="com.shiyuesoft.bbs.bean.PlateAuditor"></table>
+  <table name="bbs_oper_log" class="com.shiyuesoft.bbs.bean.OperLog"></table>
+  <table name="bbs_plate" class="com.shiyuesoft.bbs.bean.Plate"></table>
+  <table name="bbs_plate_master" class="com.shiyuesoft.bbs.bean.PlateMaster"></table>
+  <table name="bbs_plate_publisher" class="com.shiyuesoft.bbs.bean.PlatePublisher"></table>
+  <table name="bbs_plate_reply_auditor" class="com.shiyuesoft.bbs.bean.ReplyAuditor"></table>
+  <table name="bbs_post" class="com.shiyuesoft.bbs.bean.Post"></table>
+  <table name="bbs_post_attach" class="com.shiyuesoft.bbs.bean.PostAttach"></table>
+  <table name="bbs_post_content" class="com.shiyuesoft.bbs.bean.PostContent"></table>
+  <table name="bbs_post_reply" class="com.shiyuesoft.bbs.bean.Reply"></table>
+  <table name="bbs_sensitive" class="com.shiyuesoft.bbs.bean.Sensitive"></table>
+</hibernate-reverse-engineering>

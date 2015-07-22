@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<category name="基础平台根栏目 " code="baseRoot" appId="base"
+	needPrivilege="false">
+
+	<category name="基础平台" appId="base" sort="1" code="base_base"
+		url="" needPrivilege="true" showInApp="true">
+		<category name="基础设置" appId="base" sort="1" code="base_basicset"
+			url="schoolInfo.action" needPrivilege="true" openStyle="content" showInApp="true">
+
+		</category>
+
+		<category name="用户设置" appId="base" sort="2" code="base_userset"
+			url="findTeacher.action" needPrivilege="true" openStyle="content" showInApp="true">
+
+
+		</category>
+
+		<category name="教师分组" appId="base" sort="3" code="base_teachergroup"
+			url="toOrgGroup.action" needPrivilege="true" openStyle="content" showInApp="true">
+
+
+		</category>
+
+		<category name="教师岗位安排" appId="base" sort="4"
+			code="base_teacherArrange" url="toCourseTeacherSet.action"
+			needPrivilege="true" openStyle="content" showInApp="true">
+
+
+		</category>
+
+		<category name="权限设置" appId="base" sort="4" code="base_auth"
+			url="toAuthSet.action" needPrivilege="true" openStyle="content" showInApp="true">
+
+
+		</category>
+
+		<category name="教师岗位查询" appId="base" sort="5"
+			code="base_teacherRoleQuery" url="toClassTeacherQuery.action"
+			needPrivilege="true" openStyle="content" showInApp="true">
+
+
+		</category>
+
+		<category name="学生分班" appId="base" sort="6"
+			code="base_student_div_class" url="toStuDivClass.action"
+			needPrivilege="true" openStyle="content" showInApp="true">
+		</category>
+
+	</category>
+
+
+	<category name="办公平台" appId="base" sort="1" code="base_oa"
+		url="" needPrivilege="true" showInApp="true">
+		<categoryPrivilegeRoleRs>
+			<categoryPrivilegeRoleR privilegeId="manage"
+				roleId="TEACHER">
+
+			</categoryPrivilegeRoleR>
+		</categoryPrivilegeRoleRs>
+		<category name="信息服务" appId="base" sort="1" code="base_notice"
+			url="/oa/listNotice.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+
+		<category name="留言" appId="base" sort="2" code="base_message"
+			url="/oa/inBoxMessage.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+
+		<category name="邮件" appId="base" sort="3" code="base_email"
+			url="/oa/inBoxEmail.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+
+		<category name="日程" appId="base" sort="4" code="base_schedule"
+			url="/oa/toScheduleList.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+
+		<category name="签到管理" appId="base" sort="4" code="base_sign"
+			url="/oa/mySign.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="请假管理" appId="base" sort="4" code="base_leave"
+			url="/oa/myLeave.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+
+		<category name="工资管理" appId="base" sort="4" code="base_salary"
+			url="/oa/toSalary.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="报修管理" appId="base" sort="5" code="base_repair"
+			url="/oa/repair.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="公文流转" appId="base" sort="6" code="base_document"
+			url="/oa/toSendDocument.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="公文统计" appId="base" sort="7" code="base_document_statistics"
+			url="" needPrivilege="true" openStyle="content" showInApp="false">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="用车申请" appId="base" sort="8" code="base_car"
+			url="/oa/carApplyList.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="资料印制" appId="base" sort="9" code="base_copy"
+			url="/oa/copyApplyList.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+
+		<category name="物品管理" appId="base" sort="10" code="base_res"
+			url="/oa/toStockManager.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="采购管理" appId="base" sort="10" code="base_res_buy"
+			url="" needPrivilege="true" openStyle="content" showInApp="false">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+		<category name="会议管理" appId="base" sort="11" code="base_meeting"
+			url="/oa/toMyMeeting.action" needPrivilege="true" openStyle="content" showInApp="true">
+			<categoryPrivilegeRoleRs>
+				<categoryPrivilegeRoleR privilegeId="manage"
+					roleId="TEACHER">
+
+				</categoryPrivilegeRoleR>
+			</categoryPrivilegeRoleRs>
+		</category>
+		
+	</category>
+
+
+
+
+</category>

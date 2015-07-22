@@ -1,0 +1,1 @@
+ALTER TABLE school_info MODIFY COLUMN website VARCHAR(200);

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moduleList>
+	<module name="基础平台" code="base_base" adminRole="XX_SYS_BASE" hasChildren="true">
+	
+	
+	</module>
+	
+	<module name="办公平台" code="base_oa" adminRole="XX_SYS_OA" hasChildren="true">
+	
+	
+	</module>
+	
+	
+	<module name="教师评价" code="" adminRole="XX_SYS_AP">
+	
+	
+	</module>
+	
+	
+	<module name="资源库" code="" adminRole="XX_SYS_RC">
+	
+	
+	</module>
+	
+	<module name="成绩分析" code="" adminRole="XX_SYS_SC">
+	
+	
+	</module>
+	
+	<module name="教师专业发展" code="" adminRole="XX_SYS_TD">
+	
+	
+	</module>
+	
+	<module name="学生综合素质评价" code="" adminRole="XX_SYS_ZP">
+	
+	
+	</module>
+	
+	<module name="学生选课系统" code="elRoot" adminRole="XX_SYS_EL" hasChildren="true">
+	
+	
+	</module>
+	
+	<module name="排课系统" code="pkRoot" adminRole="XX_SYS_PK">
+	
+	
+	</module>
+
+</moduleList>
