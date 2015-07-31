@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_accountManage"  extends="struts_common">
+	  
+	  	<!-- AccountManage列表信息 -->
+        <action name="searchAccountManageAction" class="searchAccountManageAction">
+			<result name="success" >/jsp/demo/searchAccountManagePage.jsp</result>
+		</action>
+		
+        <!-- AccountManage新增页面-->
+        <action name="addAccountManagePage" class="addAccountManagePage">
+			<result name="success" >/jsp/demo/addAccountManagePage.jsp</result>
+		</action>
+		
+		<!-- AccountManage新增动作	-->
+        <action name="addAccountManageAction" class="addAccountManageAction"> 
+			<result name="success" type="chain"><param name="actionName">searchAccountManageAction</param> </result>
+		</action>
+		
+		<!-- AccountManage编辑页面 -->
+		<action name="editAccountManagePage" class="editAccountManagePage">
+			<result name="success" >/jsp/demo/editAccountManagePage.jsp</result>
+		</action>
+
+		
+		<!-- AccountManage编辑动作-->
+		<action name="editAccountManageAction" class="editAccountManageAction">
+			<result name="success" type="chain"><param name="actionName">searchAccountManageAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailAccountManagePage" class="detailAccountManagePage">
+			<result name="success" >/jsp/demo/detailAccountManagePage.jsp</result>
+		</action>
+		
+		
+		<!-- AccountManage删除页面	-->
+		<action name="delAccountManageAction" class="delAccountManageAction">
+			<result name="success" type="chain"><param name="actionName">searchAccountManageAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>
