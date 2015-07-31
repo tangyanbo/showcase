@@ -6,6 +6,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import org.junit.Test;
+import org.redisson.Redisson;
+import org.redisson.core.RCountDownLatch;
+import org.redisson.core.RLock;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -111,6 +114,39 @@ public class RedisTest {
 	    }
 	    
 	    jedis.disconnect();
+	}
+	
+	@Test
+	public void test() throws InterruptedException{
+		Redisson redisson = Redisson.create();
+
+		
+		RCountDownLatch latch = redisson.getCountDownLatch("anyCountDownLatch");
+		latch.trySetCount(1);
+		long l1 = System.currentTimeMillis();
+		RLock lock = redisson.getLock("anyLock4");
+		lock.lock();
+		
+		
+		long l2 = System.currentTimeMillis();
+		System.out.println(l2-l1);
+		long l3 = System.currentTimeMillis();
+		RLock lock2 = redisson.getLock("anyLock5");
+		lock2.lock();
+		
+		
+		long l4 = System.currentTimeMillis();
+		System.out.println(l4-l3);
+		
+		
+		
+		latch.await();
+
+		// in other thread or other JVM
+		RCountDownLatch latch2 = redisson.getCountDownLatch("anyCountDownLatch");
+		latch.countDown();
+
+		redisson.shutdown();
 	}
 
 }

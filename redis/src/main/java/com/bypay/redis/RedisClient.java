@@ -50,8 +50,10 @@ public class RedisClient implements Runnable{
 		Jedis jedis = null;
 		try {
 			jedis = jedisPool.getResource();
+			long l1 = System.currentTimeMillis();
 			String value = jedis.get(key);	
-			
+			long l2 = System.currentTimeMillis();
+			System.out.println(l2-l1);
 			return value;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -149,41 +151,9 @@ public class RedisClient implements Runnable{
 	}
 	
 	public static void main(String[] args) throws InterruptedException{
-		get2();
-//		ExecutorService pool = Executors.newCachedThreadPool();
-//		for (int i = 0; i < 500; i++) {
-//			RedisClient r = new RedisClient();
-//			r.setIndex(i+1);
-//			pool.execute(r);
-//		}
-//		
-//		long t1 = 0;
-//		long t2 = 0;
-//		long tAll1 = 0;
-//		long tAll2 = 0;
-//		long tp1 = 0;
-//		long tp2 = 0;
-//		while(true){
-//			t1 = System.currentTimeMillis();
-//			tAll1 = tAll.get();
-//			tp1 = tp.get();
-//			//System.out.println("总事务数start:" + start);
-//			Thread.sleep(2000);
-//			tAll2 = tAll.get();
-//			tp2 = tp.get();
-//			//System.out.println("总事务数end:" + tp2);
-//			t2 = System.currentTimeMillis();
-//			double disCount = tp2 - tp1;
-//			double disTime = t2-t1;
-//			//System.out.println("间隔时间:" + disTime);
-//			double tpM = disCount/disTime;
-//			long tps = (long) (tpM*1000);
-//			System.out.println("每秒执行事务数:" + tps);
-//			//System.out.println("请求增加数:" + (endA - startA));
-//			
-//		}
-	
-	
+		RedisClient c = new RedisClient();
+		//c.set("key2", "1");
+		c.get("key2");
 	}
 
 	public int getIndex() {
