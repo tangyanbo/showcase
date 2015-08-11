@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="yunrichTerminal">
+
+  <!--用于模糊查询-->
+     <select id="select_yunrichTerminalList" parameterClass="com.shiyue.bbs.model.YunrichTerminalQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,POS_DEV_ID  <!---->
+		  		,FILE_CODE  <!---->
+		  		,SEC_MAIN_KEY  <!---->
+		  		,MAIN_KEY  <!---->
+		  		,DATE  <!---->
+		  		,TIME  <!---->
+		  		,MACHINE_NO  <!---->
+		  		,BK_TERM_ID  <!---->
+		  		,BK_MER_ID  <!---->
+		  		,BATCH_ID  <!---->
+		  		,PIN_KEY  <!---->
+		  		,PACK_KEY  <!---->
+		  		,MAC_KEY  <!---->
+		  		,CREATE_DATE  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,EXT  <!---->
+		  		,EXT1  <!---->
+		  		,POS_ID  <!---->
+		  FROM yunrich_terminal
+		  WHERE 1=1 AND yunrich_terminal.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="pos_dev_id">
+					(POS_DEV_ID) Like '%'||(#pos_dev_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="file_code">
+					(FILE_CODE) Like '%'||(#file_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sec_main_key">
+					(SEC_MAIN_KEY) Like '%'||(#sec_main_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="main_key">
+					(MAIN_KEY) Like '%'||(#main_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="date">
+					(DATE) Like '%'||(#date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="time">
+					(TIME) Like '%'||(#time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="machine_no">
+					(MACHINE_NO) Like '%'||(#machine_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bk_term_id">
+					(BK_TERM_ID) Like '%'||(#bk_term_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bk_mer_id">
+					(BK_MER_ID) Like '%'||(#bk_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="batch_id">
+					(BATCH_ID) Like '%'||(#batch_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pin_key">
+					(PIN_KEY) Like '%'||(#pin_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pack_key">
+					(PACK_KEY) Like '%'||(#pack_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mac_key">
+					(MAC_KEY) Like '%'||(#mac_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ext">
+					(EXT) Like '%'||(#ext:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ext1">
+					(EXT1) Like '%'||(#ext1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pos_id">
+					(POS_ID) Like '%'||(#pos_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_yunrichTerminalList_count" parameterClass="com.shiyue.bbs.model.YunrichTerminalQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM yunrich_terminal
+			WHERE 1=1 AND yunrich_terminal.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="pos_dev_id">
+					(POS_DEV_ID) Like '%'||(#pos_dev_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="file_code">
+					(FILE_CODE) Like '%'||(#file_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sec_main_key">
+					(SEC_MAIN_KEY) Like '%'||(#sec_main_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="main_key">
+					(MAIN_KEY) Like '%'||(#main_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="date">
+					(DATE) Like '%'||(#date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="time">
+					(TIME) Like '%'||(#time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="machine_no">
+					(MACHINE_NO) Like '%'||(#machine_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bk_term_id">
+					(BK_TERM_ID) Like '%'||(#bk_term_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bk_mer_id">
+					(BK_MER_ID) Like '%'||(#bk_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="batch_id">
+					(BATCH_ID) Like '%'||(#batch_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pin_key">
+					(PIN_KEY) Like '%'||(#pin_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pack_key">
+					(PACK_KEY) Like '%'||(#pack_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mac_key">
+					(MAC_KEY) Like '%'||(#mac_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ext">
+					(EXT) Like '%'||(#ext:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ext1">
+					(EXT1) Like '%'||(#ext1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pos_id">
+					(POS_ID) Like '%'||(#pos_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

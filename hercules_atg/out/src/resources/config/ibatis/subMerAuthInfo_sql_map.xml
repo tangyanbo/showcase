@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerAuthInfo">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerAuthInfoList" parameterClass="com.shiyue.bbs.model.SubMerAuthInfoQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		AUTH_ORDER_ID  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,SUB_MER_ID  <!---->
+		  		,REMIT_TYPE  <!---->
+		  		,REAL_NAME  <!---->
+		  		,ID_NUM  <!---->
+		  		,FACE_PIC_PATH  <!---->
+		  		,AUTH_STATUS  <!---->
+		  		,SERIAL_NO  <!---->
+		  		,TERMINAL_ID  <!---->
+		  FROM SUB_MER_AUTH_INFO
+		  WHERE 1=1 AND SUB_MER_AUTH_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="auth_order_id" prepend="and" >
+				    (AUTH_ORDER_ID) =#auth_order_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="real_name">
+					(REAL_NAME) Like '%'||(#real_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="id_num">
+					(ID_NUM) Like '%'||(#id_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="face_pic_path">
+					(FACE_PIC_PATH) Like '%'||(#face_pic_path:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="auth_status">
+					(AUTH_STATUS) Like '%'||(#auth_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="serial_no">
+					(SERIAL_NO) Like '%'||(#serial_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerAuthInfoList_count" parameterClass="com.shiyue.bbs.model.SubMerAuthInfoQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_AUTH_INFO
+			WHERE 1=1 AND SUB_MER_AUTH_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="auth_order_id" prepend="and" >
+					(AUTH_ORDER_ID) =#auth_order_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="real_name">
+					(REAL_NAME) Like '%'||(#real_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="id_num">
+					(ID_NUM) Like '%'||(#id_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="face_pic_path">
+					(FACE_PIC_PATH) Like '%'||(#face_pic_path:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="auth_status">
+					(AUTH_STATUS) Like '%'||(#auth_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="serial_no">
+					(SERIAL_NO) Like '%'||(#serial_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

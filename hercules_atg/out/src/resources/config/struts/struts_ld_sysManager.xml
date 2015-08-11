@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_sysManager"  extends="struts_common">
+	  
+	  	<!-- SysManager列表信息 -->
+        <action name="searchSysManagerAction" class="searchSysManagerAction">
+			<result name="success" >/jsp/demo/searchSysManagerPage.jsp</result>
+		</action>
+		
+        <!-- SysManager新增页面-->
+        <action name="addSysManagerPage" class="addSysManagerPage">
+			<result name="success" >/jsp/demo/addSysManagerPage.jsp</result>
+		</action>
+		
+		<!-- SysManager新增动作	-->
+        <action name="addSysManagerAction" class="addSysManagerAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSysManagerAction</param> </result>
+		</action>
+		
+		<!-- SysManager编辑页面 -->
+		<action name="editSysManagerPage" class="editSysManagerPage">
+			<result name="success" >/jsp/demo/editSysManagerPage.jsp</result>
+		</action>
+
+		
+		<!-- SysManager编辑动作-->
+		<action name="editSysManagerAction" class="editSysManagerAction">
+			<result name="success" type="chain"><param name="actionName">searchSysManagerAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSysManagerPage" class="detailSysManagerPage">
+			<result name="success" >/jsp/demo/detailSysManagerPage.jsp</result>
+		</action>
+		
+		
+		<!-- SysManager删除页面	-->
+		<action name="delSysManagerAction" class="delSysManagerAction">
+			<result name="success" type="chain"><param name="actionName">searchSysManagerAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

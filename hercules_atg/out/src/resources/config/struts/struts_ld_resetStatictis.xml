@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_resetStatictis"  extends="struts_common">
+	  
+	  	<!-- ResetStatictis列表信息 -->
+        <action name="searchResetStatictisAction" class="searchResetStatictisAction">
+			<result name="success" >/jsp/demo/searchResetStatictisPage.jsp</result>
+		</action>
+		
+        <!-- ResetStatictis新增页面-->
+        <action name="addResetStatictisPage" class="addResetStatictisPage">
+			<result name="success" >/jsp/demo/addResetStatictisPage.jsp</result>
+		</action>
+		
+		<!-- ResetStatictis新增动作	-->
+        <action name="addResetStatictisAction" class="addResetStatictisAction"> 
+			<result name="success" type="chain"><param name="actionName">searchResetStatictisAction</param> </result>
+		</action>
+		
+		<!-- ResetStatictis编辑页面 -->
+		<action name="editResetStatictisPage" class="editResetStatictisPage">
+			<result name="success" >/jsp/demo/editResetStatictisPage.jsp</result>
+		</action>
+
+		
+		<!-- ResetStatictis编辑动作-->
+		<action name="editResetStatictisAction" class="editResetStatictisAction">
+			<result name="success" type="chain"><param name="actionName">searchResetStatictisAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailResetStatictisPage" class="detailResetStatictisPage">
+			<result name="success" >/jsp/demo/detailResetStatictisPage.jsp</result>
+		</action>
+		
+		
+		<!-- ResetStatictis删除页面	-->
+		<action name="delResetStatictisAction" class="delResetStatictisAction">
+			<result name="success" type="chain"><param name="actionName">searchResetStatictisAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

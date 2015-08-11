@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_mccCategoryCode"  extends="struts_common">
+	  
+	  	<!-- MccCategoryCode列表信息 -->
+        <action name="searchMccCategoryCodeAction" class="searchMccCategoryCodeAction">
+			<result name="success" >/jsp/demo/searchMccCategoryCodePage.jsp</result>
+		</action>
+		
+        <!-- MccCategoryCode新增页面-->
+        <action name="addMccCategoryCodePage" class="addMccCategoryCodePage">
+			<result name="success" >/jsp/demo/addMccCategoryCodePage.jsp</result>
+		</action>
+		
+		<!-- MccCategoryCode新增动作	-->
+        <action name="addMccCategoryCodeAction" class="addMccCategoryCodeAction"> 
+			<result name="success" type="chain"><param name="actionName">searchMccCategoryCodeAction</param> </result>
+		</action>
+		
+		<!-- MccCategoryCode编辑页面 -->
+		<action name="editMccCategoryCodePage" class="editMccCategoryCodePage">
+			<result name="success" >/jsp/demo/editMccCategoryCodePage.jsp</result>
+		</action>
+
+		
+		<!-- MccCategoryCode编辑动作-->
+		<action name="editMccCategoryCodeAction" class="editMccCategoryCodeAction">
+			<result name="success" type="chain"><param name="actionName">searchMccCategoryCodeAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailMccCategoryCodePage" class="detailMccCategoryCodePage">
+			<result name="success" >/jsp/demo/detailMccCategoryCodePage.jsp</result>
+		</action>
+		
+		
+		<!-- MccCategoryCode删除页面	-->
+		<action name="delMccCategoryCodeAction" class="delMccCategoryCodeAction">
+			<result name="success" type="chain"><param name="actionName">searchMccCategoryCodeAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

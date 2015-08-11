@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="platModel">
+
+  <!--用于模糊查询-->
+     <select id="select_platModelList" parameterClass="com.shiyue.bbs.model.PlatModelQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,MODEL_NAME  <!---->
+		  		,MODEL_NO  <!---->
+		  		,PATH  <!---->
+		  		,DESC  <!---->
+		  		,SUPER_NO  <!---->
+		  		,REMARK  <!---->
+		  FROM PLAT_MODEL
+		  WHERE 1=1 AND PLAT_MODEL.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="model_name">
+					(MODEL_NAME) Like '%'||(#model_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="model_no">
+					(MODEL_NO) Like '%'||(#model_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="path">
+					(PATH) Like '%'||(#path:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="desc">
+					(DESC) Like '%'||(#desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="super_no">
+					(SUPER_NO) Like '%'||(#super_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_platModelList_count" parameterClass="com.shiyue.bbs.model.PlatModelQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM PLAT_MODEL
+			WHERE 1=1 AND PLAT_MODEL.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="model_name">
+					(MODEL_NAME) Like '%'||(#model_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="model_no">
+					(MODEL_NO) Like '%'||(#model_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="path">
+					(PATH) Like '%'||(#path:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="desc">
+					(DESC) Like '%'||(#desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="super_no">
+					(SUPER_NO) Like '%'||(#super_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

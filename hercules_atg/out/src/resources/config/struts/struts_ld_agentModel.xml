@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_agentModel"  extends="struts_common">
+	  
+	  	<!-- AgentModel列表信息 -->
+        <action name="searchAgentModelAction" class="searchAgentModelAction">
+			<result name="success" >/jsp/demo/searchAgentModelPage.jsp</result>
+		</action>
+		
+        <!-- AgentModel新增页面-->
+        <action name="addAgentModelPage" class="addAgentModelPage">
+			<result name="success" >/jsp/demo/addAgentModelPage.jsp</result>
+		</action>
+		
+		<!-- AgentModel新增动作	-->
+        <action name="addAgentModelAction" class="addAgentModelAction"> 
+			<result name="success" type="chain"><param name="actionName">searchAgentModelAction</param> </result>
+		</action>
+		
+		<!-- AgentModel编辑页面 -->
+		<action name="editAgentModelPage" class="editAgentModelPage">
+			<result name="success" >/jsp/demo/editAgentModelPage.jsp</result>
+		</action>
+
+		
+		<!-- AgentModel编辑动作-->
+		<action name="editAgentModelAction" class="editAgentModelAction">
+			<result name="success" type="chain"><param name="actionName">searchAgentModelAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailAgentModelPage" class="detailAgentModelPage">
+			<result name="success" >/jsp/demo/detailAgentModelPage.jsp</result>
+		</action>
+		
+		
+		<!-- AgentModel删除页面	-->
+		<action name="delAgentModelAction" class="delAgentModelAction">
+			<result name="success" type="chain"><param name="actionName">searchAgentModelAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerInfoExtend">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerInfoExtendList" parameterClass="com.shiyue.bbs.model.SubMerInfoExtendQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		SUB_MER_ID  <!--商户号-->
+		  		,REG_CAP  <!--注册资本-->
+		  		,SETT_BANK_CODE  <!--结算支行代码-->
+		  		,SETT_BANK_NAME  <!--支行信息-->
+		  		,CHANNEL  <!--所属渠道-->
+		  		,SIGN_DATE  <!--签约日期-->
+		  		,SIGN_PERSON  <!--签约人-->
+		  		,PROVINCE  <!--省-->
+		  		,CITY  <!--市-->
+		  		,SETT_BANK_PRO  <!--结算银行所在省-->
+		  		,SETT_BANK_CITY  <!--结算银行所在市-->
+		  		,SETT_SUPER_BANK_CODE  <!--结算银行大行代码-->
+		  		,SETT_SUPER_BANK_NAME  <!--结算银行大行名称-->
+		  FROM SUB_MER_INFO_EXTEND
+		  WHERE 1=1 AND SUB_MER_INFO_EXTEND.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="reg_cap">
+					(REG_CAP) Like '%'||(#reg_cap:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_code">
+					(SETT_BANK_CODE) Like '%'||(#sett_bank_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_name">
+					(SETT_BANK_NAME) Like '%'||(#sett_bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="channel">
+					(CHANNEL) Like '%'||(#channel:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_date">
+					(SIGN_DATE) Like '%'||(#sign_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_person">
+					(SIGN_PERSON) Like '%'||(#sign_person:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="province">
+					(PROVINCE) Like '%'||(#province:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="city">
+					(CITY) Like '%'||(#city:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_pro">
+					(SETT_BANK_PRO) Like '%'||(#sett_bank_pro:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_city">
+					(SETT_BANK_CITY) Like '%'||(#sett_bank_city:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_super_bank_code">
+					(SETT_SUPER_BANK_CODE) Like '%'||(#sett_super_bank_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_super_bank_name">
+					(SETT_SUPER_BANK_NAME) Like '%'||(#sett_super_bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerInfoExtendList_count" parameterClass="com.shiyue.bbs.model.SubMerInfoExtendQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_INFO_EXTEND
+			WHERE 1=1 AND SUB_MER_INFO_EXTEND.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="reg_cap">
+					(REG_CAP) Like '%'||(#reg_cap:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_code">
+					(SETT_BANK_CODE) Like '%'||(#sett_bank_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_name">
+					(SETT_BANK_NAME) Like '%'||(#sett_bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="channel">
+					(CHANNEL) Like '%'||(#channel:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_date">
+					(SIGN_DATE) Like '%'||(#sign_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_person">
+					(SIGN_PERSON) Like '%'||(#sign_person:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="province">
+					(PROVINCE) Like '%'||(#province:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="city">
+					(CITY) Like '%'||(#city:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_pro">
+					(SETT_BANK_PRO) Like '%'||(#sett_bank_pro:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_bank_city">
+					(SETT_BANK_CITY) Like '%'||(#sett_bank_city:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_super_bank_code">
+					(SETT_SUPER_BANK_CODE) Like '%'||(#sett_super_bank_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_super_bank_name">
+					(SETT_SUPER_BANK_NAME) Like '%'||(#sett_super_bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

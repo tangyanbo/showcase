@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_busType"  extends="struts_common">
+	  
+	  	<!-- BusType列表信息 -->
+        <action name="searchBusTypeAction" class="searchBusTypeAction">
+			<result name="success" >/jsp/demo/searchBusTypePage.jsp</result>
+		</action>
+		
+        <!-- BusType新增页面-->
+        <action name="addBusTypePage" class="addBusTypePage">
+			<result name="success" >/jsp/demo/addBusTypePage.jsp</result>
+		</action>
+		
+		<!-- BusType新增动作	-->
+        <action name="addBusTypeAction" class="addBusTypeAction"> 
+			<result name="success" type="chain"><param name="actionName">searchBusTypeAction</param> </result>
+		</action>
+		
+		<!-- BusType编辑页面 -->
+		<action name="editBusTypePage" class="editBusTypePage">
+			<result name="success" >/jsp/demo/editBusTypePage.jsp</result>
+		</action>
+
+		
+		<!-- BusType编辑动作-->
+		<action name="editBusTypeAction" class="editBusTypeAction">
+			<result name="success" type="chain"><param name="actionName">searchBusTypeAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailBusTypePage" class="detailBusTypePage">
+			<result name="success" >/jsp/demo/detailBusTypePage.jsp</result>
+		</action>
+		
+		
+		<!-- BusType删除页面	-->
+		<action name="delBusTypeAction" class="delBusTypeAction">
+			<result name="success" type="chain"><param name="actionName">searchBusTypeAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

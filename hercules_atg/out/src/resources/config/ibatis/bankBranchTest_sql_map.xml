@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="bankBranchTest">
+
+  <!--用于模糊查询-->
+     <select id="select_bankBranchTestList" parameterClass="com.shiyue.bbs.model.BankBranchTestQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!--主键，自增长-->
+		  		,BANK_CODE  <!--银行编码-->
+		  		,BANK_NAME  <!--银行名称-->
+		  		,LEVEL  <!--级别
+            0：大行
+            1：支行
+            -->
+		  		,SUPER_CODE  <!--上级银行编码-->
+		  		,CITYCODE  <!--所属市或县编码-->
+		  FROM BANK_BRANCH_TEST
+		  WHERE 1=1 AND BANK_BRANCH_TEST.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="bank_code">
+					(BANK_CODE) Like '%'||(#bank_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_name">
+					(BANK_NAME) Like '%'||(#bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="level" prepend="and" >
+				    (LEVEL) =#level#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="super_code">
+					(SUPER_CODE) Like '%'||(#super_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="citycode">
+					(CITYCODE) Like '%'||(#citycode:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_bankBranchTestList_count" parameterClass="com.shiyue.bbs.model.BankBranchTestQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM BANK_BRANCH_TEST
+			WHERE 1=1 AND BANK_BRANCH_TEST.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="bank_code">
+					(BANK_CODE) Like '%'||(#bank_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_name">
+					(BANK_NAME) Like '%'||(#bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="level" prepend="and" >
+					(LEVEL) =#level#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="super_code">
+					(SUPER_CODE) Like '%'||(#super_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="citycode">
+					(CITYCODE) Like '%'||(#citycode:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

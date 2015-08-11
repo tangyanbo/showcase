@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_sucPayInfoNew"  extends="struts_common">
+	  
+	  	<!-- SucPayInfoNew列表信息 -->
+        <action name="searchSucPayInfoNewAction" class="searchSucPayInfoNewAction">
+			<result name="success" >/jsp/demo/searchSucPayInfoNewPage.jsp</result>
+		</action>
+		
+        <!-- SucPayInfoNew新增页面-->
+        <action name="addSucPayInfoNewPage" class="addSucPayInfoNewPage">
+			<result name="success" >/jsp/demo/addSucPayInfoNewPage.jsp</result>
+		</action>
+		
+		<!-- SucPayInfoNew新增动作	-->
+        <action name="addSucPayInfoNewAction" class="addSucPayInfoNewAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSucPayInfoNewAction</param> </result>
+		</action>
+		
+		<!-- SucPayInfoNew编辑页面 -->
+		<action name="editSucPayInfoNewPage" class="editSucPayInfoNewPage">
+			<result name="success" >/jsp/demo/editSucPayInfoNewPage.jsp</result>
+		</action>
+
+		
+		<!-- SucPayInfoNew编辑动作-->
+		<action name="editSucPayInfoNewAction" class="editSucPayInfoNewAction">
+			<result name="success" type="chain"><param name="actionName">searchSucPayInfoNewAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSucPayInfoNewPage" class="detailSucPayInfoNewPage">
+			<result name="success" >/jsp/demo/detailSucPayInfoNewPage.jsp</result>
+		</action>
+		
+		
+		<!-- SucPayInfoNew删除页面	-->
+		<action name="delSucPayInfoNewAction" class="delSucPayInfoNewAction">
+			<result name="success" type="chain"><param name="actionName">searchSucPayInfoNewAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

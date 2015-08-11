@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_sequenceData"  extends="struts_common">
+	  
+	  	<!-- SequenceData列表信息 -->
+        <action name="searchSequenceDataAction" class="searchSequenceDataAction">
+			<result name="success" >/jsp/demo/searchSequenceDataPage.jsp</result>
+		</action>
+		
+        <!-- SequenceData新增页面-->
+        <action name="addSequenceDataPage" class="addSequenceDataPage">
+			<result name="success" >/jsp/demo/addSequenceDataPage.jsp</result>
+		</action>
+		
+		<!-- SequenceData新增动作	-->
+        <action name="addSequenceDataAction" class="addSequenceDataAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSequenceDataAction</param> </result>
+		</action>
+		
+		<!-- SequenceData编辑页面 -->
+		<action name="editSequenceDataPage" class="editSequenceDataPage">
+			<result name="success" >/jsp/demo/editSequenceDataPage.jsp</result>
+		</action>
+
+		
+		<!-- SequenceData编辑动作-->
+		<action name="editSequenceDataAction" class="editSequenceDataAction">
+			<result name="success" type="chain"><param name="actionName">searchSequenceDataAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSequenceDataPage" class="detailSequenceDataPage">
+			<result name="success" >/jsp/demo/detailSequenceDataPage.jsp</result>
+		</action>
+		
+		
+		<!-- SequenceData删除页面	-->
+		<action name="delSequenceDataAction" class="delSequenceDataAction">
+			<result name="success" type="chain"><param name="actionName">searchSequenceDataAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

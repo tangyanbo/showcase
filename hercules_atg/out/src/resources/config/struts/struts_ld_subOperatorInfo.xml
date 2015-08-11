@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_subOperatorInfo"  extends="struts_common">
+	  
+	  	<!-- SubOperatorInfo列表信息 -->
+        <action name="searchSubOperatorInfoAction" class="searchSubOperatorInfoAction">
+			<result name="success" >/jsp/demo/searchSubOperatorInfoPage.jsp</result>
+		</action>
+		
+        <!-- SubOperatorInfo新增页面-->
+        <action name="addSubOperatorInfoPage" class="addSubOperatorInfoPage">
+			<result name="success" >/jsp/demo/addSubOperatorInfoPage.jsp</result>
+		</action>
+		
+		<!-- SubOperatorInfo新增动作	-->
+        <action name="addSubOperatorInfoAction" class="addSubOperatorInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSubOperatorInfoAction</param> </result>
+		</action>
+		
+		<!-- SubOperatorInfo编辑页面 -->
+		<action name="editSubOperatorInfoPage" class="editSubOperatorInfoPage">
+			<result name="success" >/jsp/demo/editSubOperatorInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- SubOperatorInfo编辑动作-->
+		<action name="editSubOperatorInfoAction" class="editSubOperatorInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchSubOperatorInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSubOperatorInfoPage" class="detailSubOperatorInfoPage">
+			<result name="success" >/jsp/demo/detailSubOperatorInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- SubOperatorInfo删除页面	-->
+		<action name="delSubOperatorInfoAction" class="delSubOperatorInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchSubOperatorInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

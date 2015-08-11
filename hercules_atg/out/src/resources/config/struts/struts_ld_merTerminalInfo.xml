@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_merTerminalInfo"  extends="struts_common">
+	  
+	  	<!-- MerTerminalInfo列表信息 -->
+        <action name="searchMerTerminalInfoAction" class="searchMerTerminalInfoAction">
+			<result name="success" >/jsp/demo/searchMerTerminalInfoPage.jsp</result>
+		</action>
+		
+        <!-- MerTerminalInfo新增页面-->
+        <action name="addMerTerminalInfoPage" class="addMerTerminalInfoPage">
+			<result name="success" >/jsp/demo/addMerTerminalInfoPage.jsp</result>
+		</action>
+		
+		<!-- MerTerminalInfo新增动作	-->
+        <action name="addMerTerminalInfoAction" class="addMerTerminalInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchMerTerminalInfoAction</param> </result>
+		</action>
+		
+		<!-- MerTerminalInfo编辑页面 -->
+		<action name="editMerTerminalInfoPage" class="editMerTerminalInfoPage">
+			<result name="success" >/jsp/demo/editMerTerminalInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- MerTerminalInfo编辑动作-->
+		<action name="editMerTerminalInfoAction" class="editMerTerminalInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchMerTerminalInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailMerTerminalInfoPage" class="detailMerTerminalInfoPage">
+			<result name="success" >/jsp/demo/detailMerTerminalInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- MerTerminalInfo删除页面	-->
+		<action name="delMerTerminalInfoAction" class="delMerTerminalInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchMerTerminalInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="resetStatictis">
+
+  <!--用于模糊查询-->
+     <select id="select_resetStatictisList" parameterClass="com.shiyue.bbs.model.ResetStatictisQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,START_TIME  <!---->
+		  		,ENT_TIME  <!---->
+		  		,STATUS  <!---->
+		  		,STATUS_DESC  <!---->
+		  		,SETTLE_CONTENT  <!---->
+		  		,RESERVED1  <!---->
+		  		,RESERVED2  <!---->
+		  		,RESERVED3  <!---->
+		  FROM RESET_STATICTIS
+		  WHERE 1=1 AND RESET_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="start_time">
+					(START_TIME) Like '%'||(#start_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ent_time">
+					(ENT_TIME) Like '%'||(#ent_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status_desc">
+					(STATUS_DESC) Like '%'||(#status_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_content">
+					(SETTLE_CONTENT) Like '%'||(#settle_content:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_resetStatictisList_count" parameterClass="com.shiyue.bbs.model.ResetStatictisQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM RESET_STATICTIS
+			WHERE 1=1 AND RESET_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="start_time">
+					(START_TIME) Like '%'||(#start_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ent_time">
+					(ENT_TIME) Like '%'||(#ent_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status_desc">
+					(STATUS_DESC) Like '%'||(#status_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_content">
+					(SETTLE_CONTENT) Like '%'||(#settle_content:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

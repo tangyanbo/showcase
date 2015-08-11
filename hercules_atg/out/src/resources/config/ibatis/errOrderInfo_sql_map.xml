@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="errOrderInfo">
+
+  <!--用于模糊查询-->
+     <select id="select_errOrderInfoList" parameterClass="com.shiyue.bbs.model.ErrOrderInfoQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,ORDER_ID  <!---->
+		  		,TERMINAL_ID  <!---->
+		  		,MERCHANT_ID  <!---->
+		  		,MERCHANT_NAME  <!---->
+		  		,TSN  <!---->
+		  		,TRANS_CODE  <!---->
+		  		,MERCHANT_ORDER_ID  <!---->
+		  		,MERCHANT_ORDER_TIME  <!---->
+		  		,MERCHANT_ORDER_AMT  <!---->
+		  		,MERCHANT_ORDER_CURRENCY  <!---->
+		  		,PHONE_NUM  <!---->
+		  		,PRODUCT_TYPE  <!---->
+		  		,BUS_TYPE  <!---->
+		  		,TRANS_TYPE  <!---->
+		  		,TERMINAL_IP  <!---->
+		  		,USER_IP  <!---->
+		  		,BATCH_NO  <!---->
+		  		,VOUCHER_NO  <!---->
+		  		,RESP_CODE  <!---->
+		  		,RESP_DESC  <!---->
+		  		,TRANS_TIME  <!---->
+		  		,CREATE_DATE  <!---->
+		  		,FULL_CARD_NO  <!---->
+		  		,FULL_CARD_NO2  <!---->
+		  		,RESERVED1  <!---->
+		  FROM ERR_ORDER_INFO
+		  WHERE 1=1 AND ERR_ORDER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="order_id" prepend="and" >
+				    (ORDER_ID) =#order_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_id">
+					(MERCHANT_ID) Like '%'||(#merchant_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_name">
+					(MERCHANT_NAME) Like '%'||(#merchant_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="tsn">
+					(TSN) Like '%'||(#tsn:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_code">
+					(TRANS_CODE) Like '%'||(#trans_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_id">
+					(MERCHANT_ORDER_ID) Like '%'||(#merchant_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_time">
+					(MERCHANT_ORDER_TIME) Like '%'||(#merchant_order_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_amt">
+					(MERCHANT_ORDER_AMT) Like '%'||(#merchant_order_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_currency">
+					(MERCHANT_ORDER_CURRENCY) Like '%'||(#merchant_order_currency:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="phone_num">
+					(PHONE_NUM) Like '%'||(#phone_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="product_type">
+					(PRODUCT_TYPE) Like '%'||(#product_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_type">
+					(BUS_TYPE) Like '%'||(#bus_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_ip">
+					(TERMINAL_IP) Like '%'||(#terminal_ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_ip">
+					(USER_IP) Like '%'||(#user_ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="batch_no">
+					(BATCH_NO) Like '%'||(#batch_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="voucher_no">
+					(VOUCHER_NO) Like '%'||(#voucher_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="resp_code">
+					(RESP_CODE) Like '%'||(#resp_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="resp_desc">
+					(RESP_DESC) Like '%'||(#resp_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time">
+					(TRANS_TIME) Like '%'||(#trans_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="full_card_no">
+					(FULL_CARD_NO) Like '%'||(#full_card_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="full_card_no2">
+					(FULL_CARD_NO2) Like '%'||(#full_card_no2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_errOrderInfoList_count" parameterClass="com.shiyue.bbs.model.ErrOrderInfoQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM ERR_ORDER_INFO
+			WHERE 1=1 AND ERR_ORDER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="order_id" prepend="and" >
+					(ORDER_ID) =#order_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_id">
+					(MERCHANT_ID) Like '%'||(#merchant_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_name">
+					(MERCHANT_NAME) Like '%'||(#merchant_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="tsn">
+					(TSN) Like '%'||(#tsn:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_code">
+					(TRANS_CODE) Like '%'||(#trans_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_id">
+					(MERCHANT_ORDER_ID) Like '%'||(#merchant_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_time">
+					(MERCHANT_ORDER_TIME) Like '%'||(#merchant_order_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_amt">
+					(MERCHANT_ORDER_AMT) Like '%'||(#merchant_order_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_order_currency">
+					(MERCHANT_ORDER_CURRENCY) Like '%'||(#merchant_order_currency:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="phone_num">
+					(PHONE_NUM) Like '%'||(#phone_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="product_type">
+					(PRODUCT_TYPE) Like '%'||(#product_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_type">
+					(BUS_TYPE) Like '%'||(#bus_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_ip">
+					(TERMINAL_IP) Like '%'||(#terminal_ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_ip">
+					(USER_IP) Like '%'||(#user_ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="batch_no">
+					(BATCH_NO) Like '%'||(#batch_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="voucher_no">
+					(VOUCHER_NO) Like '%'||(#voucher_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="resp_code">
+					(RESP_CODE) Like '%'||(#resp_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="resp_desc">
+					(RESP_DESC) Like '%'||(#resp_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time">
+					(TRANS_TIME) Like '%'||(#trans_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="full_card_no">
+					(FULL_CARD_NO) Like '%'||(#full_card_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="full_card_no2">
+					(FULL_CARD_NO2) Like '%'||(#full_card_no2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

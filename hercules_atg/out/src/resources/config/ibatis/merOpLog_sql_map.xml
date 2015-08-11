@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="merOpLog">
+
+  <!--用于模糊查询-->
+     <select id="select_merOpLogList" parameterClass="com.shiyue.bbs.model.MerOpLogQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,MID  <!---->
+		  		,MER_TYPE  <!---->
+		  		,LOGIN_NAME  <!---->
+		  		,OP_DESC  <!---->
+		  		,OP_URL  <!---->
+		  		,IP  <!---->
+		  		,UA  <!---->
+		  		,OP_TIME  <!---->
+		  		,REMARK  <!---->
+		  FROM MER_OP_LOG
+		  WHERE 1=1 AND MER_OP_LOG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="mid">
+					(MID) Like '%'||(#mid:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="login_name">
+					(LOGIN_NAME) Like '%'||(#login_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="op_desc">
+					(OP_DESC) Like '%'||(#op_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="op_url">
+					(OP_URL) Like '%'||(#op_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ip">
+					(IP) Like '%'||(#ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ua">
+					(UA) Like '%'||(#ua:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="op_time">
+					(OP_TIME) Like '%'||(#op_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_merOpLogList_count" parameterClass="com.shiyue.bbs.model.MerOpLogQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM MER_OP_LOG
+			WHERE 1=1 AND MER_OP_LOG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="mid">
+					(MID) Like '%'||(#mid:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="login_name">
+					(LOGIN_NAME) Like '%'||(#login_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="op_desc">
+					(OP_DESC) Like '%'||(#op_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="op_url">
+					(OP_URL) Like '%'||(#op_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ip">
+					(IP) Like '%'||(#ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ua">
+					(UA) Like '%'||(#ua:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="op_time">
+					(OP_TIME) Like '%'||(#op_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

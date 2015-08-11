@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerCashoutBatch">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerCashoutBatchList" parameterClass="com.shiyue.bbs.model.SubMerCashoutBatchQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		BATCH_ID  <!---->
+		  		,BATCH_DATE  <!---->
+		  		,PRDER_AMT  <!---->
+		  		,CREATE_DATE  <!---->
+		  		,FINISH_TIME  <!---->
+		  		,TRANS_FEE  <!---->
+		  		,ORDEER_COUNT  <!---->
+		  		,STATUS  <!---->
+		  		,RESERVAED1  <!---->
+		  		,RESERVAED2  <!---->
+		  		,RESERVAED3  <!---->
+		  FROM SUB_MER_CASHOUT_BATCH
+		  WHERE 1=1 AND SUB_MER_CASHOUT_BATCH.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="batch_id" prepend="and" >
+				    (BATCH_ID) =#batch_id#
+			    </isNotNull>
+				<isNotNull property="batch_date" prepend="and" >
+				    (BATCH_DATE) =#batch_date#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="prder_amt">
+					(PRDER_AMT) Like '%'||(#prder_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_fee">
+					(TRANS_FEE) Like '%'||(#trans_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ordeer_count">
+					(ORDEER_COUNT) Like '%'||(#ordeer_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reservaed1">
+					(RESERVAED1) Like '%'||(#reservaed1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reservaed2">
+					(RESERVAED2) Like '%'||(#reservaed2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reservaed3">
+					(RESERVAED3) Like '%'||(#reservaed3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerCashoutBatchList_count" parameterClass="com.shiyue.bbs.model.SubMerCashoutBatchQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_CASHOUT_BATCH
+			WHERE 1=1 AND SUB_MER_CASHOUT_BATCH.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="batch_id" prepend="and" >
+					(BATCH_ID) =#batch_id#
+				 </isNotNull>
+				 <isNotNull property="batch_date" prepend="and" >
+					(BATCH_DATE) =#batch_date#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="prder_amt">
+					(PRDER_AMT) Like '%'||(#prder_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_fee">
+					(TRANS_FEE) Like '%'||(#trans_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ordeer_count">
+					(ORDEER_COUNT) Like '%'||(#ordeer_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reservaed1">
+					(RESERVAED1) Like '%'||(#reservaed1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reservaed2">
+					(RESERVAED2) Like '%'||(#reservaed2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reservaed3">
+					(RESERVAED3) Like '%'||(#reservaed3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

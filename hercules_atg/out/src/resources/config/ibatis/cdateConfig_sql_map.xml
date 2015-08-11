@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="cdateConfig">
+
+  <!--用于模糊查询-->
+     <select id="select_cdateConfigList" parameterClass="com.shiyue.bbs.model.CdateConfigQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,CDATE  <!---->
+		  		,WEEKDY  <!---->
+		  		,IS_WORK  <!---->
+		  		,IS_XEND  <!---->
+		  		,IS_MEND  <!---->
+		  		,IS_QEND  <!---->
+		  		,IS_HEND  <!---->
+		  		,IS_YEND  <!---->
+		  		,RESERVED1  <!---->
+		  FROM CDATE_CONFIG
+		  WHERE 1=1 AND CDATE_CONFIG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="cdate" prepend="and" >
+				    (CDATE) =#cdate#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="weekdy">
+					(WEEKDY) Like '%'||(#weekdy:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_work">
+					(IS_WORK) Like '%'||(#is_work:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_xend">
+					(IS_XEND) Like '%'||(#is_xend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_mend">
+					(IS_MEND) Like '%'||(#is_mend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_qend">
+					(IS_QEND) Like '%'||(#is_qend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_hend">
+					(IS_HEND) Like '%'||(#is_hend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_yend">
+					(IS_YEND) Like '%'||(#is_yend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_cdateConfigList_count" parameterClass="com.shiyue.bbs.model.CdateConfigQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM CDATE_CONFIG
+			WHERE 1=1 AND CDATE_CONFIG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="cdate" prepend="and" >
+					(CDATE) =#cdate#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="weekdy">
+					(WEEKDY) Like '%'||(#weekdy:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_work">
+					(IS_WORK) Like '%'||(#is_work:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_xend">
+					(IS_XEND) Like '%'||(#is_xend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_mend">
+					(IS_MEND) Like '%'||(#is_mend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_qend">
+					(IS_QEND) Like '%'||(#is_qend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_hend">
+					(IS_HEND) Like '%'||(#is_hend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_yend">
+					(IS_YEND) Like '%'||(#is_yend:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

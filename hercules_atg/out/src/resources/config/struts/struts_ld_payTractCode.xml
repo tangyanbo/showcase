@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_payTractCode"  extends="struts_common">
+	  
+	  	<!-- PayTractCode列表信息 -->
+        <action name="searchPayTractCodeAction" class="searchPayTractCodeAction">
+			<result name="success" >/jsp/demo/searchPayTractCodePage.jsp</result>
+		</action>
+		
+        <!-- PayTractCode新增页面-->
+        <action name="addPayTractCodePage" class="addPayTractCodePage">
+			<result name="success" >/jsp/demo/addPayTractCodePage.jsp</result>
+		</action>
+		
+		<!-- PayTractCode新增动作	-->
+        <action name="addPayTractCodeAction" class="addPayTractCodeAction"> 
+			<result name="success" type="chain"><param name="actionName">searchPayTractCodeAction</param> </result>
+		</action>
+		
+		<!-- PayTractCode编辑页面 -->
+		<action name="editPayTractCodePage" class="editPayTractCodePage">
+			<result name="success" >/jsp/demo/editPayTractCodePage.jsp</result>
+		</action>
+
+		
+		<!-- PayTractCode编辑动作-->
+		<action name="editPayTractCodeAction" class="editPayTractCodeAction">
+			<result name="success" type="chain"><param name="actionName">searchPayTractCodeAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailPayTractCodePage" class="detailPayTractCodePage">
+			<result name="success" >/jsp/demo/detailPayTractCodePage.jsp</result>
+		</action>
+		
+		
+		<!-- PayTractCode删除页面	-->
+		<action name="delPayTractCodeAction" class="delPayTractCodeAction">
+			<result name="success" type="chain"><param name="actionName">searchPayTractCodeAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

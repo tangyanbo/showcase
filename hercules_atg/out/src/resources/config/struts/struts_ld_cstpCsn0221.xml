@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_cstpCsn0221"  extends="struts_common">
+	  
+	  	<!-- CstpCsn0221列表信息 -->
+        <action name="searchCstpCsn0221Action" class="searchCstpCsn0221Action">
+			<result name="success" >/jsp/demo/searchCstpCsn0221Page.jsp</result>
+		</action>
+		
+        <!-- CstpCsn0221新增页面-->
+        <action name="addCstpCsn0221Page" class="addCstpCsn0221Page">
+			<result name="success" >/jsp/demo/addCstpCsn0221Page.jsp</result>
+		</action>
+		
+		<!-- CstpCsn0221新增动作	-->
+        <action name="addCstpCsn0221Action" class="addCstpCsn0221Action"> 
+			<result name="success" type="chain"><param name="actionName">searchCstpCsn0221Action</param> </result>
+		</action>
+		
+		<!-- CstpCsn0221编辑页面 -->
+		<action name="editCstpCsn0221Page" class="editCstpCsn0221Page">
+			<result name="success" >/jsp/demo/editCstpCsn0221Page.jsp</result>
+		</action>
+
+		
+		<!-- CstpCsn0221编辑动作-->
+		<action name="editCstpCsn0221Action" class="editCstpCsn0221Action">
+			<result name="success" type="chain"><param name="actionName">searchCstpCsn0221Action</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailCstpCsn0221Page" class="detailCstpCsn0221Page">
+			<result name="success" >/jsp/demo/detailCstpCsn0221Page.jsp</result>
+		</action>
+		
+		
+		<!-- CstpCsn0221删除页面	-->
+		<action name="delCstpCsn0221Action" class="delCstpCsn0221Action">
+			<result name="success" type="chain"><param name="actionName">searchCstpCsn0221Action</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_bankBranchTest"  extends="struts_common">
+	  
+	  	<!-- BankBranchTest列表信息 -->
+        <action name="searchBankBranchTestAction" class="searchBankBranchTestAction">
+			<result name="success" >/jsp/demo/searchBankBranchTestPage.jsp</result>
+		</action>
+		
+        <!-- BankBranchTest新增页面-->
+        <action name="addBankBranchTestPage" class="addBankBranchTestPage">
+			<result name="success" >/jsp/demo/addBankBranchTestPage.jsp</result>
+		</action>
+		
+		<!-- BankBranchTest新增动作	-->
+        <action name="addBankBranchTestAction" class="addBankBranchTestAction"> 
+			<result name="success" type="chain"><param name="actionName">searchBankBranchTestAction</param> </result>
+		</action>
+		
+		<!-- BankBranchTest编辑页面 -->
+		<action name="editBankBranchTestPage" class="editBankBranchTestPage">
+			<result name="success" >/jsp/demo/editBankBranchTestPage.jsp</result>
+		</action>
+
+		
+		<!-- BankBranchTest编辑动作-->
+		<action name="editBankBranchTestAction" class="editBankBranchTestAction">
+			<result name="success" type="chain"><param name="actionName">searchBankBranchTestAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailBankBranchTestPage" class="detailBankBranchTestPage">
+			<result name="success" >/jsp/demo/detailBankBranchTestPage.jsp</result>
+		</action>
+		
+		
+		<!-- BankBranchTest删除页面	-->
+		<action name="delBankBranchTestAction" class="delBankBranchTestAction">
+			<result name="success" type="chain"><param name="actionName">searchBankBranchTestAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

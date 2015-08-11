@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_terminalChangeLog"  extends="struts_common">
+	  
+	  	<!-- TerminalChangeLog列表信息 -->
+        <action name="searchTerminalChangeLogAction" class="searchTerminalChangeLogAction">
+			<result name="success" >/jsp/demo/searchTerminalChangeLogPage.jsp</result>
+		</action>
+		
+        <!-- TerminalChangeLog新增页面-->
+        <action name="addTerminalChangeLogPage" class="addTerminalChangeLogPage">
+			<result name="success" >/jsp/demo/addTerminalChangeLogPage.jsp</result>
+		</action>
+		
+		<!-- TerminalChangeLog新增动作	-->
+        <action name="addTerminalChangeLogAction" class="addTerminalChangeLogAction"> 
+			<result name="success" type="chain"><param name="actionName">searchTerminalChangeLogAction</param> </result>
+		</action>
+		
+		<!-- TerminalChangeLog编辑页面 -->
+		<action name="editTerminalChangeLogPage" class="editTerminalChangeLogPage">
+			<result name="success" >/jsp/demo/editTerminalChangeLogPage.jsp</result>
+		</action>
+
+		
+		<!-- TerminalChangeLog编辑动作-->
+		<action name="editTerminalChangeLogAction" class="editTerminalChangeLogAction">
+			<result name="success" type="chain"><param name="actionName">searchTerminalChangeLogAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailTerminalChangeLogPage" class="detailTerminalChangeLogPage">
+			<result name="success" >/jsp/demo/detailTerminalChangeLogPage.jsp</result>
+		</action>
+		
+		
+		<!-- TerminalChangeLog删除页面	-->
+		<action name="delTerminalChangeLogAction" class="delTerminalChangeLogAction">
+			<result name="success" type="chain"><param name="actionName">searchTerminalChangeLogAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

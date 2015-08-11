@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_agentRateInfo"  extends="struts_common">
+	  
+	  	<!-- AgentRateInfo列表信息 -->
+        <action name="searchAgentRateInfoAction" class="searchAgentRateInfoAction">
+			<result name="success" >/jsp/demo/searchAgentRateInfoPage.jsp</result>
+		</action>
+		
+        <!-- AgentRateInfo新增页面-->
+        <action name="addAgentRateInfoPage" class="addAgentRateInfoPage">
+			<result name="success" >/jsp/demo/addAgentRateInfoPage.jsp</result>
+		</action>
+		
+		<!-- AgentRateInfo新增动作	-->
+        <action name="addAgentRateInfoAction" class="addAgentRateInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchAgentRateInfoAction</param> </result>
+		</action>
+		
+		<!-- AgentRateInfo编辑页面 -->
+		<action name="editAgentRateInfoPage" class="editAgentRateInfoPage">
+			<result name="success" >/jsp/demo/editAgentRateInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- AgentRateInfo编辑动作-->
+		<action name="editAgentRateInfoAction" class="editAgentRateInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchAgentRateInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailAgentRateInfoPage" class="detailAgentRateInfoPage">
+			<result name="success" >/jsp/demo/detailAgentRateInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- AgentRateInfo删除页面	-->
+		<action name="delAgentRateInfoAction" class="delAgentRateInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchAgentRateInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

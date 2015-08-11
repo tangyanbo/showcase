@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="v2OrderInfo">
+
+  <!--用于模糊查询-->
+     <select id="select_v2OrderInfoList" parameterClass="com.shiyue.bbs.model.V2OrderInfoQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		  FROM V2_ORDER_INFO
+		  WHERE 1=1 AND V2_ORDER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="order_id" prepend="and" >
+				    (ORDER_ID) =#order_id#
+			    </isNotNull>
+				<isNotNull property="batch_id" prepend="and" >
+				    (BATCH_ID) =#batch_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="bus_mer_id">
+					(BUS_MER_ID) Like '%'||(#bus_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_mer_id">
+					(TRANS_MER_ID) Like '%'||(#trans_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="gw_type">
+					(GW_TYPE) Like '%'||(#gw_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_type">
+					(BUS_TYPE) Like '%'||(#bus_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_order_id">
+					(MER_ORDER_ID) Like '%'||(#mer_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_order_time">
+					(MER_ORDER_TIME) Like '%'||(#mer_order_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="mer_amt" prepend="and" >
+				    (MER_AMT) =#mer_amt#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="cur">
+					(CUR) Like '%'||(#cur:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_desc">
+					(ORDER_DESC) Like '%'||(#order_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_over_time">
+					(ORDER_OVER_TIME) Like '%'||(#order_over_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_status">
+					(ORDER_STATUS) Like '%'||(#order_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_no">
+					(CARD_NO) Like '%'||(#card_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="issbank_id">
+					(ISSBANK_ID) Like '%'||(#issbank_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="issbank_name">
+					(ISSBANK_NAME) Like '%'||(#issbank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_type">
+					(CARD_TYPE) Like '%'||(#card_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="org_order_id" prepend="and" >
+				    (ORG_ORDER_ID) =#org_order_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="refund_status">
+					(REFUND_STATUS) Like '%'||(#refund_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="refund_amt" prepend="and" >
+				    (REFUND_AMT) =#refund_amt#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="front_url">
+					(FRONT_URL) Like '%'||(#front_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="back_url">
+					(BACK_URL) Like '%'||(#back_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time">
+					(TRANS_TIME) Like '%'||(#trans_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_id">
+					(USER_ID) Like '%'||(#user_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_name">
+					(USER_NAME) Like '%'||(#user_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="id_type">
+					(ID_TYPE) Like '%'||(#id_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="id_no">
+					(ID_NO) Like '%'||(#id_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_mobile">
+					(USER_MOBILE) Like '%'||(#user_mobile:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_ip">
+					(USER_IP) Like '%'||(#user_ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="gw_invoke_cmd">
+					(GW_INVOKE_CMD) Like '%'||(#gw_invoke_cmd:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="account1">
+					(ACCOUNT1) Like '%'||(#account1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="account2">
+					(ACCOUNT2) Like '%'||(#account2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="settle_amt" prepend="and" >
+				    (SETTLE_AMT) =#settle_amt#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="settle_cur">
+					(SETTLE_CUR) Like '%'||(#settle_cur:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_conver_rate">
+					(SETTLE_CONVER_RATE) Like '%'||(#settle_conver_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="trans_fee" prepend="and" >
+				    (TRANS_FEE) =#trans_fee#
+			    </isNotNull>
+				<isNotNull property="tract_cost" prepend="and" >
+				    (TRACT_COST) =#tract_cost#
+			    </isNotNull>
+				<isNotNull property="acqbank_profit" prepend="and" >
+				    (ACQBANK_PROFIT) =#acqbank_profit#
+			    </isNotNull>
+				<isNotNull property="agent_profit" prepend="and" >
+				    (AGENT_PROFIT) =#agent_profit#
+			    </isNotNull>
+				<isNotNull property="bypay_profit" prepend="and" >
+				    (BYPAY_PROFIT) =#bypay_profit#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="error_code">
+					(ERROR_CODE) Like '%'||(#error_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ext">
+					(EXT) Like '%'||(#ext:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="tract_fee" prepend="and" >
+				    (TRACT_FEE) =#tract_fee#
+			    </isNotNull>
+				<isNotNull property="gross_profit" prepend="and" >
+				    (GROSS_PROFIT) =#gross_profit#
+			    </isNotNull>
+				<isNotNull property="mer_settle_amt" prepend="and" >
+				    (MER_SETTLE_AMT) =#mer_settle_amt#
+			    </isNotNull>
+				<isNotNull property="trans_cost" prepend="and" >
+				    (TRANS_COST) =#trans_cost#
+			    </isNotNull>
+				<isNotNull property="proxy_id" prepend="and" >
+				    (PROXY_ID) =#proxy_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="pay_tract">
+					(PAY_TRACT) Like '%'||(#pay_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_short_name">
+					(MER_SHORT_NAME) Like '%'||(#mer_short_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="bypay_fee" prepend="and" >
+				    (BYPAY_FEE) =#bypay_fee#
+			    </isNotNull>
+				<isNotNull property="mer_sys_id" prepend="and" >
+				    (MER_SYS_ID) =#mer_sys_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_serial_number">
+					(TERMINAL_SERIAL_NUMBER) Like '%'||(#terminal_serial_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="error_desc">
+					(ERROR_DESC) Like '%'||(#error_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				<isNotNull property="agent_l2_profit" prepend="and" >
+				    (AGENT_L2_PROFIT) =#agent_l2_profit#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="rates_type">
+					(RATES_TYPE) Like '%'||(#rates_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_date">
+					(CLEAR_DATE) Like '%'||(#clear_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_v2OrderInfoList_count" parameterClass="com.shiyue.bbs.model.V2OrderInfoQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM V2_ORDER_INFO
+			WHERE 1=1 AND V2_ORDER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="order_id" prepend="and" >
+					(ORDER_ID) =#order_id#
+				 </isNotNull>
+				 <isNotNull property="batch_id" prepend="and" >
+					(BATCH_ID) =#batch_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="bus_mer_id">
+					(BUS_MER_ID) Like '%'||(#bus_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_mer_id">
+					(TRANS_MER_ID) Like '%'||(#trans_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="gw_type">
+					(GW_TYPE) Like '%'||(#gw_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_type">
+					(BUS_TYPE) Like '%'||(#bus_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_order_id">
+					(MER_ORDER_ID) Like '%'||(#mer_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_order_time">
+					(MER_ORDER_TIME) Like '%'||(#mer_order_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="mer_amt" prepend="and" >
+					(MER_AMT) =#mer_amt#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="cur">
+					(CUR) Like '%'||(#cur:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_desc">
+					(ORDER_DESC) Like '%'||(#order_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_over_time">
+					(ORDER_OVER_TIME) Like '%'||(#order_over_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_status">
+					(ORDER_STATUS) Like '%'||(#order_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_no">
+					(CARD_NO) Like '%'||(#card_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="issbank_id">
+					(ISSBANK_ID) Like '%'||(#issbank_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="issbank_name">
+					(ISSBANK_NAME) Like '%'||(#issbank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_type">
+					(CARD_TYPE) Like '%'||(#card_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="org_order_id" prepend="and" >
+					(ORG_ORDER_ID) =#org_order_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="refund_status">
+					(REFUND_STATUS) Like '%'||(#refund_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="refund_amt" prepend="and" >
+					(REFUND_AMT) =#refund_amt#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="front_url">
+					(FRONT_URL) Like '%'||(#front_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="back_url">
+					(BACK_URL) Like '%'||(#back_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time">
+					(TRANS_TIME) Like '%'||(#trans_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_id">
+					(USER_ID) Like '%'||(#user_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_name">
+					(USER_NAME) Like '%'||(#user_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="id_type">
+					(ID_TYPE) Like '%'||(#id_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="id_no">
+					(ID_NO) Like '%'||(#id_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_mobile">
+					(USER_MOBILE) Like '%'||(#user_mobile:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="user_ip">
+					(USER_IP) Like '%'||(#user_ip:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="gw_invoke_cmd">
+					(GW_INVOKE_CMD) Like '%'||(#gw_invoke_cmd:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="account1">
+					(ACCOUNT1) Like '%'||(#account1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="account2">
+					(ACCOUNT2) Like '%'||(#account2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="settle_amt" prepend="and" >
+					(SETTLE_AMT) =#settle_amt#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="settle_cur">
+					(SETTLE_CUR) Like '%'||(#settle_cur:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_conver_rate">
+					(SETTLE_CONVER_RATE) Like '%'||(#settle_conver_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="trans_fee" prepend="and" >
+					(TRANS_FEE) =#trans_fee#
+				 </isNotNull>
+				 <isNotNull property="tract_cost" prepend="and" >
+					(TRACT_COST) =#tract_cost#
+				 </isNotNull>
+				 <isNotNull property="acqbank_profit" prepend="and" >
+					(ACQBANK_PROFIT) =#acqbank_profit#
+				 </isNotNull>
+				 <isNotNull property="agent_profit" prepend="and" >
+					(AGENT_PROFIT) =#agent_profit#
+				 </isNotNull>
+				 <isNotNull property="bypay_profit" prepend="and" >
+					(BYPAY_PROFIT) =#bypay_profit#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="error_code">
+					(ERROR_CODE) Like '%'||(#error_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ext">
+					(EXT) Like '%'||(#ext:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="tract_fee" prepend="and" >
+					(TRACT_FEE) =#tract_fee#
+				 </isNotNull>
+				 <isNotNull property="gross_profit" prepend="and" >
+					(GROSS_PROFIT) =#gross_profit#
+				 </isNotNull>
+				 <isNotNull property="mer_settle_amt" prepend="and" >
+					(MER_SETTLE_AMT) =#mer_settle_amt#
+				 </isNotNull>
+				 <isNotNull property="trans_cost" prepend="and" >
+					(TRANS_COST) =#trans_cost#
+				 </isNotNull>
+				 <isNotNull property="proxy_id" prepend="and" >
+					(PROXY_ID) =#proxy_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="pay_tract">
+					(PAY_TRACT) Like '%'||(#pay_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_short_name">
+					(MER_SHORT_NAME) Like '%'||(#mer_short_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="bypay_fee" prepend="and" >
+					(BYPAY_FEE) =#bypay_fee#
+				 </isNotNull>
+				 <isNotNull property="mer_sys_id" prepend="and" >
+					(MER_SYS_ID) =#mer_sys_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_serial_number">
+					(TERMINAL_SERIAL_NUMBER) Like '%'||(#terminal_serial_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="error_desc">
+					(ERROR_DESC) Like '%'||(#error_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotNull property="agent_l2_profit" prepend="and" >
+					(AGENT_L2_PROFIT) =#agent_l2_profit#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="rates_type">
+					(RATES_TYPE) Like '%'||(#rates_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_date">
+					(CLEAR_DATE) Like '%'||(#clear_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

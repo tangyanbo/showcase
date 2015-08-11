@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_subMerTrans"  extends="struts_common">
+	  
+	  	<!-- SubMerTrans列表信息 -->
+        <action name="searchSubMerTransAction" class="searchSubMerTransAction">
+			<result name="success" >/jsp/demo/searchSubMerTransPage.jsp</result>
+		</action>
+		
+        <!-- SubMerTrans新增页面-->
+        <action name="addSubMerTransPage" class="addSubMerTransPage">
+			<result name="success" >/jsp/demo/addSubMerTransPage.jsp</result>
+		</action>
+		
+		<!-- SubMerTrans新增动作	-->
+        <action name="addSubMerTransAction" class="addSubMerTransAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSubMerTransAction</param> </result>
+		</action>
+		
+		<!-- SubMerTrans编辑页面 -->
+		<action name="editSubMerTransPage" class="editSubMerTransPage">
+			<result name="success" >/jsp/demo/editSubMerTransPage.jsp</result>
+		</action>
+
+		
+		<!-- SubMerTrans编辑动作-->
+		<action name="editSubMerTransAction" class="editSubMerTransAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerTransAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSubMerTransPage" class="detailSubMerTransPage">
+			<result name="success" >/jsp/demo/detailSubMerTransPage.jsp</result>
+		</action>
+		
+		
+		<!-- SubMerTrans删除页面	-->
+		<action name="delSubMerTransAction" class="delSubMerTransAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerTransAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

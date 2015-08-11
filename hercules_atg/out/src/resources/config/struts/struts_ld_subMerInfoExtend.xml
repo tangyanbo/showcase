@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_subMerInfoExtend"  extends="struts_common">
+	  
+	  	<!-- SubMerInfoExtend列表信息 -->
+        <action name="searchSubMerInfoExtendAction" class="searchSubMerInfoExtendAction">
+			<result name="success" >/jsp/demo/searchSubMerInfoExtendPage.jsp</result>
+		</action>
+		
+        <!-- SubMerInfoExtend新增页面-->
+        <action name="addSubMerInfoExtendPage" class="addSubMerInfoExtendPage">
+			<result name="success" >/jsp/demo/addSubMerInfoExtendPage.jsp</result>
+		</action>
+		
+		<!-- SubMerInfoExtend新增动作	-->
+        <action name="addSubMerInfoExtendAction" class="addSubMerInfoExtendAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSubMerInfoExtendAction</param> </result>
+		</action>
+		
+		<!-- SubMerInfoExtend编辑页面 -->
+		<action name="editSubMerInfoExtendPage" class="editSubMerInfoExtendPage">
+			<result name="success" >/jsp/demo/editSubMerInfoExtendPage.jsp</result>
+		</action>
+
+		
+		<!-- SubMerInfoExtend编辑动作-->
+		<action name="editSubMerInfoExtendAction" class="editSubMerInfoExtendAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerInfoExtendAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSubMerInfoExtendPage" class="detailSubMerInfoExtendPage">
+			<result name="success" >/jsp/demo/detailSubMerInfoExtendPage.jsp</result>
+		</action>
+		
+		
+		<!-- SubMerInfoExtend删除页面	-->
+		<action name="delSubMerInfoExtendAction" class="delSubMerInfoExtendAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerInfoExtendAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

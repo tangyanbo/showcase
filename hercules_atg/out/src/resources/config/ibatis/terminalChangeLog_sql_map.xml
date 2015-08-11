@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="terminalChangeLog">
+
+  <!--用于模糊查询-->
+     <select id="select_terminalChangeLogList" parameterClass="com.shiyue.bbs.model.TerminalChangeLogQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,TERMINAL_ID  <!---->
+		  		,ORG_SUB_MER_ID  <!---->
+		  		,ORG_MER_SYS_ID  <!---->
+		  		,ORG_LOGIN_NAME  <!---->
+		  		,ORG_LOGIN_PWD  <!---->
+		  		,ORG_VERSION  <!---->
+		  		,CHANGE_DATE  <!---->
+		  		,CHANGE_DESC  <!---->
+		  		,RESERVED  <!---->
+		  FROM TERMINAL_CHANGE_LOG
+		  WHERE 1=1 AND TERMINAL_CHANGE_LOG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="org_sub_mer_id" prepend="and" >
+				    (ORG_SUB_MER_ID) =#org_sub_mer_id#
+			    </isNotNull>
+				<isNotNull property="org_mer_sys_id" prepend="and" >
+				    (ORG_MER_SYS_ID) =#org_mer_sys_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="org_login_name">
+					(ORG_LOGIN_NAME) Like '%'||(#org_login_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="org_login_pwd">
+					(ORG_LOGIN_PWD) Like '%'||(#org_login_pwd:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="org_version">
+					(ORG_VERSION) Like '%'||(#org_version:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="change_date">
+					(CHANGE_DATE) Like '%'||(#change_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="change_desc">
+					(CHANGE_DESC) Like '%'||(#change_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_terminalChangeLogList_count" parameterClass="com.shiyue.bbs.model.TerminalChangeLogQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM TERMINAL_CHANGE_LOG
+			WHERE 1=1 AND TERMINAL_CHANGE_LOG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="org_sub_mer_id" prepend="and" >
+					(ORG_SUB_MER_ID) =#org_sub_mer_id#
+				 </isNotNull>
+				 <isNotNull property="org_mer_sys_id" prepend="and" >
+					(ORG_MER_SYS_ID) =#org_mer_sys_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="org_login_name">
+					(ORG_LOGIN_NAME) Like '%'||(#org_login_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="org_login_pwd">
+					(ORG_LOGIN_PWD) Like '%'||(#org_login_pwd:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="org_version">
+					(ORG_VERSION) Like '%'||(#org_version:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="change_date">
+					(CHANGE_DATE) Like '%'||(#change_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="change_desc">
+					(CHANGE_DESC) Like '%'||(#change_desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

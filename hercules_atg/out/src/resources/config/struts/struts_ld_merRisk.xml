@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_merRisk"  extends="struts_common">
+	  
+	  	<!-- MerRisk列表信息 -->
+        <action name="searchMerRiskAction" class="searchMerRiskAction">
+			<result name="success" >/jsp/demo/searchMerRiskPage.jsp</result>
+		</action>
+		
+        <!-- MerRisk新增页面-->
+        <action name="addMerRiskPage" class="addMerRiskPage">
+			<result name="success" >/jsp/demo/addMerRiskPage.jsp</result>
+		</action>
+		
+		<!-- MerRisk新增动作	-->
+        <action name="addMerRiskAction" class="addMerRiskAction"> 
+			<result name="success" type="chain"><param name="actionName">searchMerRiskAction</param> </result>
+		</action>
+		
+		<!-- MerRisk编辑页面 -->
+		<action name="editMerRiskPage" class="editMerRiskPage">
+			<result name="success" >/jsp/demo/editMerRiskPage.jsp</result>
+		</action>
+
+		
+		<!-- MerRisk编辑动作-->
+		<action name="editMerRiskAction" class="editMerRiskAction">
+			<result name="success" type="chain"><param name="actionName">searchMerRiskAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailMerRiskPage" class="detailMerRiskPage">
+			<result name="success" >/jsp/demo/detailMerRiskPage.jsp</result>
+		</action>
+		
+		
+		<!-- MerRisk删除页面	-->
+		<action name="delMerRiskAction" class="delMerRiskAction">
+			<result name="success" type="chain"><param name="actionName">searchMerRiskAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

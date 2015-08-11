@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerInfo">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerInfoList" parameterClass="com.shiyue.bbs.model.SubMerInfoQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		SUB_MER_ID  <!---->
+		  		,SUB_MER_NAME  <!---->
+		  		,SHORT_NAME  <!---->
+		  		,REG_NO  <!---->
+		  		,TAX_NO  <!---->
+		  		,ORGANIZATION_CODE  <!---->
+		  		,REG_ADDR  <!---->
+		  		,LEGAL_PERSON  <!---->
+		  		,LEGAL_IDCARD  <!---->
+		  		,MER_KIND  <!---->
+		  		,CONTACTOR  <!---->
+		  		,CONTACTOR_PHONE  <!---->
+		  		,CONTACTOR_ADDR  <!---->
+		  		,CONTACTOR_EMAIL  <!---->
+		  		,SETT_ACCOUNT_NAME  <!---->
+		  		,SETT_ACCOUNT_NO  <!---->
+		  		,SETT_AGENCY  <!---->
+		  		,MER_SYS_ID  <!---->
+		  		,AGENT_ID_L1  <!---->
+		  		,AGENT_ID_L2  <!---->
+		  		,MCC  <!---->
+		  		,REALMCC  <!---->
+		  		,REGION  <!---->
+		  		,BILL_CYCLE  <!---->
+		  		,STATUS  <!--2：已上线-->
+		  		,CREATE_TIME  <!---->
+		  		,REMARK  <!---->
+		  		,RESERVED  <!---->
+		  		,LOGO  <!---->
+		  		,COLOR  <!---->
+		  		,SETT_ACC_TYPE  <!---->
+		  		,SUB_MER_TRACT  <!---->
+		  		,SETTLE_STATUS  <!---->
+		  		,BALANCE  <!---->
+		  		,WITHDRAWALS  <!---->
+		  		,IS_T0  <!---->
+		  FROM SUB_MER_INFO
+		  WHERE 1=1 AND SUB_MER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="sub_mer_name">
+					(SUB_MER_NAME) Like '%'||(#sub_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="short_name">
+					(SHORT_NAME) Like '%'||(#short_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reg_no">
+					(REG_NO) Like '%'||(#reg_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="tax_no">
+					(TAX_NO) Like '%'||(#tax_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="organization_code">
+					(ORGANIZATION_CODE) Like '%'||(#organization_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reg_addr">
+					(REG_ADDR) Like '%'||(#reg_addr:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_person">
+					(LEGAL_PERSON) Like '%'||(#legal_person:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_idcard">
+					(LEGAL_IDCARD) Like '%'||(#legal_idcard:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_kind">
+					(MER_KIND) Like '%'||(#mer_kind:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor">
+					(CONTACTOR) Like '%'||(#contactor:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor_phone">
+					(CONTACTOR_PHONE) Like '%'||(#contactor_phone:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor_addr">
+					(CONTACTOR_ADDR) Like '%'||(#contactor_addr:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor_email">
+					(CONTACTOR_EMAIL) Like '%'||(#contactor_email:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_account_name">
+					(SETT_ACCOUNT_NAME) Like '%'||(#sett_account_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_account_no">
+					(SETT_ACCOUNT_NO) Like '%'||(#sett_account_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_agency">
+					(SETT_AGENCY) Like '%'||(#sett_agency:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="mer_sys_id" prepend="and" >
+				    (MER_SYS_ID) =#mer_sys_id#
+			    </isNotNull>
+				<isNotNull property="agent_id_l1" prepend="and" >
+				    (AGENT_ID_L1) =#agent_id_l1#
+			    </isNotNull>
+				<isNotNull property="agent_id_l2" prepend="and" >
+				    (AGENT_ID_L2) =#agent_id_l2#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="mcc">
+					(MCC) Like '%'||(#mcc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="realmcc">
+					(REALMCC) Like '%'||(#realmcc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="region">
+					(REGION) Like '%'||(#region:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bill_cycle">
+					(BILL_CYCLE) Like '%'||(#bill_cycle:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="logo">
+					(LOGO) Like '%'||(#logo:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="color">
+					(COLOR) Like '%'||(#color:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_acc_type">
+					(SETT_ACC_TYPE) Like '%'||(#sett_acc_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract">
+					(SUB_MER_TRACT) Like '%'||(#sub_mer_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="settle_status" prepend="and" >
+				    (SETTLE_STATUS) =#settle_status#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="balance">
+					(BALANCE) Like '%'||(#balance:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="withdrawals">
+					(WITHDRAWALS) Like '%'||(#withdrawals:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_t0">
+					(IS_T0) Like '%'||(#is_t0:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerInfoList_count" parameterClass="com.shiyue.bbs.model.SubMerInfoQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_INFO
+			WHERE 1=1 AND SUB_MER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="sub_mer_name">
+					(SUB_MER_NAME) Like '%'||(#sub_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="short_name">
+					(SHORT_NAME) Like '%'||(#short_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reg_no">
+					(REG_NO) Like '%'||(#reg_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="tax_no">
+					(TAX_NO) Like '%'||(#tax_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="organization_code">
+					(ORGANIZATION_CODE) Like '%'||(#organization_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reg_addr">
+					(REG_ADDR) Like '%'||(#reg_addr:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_person">
+					(LEGAL_PERSON) Like '%'||(#legal_person:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_idcard">
+					(LEGAL_IDCARD) Like '%'||(#legal_idcard:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_kind">
+					(MER_KIND) Like '%'||(#mer_kind:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor">
+					(CONTACTOR) Like '%'||(#contactor:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor_phone">
+					(CONTACTOR_PHONE) Like '%'||(#contactor_phone:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor_addr">
+					(CONTACTOR_ADDR) Like '%'||(#contactor_addr:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor_email">
+					(CONTACTOR_EMAIL) Like '%'||(#contactor_email:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_account_name">
+					(SETT_ACCOUNT_NAME) Like '%'||(#sett_account_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_account_no">
+					(SETT_ACCOUNT_NO) Like '%'||(#sett_account_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_agency">
+					(SETT_AGENCY) Like '%'||(#sett_agency:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="mer_sys_id" prepend="and" >
+					(MER_SYS_ID) =#mer_sys_id#
+				 </isNotNull>
+				 <isNotNull property="agent_id_l1" prepend="and" >
+					(AGENT_ID_L1) =#agent_id_l1#
+				 </isNotNull>
+				 <isNotNull property="agent_id_l2" prepend="and" >
+					(AGENT_ID_L2) =#agent_id_l2#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="mcc">
+					(MCC) Like '%'||(#mcc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="realmcc">
+					(REALMCC) Like '%'||(#realmcc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="region">
+					(REGION) Like '%'||(#region:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bill_cycle">
+					(BILL_CYCLE) Like '%'||(#bill_cycle:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="logo">
+					(LOGO) Like '%'||(#logo:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="color">
+					(COLOR) Like '%'||(#color:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_acc_type">
+					(SETT_ACC_TYPE) Like '%'||(#sett_acc_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract">
+					(SUB_MER_TRACT) Like '%'||(#sub_mer_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="settle_status" prepend="and" >
+					(SETTLE_STATUS) =#settle_status#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="balance">
+					(BALANCE) Like '%'||(#balance:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="withdrawals">
+					(WITHDRAWALS) Like '%'||(#withdrawals:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="is_t0">
+					(IS_T0) Like '%'||(#is_t0:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

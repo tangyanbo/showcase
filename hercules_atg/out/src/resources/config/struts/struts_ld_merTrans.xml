@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_merTrans"  extends="struts_common">
+	  
+	  	<!-- MerTrans列表信息 -->
+        <action name="searchMerTransAction" class="searchMerTransAction">
+			<result name="success" >/jsp/demo/searchMerTransPage.jsp</result>
+		</action>
+		
+        <!-- MerTrans新增页面-->
+        <action name="addMerTransPage" class="addMerTransPage">
+			<result name="success" >/jsp/demo/addMerTransPage.jsp</result>
+		</action>
+		
+		<!-- MerTrans新增动作	-->
+        <action name="addMerTransAction" class="addMerTransAction"> 
+			<result name="success" type="chain"><param name="actionName">searchMerTransAction</param> </result>
+		</action>
+		
+		<!-- MerTrans编辑页面 -->
+		<action name="editMerTransPage" class="editMerTransPage">
+			<result name="success" >/jsp/demo/editMerTransPage.jsp</result>
+		</action>
+
+		
+		<!-- MerTrans编辑动作-->
+		<action name="editMerTransAction" class="editMerTransAction">
+			<result name="success" type="chain"><param name="actionName">searchMerTransAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailMerTransPage" class="detailMerTransPage">
+			<result name="success" >/jsp/demo/detailMerTransPage.jsp</result>
+		</action>
+		
+		
+		<!-- MerTrans删除页面	-->
+		<action name="delMerTransAction" class="delMerTransAction">
+			<result name="success" type="chain"><param name="actionName">searchMerTransAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

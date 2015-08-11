@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_v2BankBehalfMerConfig"  extends="struts_common">
+	  
+	  	<!-- V2BankBehalfMerConfig列表信息 -->
+        <action name="searchV2BankBehalfMerConfigAction" class="searchV2BankBehalfMerConfigAction">
+			<result name="success" >/jsp/demo/searchV2BankBehalfMerConfigPage.jsp</result>
+		</action>
+		
+        <!-- V2BankBehalfMerConfig新增页面-->
+        <action name="addV2BankBehalfMerConfigPage" class="addV2BankBehalfMerConfigPage">
+			<result name="success" >/jsp/demo/addV2BankBehalfMerConfigPage.jsp</result>
+		</action>
+		
+		<!-- V2BankBehalfMerConfig新增动作	-->
+        <action name="addV2BankBehalfMerConfigAction" class="addV2BankBehalfMerConfigAction"> 
+			<result name="success" type="chain"><param name="actionName">searchV2BankBehalfMerConfigAction</param> </result>
+		</action>
+		
+		<!-- V2BankBehalfMerConfig编辑页面 -->
+		<action name="editV2BankBehalfMerConfigPage" class="editV2BankBehalfMerConfigPage">
+			<result name="success" >/jsp/demo/editV2BankBehalfMerConfigPage.jsp</result>
+		</action>
+
+		
+		<!-- V2BankBehalfMerConfig编辑动作-->
+		<action name="editV2BankBehalfMerConfigAction" class="editV2BankBehalfMerConfigAction">
+			<result name="success" type="chain"><param name="actionName">searchV2BankBehalfMerConfigAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailV2BankBehalfMerConfigPage" class="detailV2BankBehalfMerConfigPage">
+			<result name="success" >/jsp/demo/detailV2BankBehalfMerConfigPage.jsp</result>
+		</action>
+		
+		
+		<!-- V2BankBehalfMerConfig删除页面	-->
+		<action name="delV2BankBehalfMerConfigAction" class="delV2BankBehalfMerConfigAction">
+			<result name="success" type="chain"><param name="actionName">searchV2BankBehalfMerConfigAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

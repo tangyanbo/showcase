@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_tractStatictis"  extends="struts_common">
+	  
+	  	<!-- TractStatictis列表信息 -->
+        <action name="searchTractStatictisAction" class="searchTractStatictisAction">
+			<result name="success" >/jsp/demo/searchTractStatictisPage.jsp</result>
+		</action>
+		
+        <!-- TractStatictis新增页面-->
+        <action name="addTractStatictisPage" class="addTractStatictisPage">
+			<result name="success" >/jsp/demo/addTractStatictisPage.jsp</result>
+		</action>
+		
+		<!-- TractStatictis新增动作	-->
+        <action name="addTractStatictisAction" class="addTractStatictisAction"> 
+			<result name="success" type="chain"><param name="actionName">searchTractStatictisAction</param> </result>
+		</action>
+		
+		<!-- TractStatictis编辑页面 -->
+		<action name="editTractStatictisPage" class="editTractStatictisPage">
+			<result name="success" >/jsp/demo/editTractStatictisPage.jsp</result>
+		</action>
+
+		
+		<!-- TractStatictis编辑动作-->
+		<action name="editTractStatictisAction" class="editTractStatictisAction">
+			<result name="success" type="chain"><param name="actionName">searchTractStatictisAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailTractStatictisPage" class="detailTractStatictisPage">
+			<result name="success" >/jsp/demo/detailTractStatictisPage.jsp</result>
+		</action>
+		
+		
+		<!-- TractStatictis删除页面	-->
+		<action name="delTractStatictisAction" class="delTractStatictisAction">
+			<result name="success" type="chain"><param name="actionName">searchTractStatictisAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

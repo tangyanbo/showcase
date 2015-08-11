@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_sucOrderInfoV2"  extends="struts_common">
+	  
+	  	<!-- SucOrderInfoV2列表信息 -->
+        <action name="searchSucOrderInfoV2Action" class="searchSucOrderInfoV2Action">
+			<result name="success" >/jsp/demo/searchSucOrderInfoV2Page.jsp</result>
+		</action>
+		
+        <!-- SucOrderInfoV2新增页面-->
+        <action name="addSucOrderInfoV2Page" class="addSucOrderInfoV2Page">
+			<result name="success" >/jsp/demo/addSucOrderInfoV2Page.jsp</result>
+		</action>
+		
+		<!-- SucOrderInfoV2新增动作	-->
+        <action name="addSucOrderInfoV2Action" class="addSucOrderInfoV2Action"> 
+			<result name="success" type="chain"><param name="actionName">searchSucOrderInfoV2Action</param> </result>
+		</action>
+		
+		<!-- SucOrderInfoV2编辑页面 -->
+		<action name="editSucOrderInfoV2Page" class="editSucOrderInfoV2Page">
+			<result name="success" >/jsp/demo/editSucOrderInfoV2Page.jsp</result>
+		</action>
+
+		
+		<!-- SucOrderInfoV2编辑动作-->
+		<action name="editSucOrderInfoV2Action" class="editSucOrderInfoV2Action">
+			<result name="success" type="chain"><param name="actionName">searchSucOrderInfoV2Action</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSucOrderInfoV2Page" class="detailSucOrderInfoV2Page">
+			<result name="success" >/jsp/demo/detailSucOrderInfoV2Page.jsp</result>
+		</action>
+		
+		
+		<!-- SucOrderInfoV2删除页面	-->
+		<action name="delSucOrderInfoV2Action" class="delSucOrderInfoV2Action">
+			<result name="success" type="chain"><param name="actionName">searchSucOrderInfoV2Action</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

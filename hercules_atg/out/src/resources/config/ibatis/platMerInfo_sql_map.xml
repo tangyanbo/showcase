@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="platMerInfo">
+
+  <!--用于模糊查询-->
+     <select id="select_platMerInfoList" parameterClass="com.shiyue.bbs.model.PlatMerInfoQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		PLAT_MER_ID  <!---->
+		  		,PLAT_MER_NAME  <!---->
+		  		,MER_REG_NO  <!---->
+		  		,MER_TAX_NO  <!---->
+		  		,LEGAL_PERSON  <!---->
+		  		,LEGAL_IDCARD  <!---->
+		  		,CONTACTOR  <!---->
+		  		,CONTACT_PHONE  <!---->
+		  		,CONTACT_EMAIL  <!---->
+		  		,CONTACT_ADDR  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,STATUS  <!---->
+		  		,REMARK  <!---->
+		  		,RESERVED  <!---->
+		  		,LOGO  <!---->
+		  		,COLOR  <!---->
+		  FROM PLAT_MER_INFO
+		  WHERE 1=1 AND PLAT_MER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="plat_mer_id" prepend="and" >
+				    (PLAT_MER_ID) =#plat_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="plat_mer_name">
+					(PLAT_MER_NAME) Like '%'||(#plat_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_reg_no">
+					(MER_REG_NO) Like '%'||(#mer_reg_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_tax_no">
+					(MER_TAX_NO) Like '%'||(#mer_tax_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_person">
+					(LEGAL_PERSON) Like '%'||(#legal_person:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_idcard">
+					(LEGAL_IDCARD) Like '%'||(#legal_idcard:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor">
+					(CONTACTOR) Like '%'||(#contactor:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contact_phone">
+					(CONTACT_PHONE) Like '%'||(#contact_phone:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contact_email">
+					(CONTACT_EMAIL) Like '%'||(#contact_email:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contact_addr">
+					(CONTACT_ADDR) Like '%'||(#contact_addr:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="logo">
+					(LOGO) Like '%'||(#logo:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="color">
+					(COLOR) Like '%'||(#color:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_platMerInfoList_count" parameterClass="com.shiyue.bbs.model.PlatMerInfoQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM PLAT_MER_INFO
+			WHERE 1=1 AND PLAT_MER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="plat_mer_id" prepend="and" >
+					(PLAT_MER_ID) =#plat_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="plat_mer_name">
+					(PLAT_MER_NAME) Like '%'||(#plat_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_reg_no">
+					(MER_REG_NO) Like '%'||(#mer_reg_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_tax_no">
+					(MER_TAX_NO) Like '%'||(#mer_tax_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_person">
+					(LEGAL_PERSON) Like '%'||(#legal_person:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="legal_idcard">
+					(LEGAL_IDCARD) Like '%'||(#legal_idcard:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contactor">
+					(CONTACTOR) Like '%'||(#contactor:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contact_phone">
+					(CONTACT_PHONE) Like '%'||(#contact_phone:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contact_email">
+					(CONTACT_EMAIL) Like '%'||(#contact_email:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="contact_addr">
+					(CONTACT_ADDR) Like '%'||(#contact_addr:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="logo">
+					(LOGO) Like '%'||(#logo:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="color">
+					(COLOR) Like '%'||(#color:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

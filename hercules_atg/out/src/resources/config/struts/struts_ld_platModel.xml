@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_platModel"  extends="struts_common">
+	  
+	  	<!-- PlatModel列表信息 -->
+        <action name="searchPlatModelAction" class="searchPlatModelAction">
+			<result name="success" >/jsp/demo/searchPlatModelPage.jsp</result>
+		</action>
+		
+        <!-- PlatModel新增页面-->
+        <action name="addPlatModelPage" class="addPlatModelPage">
+			<result name="success" >/jsp/demo/addPlatModelPage.jsp</result>
+		</action>
+		
+		<!-- PlatModel新增动作	-->
+        <action name="addPlatModelAction" class="addPlatModelAction"> 
+			<result name="success" type="chain"><param name="actionName">searchPlatModelAction</param> </result>
+		</action>
+		
+		<!-- PlatModel编辑页面 -->
+		<action name="editPlatModelPage" class="editPlatModelPage">
+			<result name="success" >/jsp/demo/editPlatModelPage.jsp</result>
+		</action>
+
+		
+		<!-- PlatModel编辑动作-->
+		<action name="editPlatModelAction" class="editPlatModelAction">
+			<result name="success" type="chain"><param name="actionName">searchPlatModelAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailPlatModelPage" class="detailPlatModelPage">
+			<result name="success" >/jsp/demo/detailPlatModelPage.jsp</result>
+		</action>
+		
+		
+		<!-- PlatModel删除页面	-->
+		<action name="delPlatModelAction" class="delPlatModelAction">
+			<result name="success" type="chain"><param name="actionName">searchPlatModelAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

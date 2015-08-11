@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_sysModel"  extends="struts_common">
+	  
+	  	<!-- SysModel列表信息 -->
+        <action name="searchSysModelAction" class="searchSysModelAction">
+			<result name="success" >/jsp/demo/searchSysModelPage.jsp</result>
+		</action>
+		
+        <!-- SysModel新增页面-->
+        <action name="addSysModelPage" class="addSysModelPage">
+			<result name="success" >/jsp/demo/addSysModelPage.jsp</result>
+		</action>
+		
+		<!-- SysModel新增动作	-->
+        <action name="addSysModelAction" class="addSysModelAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSysModelAction</param> </result>
+		</action>
+		
+		<!-- SysModel编辑页面 -->
+		<action name="editSysModelPage" class="editSysModelPage">
+			<result name="success" >/jsp/demo/editSysModelPage.jsp</result>
+		</action>
+
+		
+		<!-- SysModel编辑动作-->
+		<action name="editSysModelAction" class="editSysModelAction">
+			<result name="success" type="chain"><param name="actionName">searchSysModelAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSysModelPage" class="detailSysModelPage">
+			<result name="success" >/jsp/demo/detailSysModelPage.jsp</result>
+		</action>
+		
+		
+		<!-- SysModel删除页面	-->
+		<action name="delSysModelAction" class="delSysModelAction">
+			<result name="success" type="chain"><param name="actionName">searchSysModelAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

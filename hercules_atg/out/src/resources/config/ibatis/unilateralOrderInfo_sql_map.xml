@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="unilateralOrderInfo">
+
+  <!--用于模糊查询-->
+     <select id="select_unilateralOrderInfoList" parameterClass="com.shiyue.bbs.model.UnilateralOrderInfoQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!--ID-->
+		  		,TRANS_DATE  <!--交易时间-->
+		  		,TRANS_AMT  <!--交易金额-->
+		  		,ORDER_ID  <!--订单号-->
+		  		,CARD_ID  <!--卡号-->
+		  		,SUB_MER_ID  <!--子商户号-->
+		  		,MER_SYS_ID  <!--机构号-->
+		  		,MER_ORD_ID  <!--商户订单号-->
+		  		,TRANS_MER_ID  <!--交易商户号-->
+		  		,DATE  <!--创建日期-->
+		  		,SYS_REF_NUM  <!--系统跟踪号-->
+		  		,SYS_TRA_NUM  <!--系统参考号-->
+		  		,RETURN_CODE  <!--返回码-->
+		  		,TRANS_TYPE  <!--交易类型-->
+		  		,RESERVED1  <!--扩展-->
+		  		,RESERVED2  <!--扩展-->
+		  		,RESERVED3  <!--扩展-->
+		  		,RESERVED4  <!--扩展-->
+		  		,RESERVED5  <!--扩展-->
+		  FROM UNILATERAL_ORDER_INFO
+		  WHERE 1=1 AND UNILATERAL_ORDER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="trans_date">
+					(TRANS_DATE) Like '%'||(#trans_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_amt">
+					(TRANS_AMT) Like '%'||(#trans_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_id">
+					(ORDER_ID) Like '%'||(#order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_id">
+					(CARD_ID) Like '%'||(#card_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_id">
+					(SUB_MER_ID) Like '%'||(#sub_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_sys_id">
+					(MER_SYS_ID) Like '%'||(#mer_sys_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_ord_id">
+					(MER_ORD_ID) Like '%'||(#mer_ord_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_mer_id">
+					(TRANS_MER_ID) Like '%'||(#trans_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="date">
+					(DATE) Like '%'||(#date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sys_ref_num">
+					(SYS_REF_NUM) Like '%'||(#sys_ref_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sys_tra_num">
+					(SYS_TRA_NUM) Like '%'||(#sys_tra_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="return_code">
+					(RETURN_CODE) Like '%'||(#return_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved4">
+					(RESERVED4) Like '%'||(#reserved4:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved5">
+					(RESERVED5) Like '%'||(#reserved5:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_unilateralOrderInfoList_count" parameterClass="com.shiyue.bbs.model.UnilateralOrderInfoQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM UNILATERAL_ORDER_INFO
+			WHERE 1=1 AND UNILATERAL_ORDER_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="trans_date">
+					(TRANS_DATE) Like '%'||(#trans_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_amt">
+					(TRANS_AMT) Like '%'||(#trans_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_id">
+					(ORDER_ID) Like '%'||(#order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_id">
+					(CARD_ID) Like '%'||(#card_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_id">
+					(SUB_MER_ID) Like '%'||(#sub_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_sys_id">
+					(MER_SYS_ID) Like '%'||(#mer_sys_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_ord_id">
+					(MER_ORD_ID) Like '%'||(#mer_ord_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_mer_id">
+					(TRANS_MER_ID) Like '%'||(#trans_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="date">
+					(DATE) Like '%'||(#date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sys_ref_num">
+					(SYS_REF_NUM) Like '%'||(#sys_ref_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sys_tra_num">
+					(SYS_TRA_NUM) Like '%'||(#sys_tra_num:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="return_code">
+					(RETURN_CODE) Like '%'||(#return_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved4">
+					(RESERVED4) Like '%'||(#reserved4:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved5">
+					(RESERVED5) Like '%'||(#reserved5:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

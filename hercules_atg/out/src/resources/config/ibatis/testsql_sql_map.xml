@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="testsql">
+
+  <!--用于模糊查询-->
+     <select id="select_testsqlList" parameterClass="com.shiyue.bbs.model.TestsqlQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		  FROM TestSQL
+		  WHERE 1=1 AND TestSQL.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="testsql1" prepend="and" >
+				    (TESTSQL1) =#testsql1#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="t1">
+					(T1) Like '%'||(#t1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="t2">
+					(T2) Like '%'||(#t2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_testsqlList_count" parameterClass="com.shiyue.bbs.model.TestsqlQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM TestSQL
+			WHERE 1=1 AND TestSQL.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="testsql1" prepend="and" >
+					(TESTSQL1) =#testsql1#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="t1">
+					(T1) Like '%'||(#t1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="t2">
+					(T2) Like '%'||(#t2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

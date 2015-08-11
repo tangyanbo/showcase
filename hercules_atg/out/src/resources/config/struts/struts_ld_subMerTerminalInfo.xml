@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_subMerTerminalInfo"  extends="struts_common">
+	  
+	  	<!-- SubMerTerminalInfo列表信息 -->
+        <action name="searchSubMerTerminalInfoAction" class="searchSubMerTerminalInfoAction">
+			<result name="success" >/jsp/demo/searchSubMerTerminalInfoPage.jsp</result>
+		</action>
+		
+        <!-- SubMerTerminalInfo新增页面-->
+        <action name="addSubMerTerminalInfoPage" class="addSubMerTerminalInfoPage">
+			<result name="success" >/jsp/demo/addSubMerTerminalInfoPage.jsp</result>
+		</action>
+		
+		<!-- SubMerTerminalInfo新增动作	-->
+        <action name="addSubMerTerminalInfoAction" class="addSubMerTerminalInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSubMerTerminalInfoAction</param> </result>
+		</action>
+		
+		<!-- SubMerTerminalInfo编辑页面 -->
+		<action name="editSubMerTerminalInfoPage" class="editSubMerTerminalInfoPage">
+			<result name="success" >/jsp/demo/editSubMerTerminalInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- SubMerTerminalInfo编辑动作-->
+		<action name="editSubMerTerminalInfoAction" class="editSubMerTerminalInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerTerminalInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSubMerTerminalInfoPage" class="detailSubMerTerminalInfoPage">
+			<result name="success" >/jsp/demo/detailSubMerTerminalInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- SubMerTerminalInfo删除页面	-->
+		<action name="delSubMerTerminalInfoAction" class="delSubMerTerminalInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerTerminalInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

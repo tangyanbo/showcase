@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_faiOrderInfoV2BackTest"  extends="struts_common">
+	  
+	  	<!-- FaiOrderInfoV2BackTest列表信息 -->
+        <action name="searchFaiOrderInfoV2BackTestAction" class="searchFaiOrderInfoV2BackTestAction">
+			<result name="success" >/jsp/demo/searchFaiOrderInfoV2BackTestPage.jsp</result>
+		</action>
+		
+        <!-- FaiOrderInfoV2BackTest新增页面-->
+        <action name="addFaiOrderInfoV2BackTestPage" class="addFaiOrderInfoV2BackTestPage">
+			<result name="success" >/jsp/demo/addFaiOrderInfoV2BackTestPage.jsp</result>
+		</action>
+		
+		<!-- FaiOrderInfoV2BackTest新增动作	-->
+        <action name="addFaiOrderInfoV2BackTestAction" class="addFaiOrderInfoV2BackTestAction"> 
+			<result name="success" type="chain"><param name="actionName">searchFaiOrderInfoV2BackTestAction</param> </result>
+		</action>
+		
+		<!-- FaiOrderInfoV2BackTest编辑页面 -->
+		<action name="editFaiOrderInfoV2BackTestPage" class="editFaiOrderInfoV2BackTestPage">
+			<result name="success" >/jsp/demo/editFaiOrderInfoV2BackTestPage.jsp</result>
+		</action>
+
+		
+		<!-- FaiOrderInfoV2BackTest编辑动作-->
+		<action name="editFaiOrderInfoV2BackTestAction" class="editFaiOrderInfoV2BackTestAction">
+			<result name="success" type="chain"><param name="actionName">searchFaiOrderInfoV2BackTestAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailFaiOrderInfoV2BackTestPage" class="detailFaiOrderInfoV2BackTestPage">
+			<result name="success" >/jsp/demo/detailFaiOrderInfoV2BackTestPage.jsp</result>
+		</action>
+		
+		
+		<!-- FaiOrderInfoV2BackTest删除页面	-->
+		<action name="delFaiOrderInfoV2BackTestAction" class="delFaiOrderInfoV2BackTestAction">
+			<result name="success" type="chain"><param name="actionName">searchFaiOrderInfoV2BackTestAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

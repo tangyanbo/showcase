@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerTrans">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerTransList" parameterClass="com.shiyue.bbs.model.SubMerTransQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		  FROM SUB_MER_TRANS
+		  WHERE 1=1 AND SUB_MER_TRANS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="disp_mer_id">
+					(DISP_MER_ID) Like '%'||(#disp_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="disp_mer_name">
+					(DISP_MER_NAME) Like '%'||(#disp_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_type">
+					(TERMINAL_TYPE) Like '%'||(#terminal_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_type">
+					(BUS_TYPE) Like '%'||(#bus_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_time">
+					(CLEAR_TIME) Like '%'||(#clear_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="auth_status">
+					(AUTH_STATUS) Like '%'||(#auth_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="auth_time">
+					(AUTH_TIME) Like '%'||(#auth_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract_r1">
+					(SUB_MER_TRACT_R1) Like '%'||(#sub_mer_tract_r1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract_r2">
+					(SUB_MER_TRACT_R2) Like '%'||(#sub_mer_tract_r2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_access_type">
+					(SUB_ACCESS_TYPE) Like '%'||(#sub_access_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerTransList_count" parameterClass="com.shiyue.bbs.model.SubMerTransQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_TRANS
+			WHERE 1=1 AND SUB_MER_TRANS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="disp_mer_id">
+					(DISP_MER_ID) Like '%'||(#disp_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="disp_mer_name">
+					(DISP_MER_NAME) Like '%'||(#disp_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_type">
+					(TERMINAL_TYPE) Like '%'||(#terminal_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_type">
+					(BUS_TYPE) Like '%'||(#bus_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_time">
+					(CLEAR_TIME) Like '%'||(#clear_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="auth_status">
+					(AUTH_STATUS) Like '%'||(#auth_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="auth_time">
+					(AUTH_TIME) Like '%'||(#auth_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract_r1">
+					(SUB_MER_TRACT_R1) Like '%'||(#sub_mer_tract_r1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract_r2">
+					(SUB_MER_TRACT_R2) Like '%'||(#sub_mer_tract_r2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_access_type">
+					(SUB_ACCESS_TYPE) Like '%'||(#sub_access_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

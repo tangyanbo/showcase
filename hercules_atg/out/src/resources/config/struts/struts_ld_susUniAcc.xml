@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_susUniAcc"  extends="struts_common">
+	  
+	  	<!-- SusUniAcc列表信息 -->
+        <action name="searchSusUniAccAction" class="searchSusUniAccAction">
+			<result name="success" >/jsp/demo/searchSusUniAccPage.jsp</result>
+		</action>
+		
+        <!-- SusUniAcc新增页面-->
+        <action name="addSusUniAccPage" class="addSusUniAccPage">
+			<result name="success" >/jsp/demo/addSusUniAccPage.jsp</result>
+		</action>
+		
+		<!-- SusUniAcc新增动作	-->
+        <action name="addSusUniAccAction" class="addSusUniAccAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSusUniAccAction</param> </result>
+		</action>
+		
+		<!-- SusUniAcc编辑页面 -->
+		<action name="editSusUniAccPage" class="editSusUniAccPage">
+			<result name="success" >/jsp/demo/editSusUniAccPage.jsp</result>
+		</action>
+
+		
+		<!-- SusUniAcc编辑动作-->
+		<action name="editSusUniAccAction" class="editSusUniAccAction">
+			<result name="success" type="chain"><param name="actionName">searchSusUniAccAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSusUniAccPage" class="detailSusUniAccPage">
+			<result name="success" >/jsp/demo/detailSusUniAccPage.jsp</result>
+		</action>
+		
+		
+		<!-- SusUniAcc删除页面	-->
+		<action name="delSusUniAccAction" class="delSusUniAccAction">
+			<result name="success" type="chain"><param name="actionName">searchSusUniAccAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

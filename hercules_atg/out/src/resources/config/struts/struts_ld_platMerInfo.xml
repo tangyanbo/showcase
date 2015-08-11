@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_platMerInfo"  extends="struts_common">
+	  
+	  	<!-- PlatMerInfo列表信息 -->
+        <action name="searchPlatMerInfoAction" class="searchPlatMerInfoAction">
+			<result name="success" >/jsp/demo/searchPlatMerInfoPage.jsp</result>
+		</action>
+		
+        <!-- PlatMerInfo新增页面-->
+        <action name="addPlatMerInfoPage" class="addPlatMerInfoPage">
+			<result name="success" >/jsp/demo/addPlatMerInfoPage.jsp</result>
+		</action>
+		
+		<!-- PlatMerInfo新增动作	-->
+        <action name="addPlatMerInfoAction" class="addPlatMerInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchPlatMerInfoAction</param> </result>
+		</action>
+		
+		<!-- PlatMerInfo编辑页面 -->
+		<action name="editPlatMerInfoPage" class="editPlatMerInfoPage">
+			<result name="success" >/jsp/demo/editPlatMerInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- PlatMerInfo编辑动作-->
+		<action name="editPlatMerInfoAction" class="editPlatMerInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchPlatMerInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailPlatMerInfoPage" class="detailPlatMerInfoPage">
+			<result name="success" >/jsp/demo/detailPlatMerInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- PlatMerInfo删除页面	-->
+		<action name="delPlatMerInfoAction" class="delPlatMerInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchPlatMerInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

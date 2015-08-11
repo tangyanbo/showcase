@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="susUni">
+
+  <!--用于模糊查询-->
+     <select id="select_susUniList" parameterClass="com.shiyue.bbs.model.SusUniQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,COUNT  <!---->
+		  		,TRANS_DATE  <!---->
+		  		,TRANS_AMT  <!---->
+		  		,STATUS  <!---->
+		  		,ORDER_ID  <!---->
+		  		,CARD_ID  <!---->
+		  		,SUB_MER_ID  <!---->
+		  		,MER_ID  <!---->
+		  		,MER_ORD_ID  <!---->
+		  		,ORDER_MER_ID  <!---->
+		  		,DATE  <!---->
+		  FROM SUS_UNI
+		  WHERE 1=1 AND SUS_UNI.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="count">
+					(COUNT) Like '%'||(#count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_date">
+					(TRANS_DATE) Like '%'||(#trans_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_amt">
+					(TRANS_AMT) Like '%'||(#trans_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="order_id" prepend="and" >
+				    (ORDER_ID) =#order_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="card_id">
+					(CARD_ID) Like '%'||(#card_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_id">
+					(SUB_MER_ID) Like '%'||(#sub_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_id">
+					(MER_ID) Like '%'||(#mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_ord_id">
+					(MER_ORD_ID) Like '%'||(#mer_ord_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_mer_id">
+					(ORDER_MER_ID) Like '%'||(#order_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="date">
+					(DATE) Like '%'||(#date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_susUniList_count" parameterClass="com.shiyue.bbs.model.SusUniQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUS_UNI
+			WHERE 1=1 AND SUS_UNI.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="count">
+					(COUNT) Like '%'||(#count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_date">
+					(TRANS_DATE) Like '%'||(#trans_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_amt">
+					(TRANS_AMT) Like '%'||(#trans_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="order_id" prepend="and" >
+					(ORDER_ID) =#order_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="card_id">
+					(CARD_ID) Like '%'||(#card_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_id">
+					(SUB_MER_ID) Like '%'||(#sub_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_id">
+					(MER_ID) Like '%'||(#mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_ord_id">
+					(MER_ORD_ID) Like '%'||(#mer_ord_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_mer_id">
+					(ORDER_MER_ID) Like '%'||(#order_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="date">
+					(DATE) Like '%'||(#date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

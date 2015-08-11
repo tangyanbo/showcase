@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="cardBinNew">
+
+  <!--用于模糊查询-->
+     <select id="select_cardBinNewList" parameterClass="com.shiyue.bbs.model.CardBinNewQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,BANK_ID  <!---->
+		  		,BANK_NAME  <!---->
+		  		,CARD_NO_LENGTH  <!---->
+		  		,CARD_BIN  <!---->
+		  		,UPOP_FLAG  <!---->
+		  		,CARD_TYPE  <!---->
+		  		,BANK_SHORT_NAME  <!---->
+		  FROM CARD_BIN_NEW
+		  WHERE 1=1 AND CARD_BIN_NEW.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="bank_id">
+					(BANK_ID) Like '%'||(#bank_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_name">
+					(BANK_NAME) Like '%'||(#bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_no_length">
+					(CARD_NO_LENGTH) Like '%'||(#card_no_length:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_bin">
+					(CARD_BIN) Like '%'||(#card_bin:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="upop_flag">
+					(UPOP_FLAG) Like '%'||(#upop_flag:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_type">
+					(CARD_TYPE) Like '%'||(#card_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_short_name">
+					(BANK_SHORT_NAME) Like '%'||(#bank_short_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_cardBinNewList_count" parameterClass="com.shiyue.bbs.model.CardBinNewQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM CARD_BIN_NEW
+			WHERE 1=1 AND CARD_BIN_NEW.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="bank_id">
+					(BANK_ID) Like '%'||(#bank_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_name">
+					(BANK_NAME) Like '%'||(#bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_no_length">
+					(CARD_NO_LENGTH) Like '%'||(#card_no_length:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_bin">
+					(CARD_BIN) Like '%'||(#card_bin:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="upop_flag">
+					(UPOP_FLAG) Like '%'||(#upop_flag:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_type">
+					(CARD_TYPE) Like '%'||(#card_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_short_name">
+					(BANK_SHORT_NAME) Like '%'||(#bank_short_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

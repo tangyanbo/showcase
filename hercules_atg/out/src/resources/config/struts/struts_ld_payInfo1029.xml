@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_payInfo1029"  extends="struts_common">
+	  
+	  	<!-- PayInfo1029列表信息 -->
+        <action name="searchPayInfo1029Action" class="searchPayInfo1029Action">
+			<result name="success" >/jsp/demo/searchPayInfo1029Page.jsp</result>
+		</action>
+		
+        <!-- PayInfo1029新增页面-->
+        <action name="addPayInfo1029Page" class="addPayInfo1029Page">
+			<result name="success" >/jsp/demo/addPayInfo1029Page.jsp</result>
+		</action>
+		
+		<!-- PayInfo1029新增动作	-->
+        <action name="addPayInfo1029Action" class="addPayInfo1029Action"> 
+			<result name="success" type="chain"><param name="actionName">searchPayInfo1029Action</param> </result>
+		</action>
+		
+		<!-- PayInfo1029编辑页面 -->
+		<action name="editPayInfo1029Page" class="editPayInfo1029Page">
+			<result name="success" >/jsp/demo/editPayInfo1029Page.jsp</result>
+		</action>
+
+		
+		<!-- PayInfo1029编辑动作-->
+		<action name="editPayInfo1029Action" class="editPayInfo1029Action">
+			<result name="success" type="chain"><param name="actionName">searchPayInfo1029Action</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailPayInfo1029Page" class="detailPayInfo1029Page">
+			<result name="success" >/jsp/demo/detailPayInfo1029Page.jsp</result>
+		</action>
+		
+		
+		<!-- PayInfo1029删除页面	-->
+		<action name="delPayInfo1029Action" class="delPayInfo1029Action">
+			<result name="success" type="chain"><param name="actionName">searchPayInfo1029Action</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

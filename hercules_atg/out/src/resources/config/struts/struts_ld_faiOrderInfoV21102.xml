@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_faiOrderInfoV21102"  extends="struts_common">
+	  
+	  	<!-- FaiOrderInfoV21102列表信息 -->
+        <action name="searchFaiOrderInfoV21102Action" class="searchFaiOrderInfoV21102Action">
+			<result name="success" >/jsp/demo/searchFaiOrderInfoV21102Page.jsp</result>
+		</action>
+		
+        <!-- FaiOrderInfoV21102新增页面-->
+        <action name="addFaiOrderInfoV21102Page" class="addFaiOrderInfoV21102Page">
+			<result name="success" >/jsp/demo/addFaiOrderInfoV21102Page.jsp</result>
+		</action>
+		
+		<!-- FaiOrderInfoV21102新增动作	-->
+        <action name="addFaiOrderInfoV21102Action" class="addFaiOrderInfoV21102Action"> 
+			<result name="success" type="chain"><param name="actionName">searchFaiOrderInfoV21102Action</param> </result>
+		</action>
+		
+		<!-- FaiOrderInfoV21102编辑页面 -->
+		<action name="editFaiOrderInfoV21102Page" class="editFaiOrderInfoV21102Page">
+			<result name="success" >/jsp/demo/editFaiOrderInfoV21102Page.jsp</result>
+		</action>
+
+		
+		<!-- FaiOrderInfoV21102编辑动作-->
+		<action name="editFaiOrderInfoV21102Action" class="editFaiOrderInfoV21102Action">
+			<result name="success" type="chain"><param name="actionName">searchFaiOrderInfoV21102Action</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailFaiOrderInfoV21102Page" class="detailFaiOrderInfoV21102Page">
+			<result name="success" >/jsp/demo/detailFaiOrderInfoV21102Page.jsp</result>
+		</action>
+		
+		
+		<!-- FaiOrderInfoV21102删除页面	-->
+		<action name="delFaiOrderInfoV21102Action" class="delFaiOrderInfoV21102Action">
+			<result name="success" type="chain"><param name="actionName">searchFaiOrderInfoV21102Action</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="v2CstpCsn">
+
+  <!--用于模糊查询-->
+     <select id="select_v2CstpCsnList" parameterClass="com.shiyue.bbs.model.V2CstpCsnQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		  FROM V2_CSTP_CSN
+		  WHERE 1=1 AND V2_CSTP_CSN.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				 <isNotEmpty prepend=" and " property="merchant_id">
+					(MERCHANT_ID) Like '%'||(#merchant_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_serial_no">
+					(CARD_SERIAL_NO) Like '%'||(#card_serial_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="main_key">
+					(MAIN_KEY) Like '%'||(#main_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="security_key">
+					(SECURITY_KEY) Like '%'||(#security_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pin_key">
+					(PIN_KEY) Like '%'||(#pin_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mac_key">
+					(MAC_KEY) Like '%'||(#mac_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="track_key">
+					(TRACK_KEY) Like '%'||(#track_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ccd_status">
+					(CCD_STATUS) Like '%'||(#ccd_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_name">
+					(MERCHANT_NAME) Like '%'||(#merchant_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sp_id">
+					(SP_ID) Like '%'||(#sp_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="update_time">
+					(UPDATE_TIME) Like '%'||(#update_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_v2CstpCsnList_count" parameterClass="com.shiyue.bbs.model.V2CstpCsnQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM V2_CSTP_CSN
+			WHERE 1=1 AND V2_CSTP_CSN.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotEmpty prepend=" and " property="merchant_id">
+					(MERCHANT_ID) Like '%'||(#merchant_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="card_serial_no">
+					(CARD_SERIAL_NO) Like '%'||(#card_serial_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="main_key">
+					(MAIN_KEY) Like '%'||(#main_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="security_key">
+					(SECURITY_KEY) Like '%'||(#security_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pin_key">
+					(PIN_KEY) Like '%'||(#pin_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mac_key">
+					(MAC_KEY) Like '%'||(#mac_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="track_key">
+					(TRACK_KEY) Like '%'||(#track_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="ccd_status">
+					(CCD_STATUS) Like '%'||(#ccd_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_name">
+					(MERCHANT_NAME) Like '%'||(#merchant_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sp_id">
+					(SP_ID) Like '%'||(#sp_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="update_time">
+					(UPDATE_TIME) Like '%'||(#update_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

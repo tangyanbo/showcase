@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="payBankCode">
+
+  <!--用于模糊查询-->
+     <select id="select_payBankCodeList" parameterClass="com.shiyue.bbs.model.PayBankCodeQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,PAY_BANK_NAME  <!---->
+		  		,PAY_BANK_ID  <!---->
+		  		,RESERVED1  <!---->
+		  		,RESERVED2  <!---->
+		  		,RESERVED3  <!---->
+		  FROM PAY_BANK_CODE
+		  WHERE 1=1 AND PAY_BANK_CODE.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="pay_bank_name">
+					(PAY_BANK_NAME) Like '%'||(#pay_bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_bank_id">
+					(PAY_BANK_ID) Like '%'||(#pay_bank_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_payBankCodeList_count" parameterClass="com.shiyue.bbs.model.PayBankCodeQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM PAY_BANK_CODE
+			WHERE 1=1 AND PAY_BANK_CODE.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="pay_bank_name">
+					(PAY_BANK_NAME) Like '%'||(#pay_bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_bank_id">
+					(PAY_BANK_ID) Like '%'||(#pay_bank_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

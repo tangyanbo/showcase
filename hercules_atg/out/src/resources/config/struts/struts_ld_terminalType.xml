@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_terminalType"  extends="struts_common">
+	  
+	  	<!-- TerminalType列表信息 -->
+        <action name="searchTerminalTypeAction" class="searchTerminalTypeAction">
+			<result name="success" >/jsp/demo/searchTerminalTypePage.jsp</result>
+		</action>
+		
+        <!-- TerminalType新增页面-->
+        <action name="addTerminalTypePage" class="addTerminalTypePage">
+			<result name="success" >/jsp/demo/addTerminalTypePage.jsp</result>
+		</action>
+		
+		<!-- TerminalType新增动作	-->
+        <action name="addTerminalTypeAction" class="addTerminalTypeAction"> 
+			<result name="success" type="chain"><param name="actionName">searchTerminalTypeAction</param> </result>
+		</action>
+		
+		<!-- TerminalType编辑页面 -->
+		<action name="editTerminalTypePage" class="editTerminalTypePage">
+			<result name="success" >/jsp/demo/editTerminalTypePage.jsp</result>
+		</action>
+
+		
+		<!-- TerminalType编辑动作-->
+		<action name="editTerminalTypeAction" class="editTerminalTypeAction">
+			<result name="success" type="chain"><param name="actionName">searchTerminalTypeAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailTerminalTypePage" class="detailTerminalTypePage">
+			<result name="success" >/jsp/demo/detailTerminalTypePage.jsp</result>
+		</action>
+		
+		
+		<!-- TerminalType删除页面	-->
+		<action name="delTerminalTypeAction" class="delTerminalTypeAction">
+			<result name="success" type="chain"><param name="actionName">searchTerminalTypeAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

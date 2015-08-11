@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="mccCategoryCode">
+
+  <!--用于模糊查询-->
+     <select id="select_mccCategoryCodeList" parameterClass="com.shiyue.bbs.model.MccCategoryCodeQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,MCC_CATEGORY_ID  <!---->
+		  		,MCC  <!---->
+		  		,PROFIT  <!---->
+		  		,DESC  <!---->
+		  		,REMARK  <!---->
+		  FROM MCC_CATEGORY_CODE
+		  WHERE 1=1 AND MCC_CATEGORY_CODE.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="mcc_category_id" prepend="and" >
+				    (MCC_CATEGORY_ID) =#mcc_category_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="mcc">
+					(MCC) Like '%'||(#mcc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="profit">
+					(PROFIT) Like '%'||(#profit:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="desc">
+					(DESC) Like '%'||(#desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_mccCategoryCodeList_count" parameterClass="com.shiyue.bbs.model.MccCategoryCodeQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM MCC_CATEGORY_CODE
+			WHERE 1=1 AND MCC_CATEGORY_CODE.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="mcc_category_id" prepend="and" >
+					(MCC_CATEGORY_ID) =#mcc_category_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="mcc">
+					(MCC) Like '%'||(#mcc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="profit">
+					(PROFIT) Like '%'||(#profit:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="desc">
+					(DESC) Like '%'||(#desc:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

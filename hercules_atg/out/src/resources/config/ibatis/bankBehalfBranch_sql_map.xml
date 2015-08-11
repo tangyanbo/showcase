@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="bankBehalfBranch">
+
+  <!--用于模糊查询-->
+     <select id="select_bankBehalfBranchList" parameterClass="com.shiyue.bbs.model.BankBehalfBranchQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		BANK_LINE_ID  <!---->
+		  		,BANK_LINE_NUMBER  <!---->
+		  		,BANK_NAME  <!---->
+		  		,ONLINE_BANK_NUMBER  <!---->
+		  		,SETTLE_LINE_NUMBER  <!---->
+		  		,STATUS  <!---->
+		  		,INTERBANK_SETTLE_STATUS  <!---->
+		  		,BANK_TYPE  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,FINISH_TIME  <!---->
+		  		,KEYWORD  <!---->
+		  		,CODE  <!---->
+		  		,WITH_HOLDING_CODE  <!---->
+		  FROM BANK_BEHALF_BRANCH
+		  WHERE 1=1 AND BANK_BEHALF_BRANCH.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="bank_line_id" prepend="and" >
+				    (BANK_LINE_ID) =#bank_line_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="bank_line_number">
+					(BANK_LINE_NUMBER) Like '%'||(#bank_line_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_name">
+					(BANK_NAME) Like '%'||(#bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="online_bank_number">
+					(ONLINE_BANK_NUMBER) Like '%'||(#online_bank_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_line_number">
+					(SETTLE_LINE_NUMBER) Like '%'||(#settle_line_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="interbank_settle_status">
+					(INTERBANK_SETTLE_STATUS) Like '%'||(#interbank_settle_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_type">
+					(BANK_TYPE) Like '%'||(#bank_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="keyword">
+					(KEYWORD) Like '%'||(#keyword:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="code">
+					(CODE) Like '%'||(#code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="with_holding_code">
+					(WITH_HOLDING_CODE) Like '%'||(#with_holding_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_bankBehalfBranchList_count" parameterClass="com.shiyue.bbs.model.BankBehalfBranchQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM BANK_BEHALF_BRANCH
+			WHERE 1=1 AND BANK_BEHALF_BRANCH.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="bank_line_id" prepend="and" >
+					(BANK_LINE_ID) =#bank_line_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="bank_line_number">
+					(BANK_LINE_NUMBER) Like '%'||(#bank_line_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_name">
+					(BANK_NAME) Like '%'||(#bank_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="online_bank_number">
+					(ONLINE_BANK_NUMBER) Like '%'||(#online_bank_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_line_number">
+					(SETTLE_LINE_NUMBER) Like '%'||(#settle_line_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="interbank_settle_status">
+					(INTERBANK_SETTLE_STATUS) Like '%'||(#interbank_settle_status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bank_type">
+					(BANK_TYPE) Like '%'||(#bank_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="keyword">
+					(KEYWORD) Like '%'||(#keyword:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="code">
+					(CODE) Like '%'||(#code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="with_holding_code">
+					(WITH_HOLDING_CODE) Like '%'||(#with_holding_code:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="merRisk">
+
+  <!--用于模糊查询-->
+     <select id="select_merRiskList" parameterClass="com.shiyue.bbs.model.MerRiskQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		MID  <!---->
+		  		,MER_TYPE  <!---->
+		  		,MER_SYS_ID  <!---->
+		  		,SUB_MER_NAME  <!---->
+		  		,DEBIT_PER_CARD_QUOTA  <!---->
+		  		,DEBIT_CARD_QUOTA  <!---->
+		  		,DEBIT_CARD_COUNT  <!---->
+		  		,CREDIT_PER_CARD_QUOTA  <!---->
+		  		,CREDIT_CARD_QUOTA  <!---->
+		  		,CREDIT_CARD_COUNT  <!---->
+		  		,TERMINAL_CARD_QUOTA  <!---->
+		  		,TRANSFER_PER_CARD_QUOTA  <!---->
+		  		,TRANSFER_CARD_QUOTA  <!---->
+		  		,TRANSFER_CARD_COUNT  <!---->
+		  		,TERMINAL_TRANSFER_CARD_QUOTA  <!---->
+		  		,PAY_CREDIT_PER_CARD_QUOTA  <!---->
+		  		,PAY_CREDIT_CARD_QUOTA  <!---->
+		  		,PAY_CREDIT_CARD_COUNT  <!---->
+		  		,TRANS_TIME_BEGIN  <!---->
+		  		,TRANS_TIME_END  <!---->
+		  		,TRANS_RULES  <!---->
+		  		,QUERY_CREDIT_CARD_COUNT  <!---->
+		  		,QUERY_DEBIT_CARD_COUNT  <!---->
+		  		,MER_TRANS_QUOTA  <!---->
+		  FROM MER_RISK
+		  WHERE 1=1 AND MER_RISK.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="mid" prepend="and" >
+				    (MID) =#mid#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="mer_sys_id" prepend="and" >
+				    (MER_SYS_ID) =#mer_sys_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="sub_mer_name">
+					(SUB_MER_NAME) Like '%'||(#sub_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="debit_per_card_quota">
+					(DEBIT_PER_CARD_QUOTA) Like '%'||(#debit_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="debit_card_quota">
+					(DEBIT_CARD_QUOTA) Like '%'||(#debit_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="debit_card_count">
+					(DEBIT_CARD_COUNT) Like '%'||(#debit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="credit_per_card_quota">
+					(CREDIT_PER_CARD_QUOTA) Like '%'||(#credit_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="credit_card_quota">
+					(CREDIT_CARD_QUOTA) Like '%'||(#credit_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="credit_card_count">
+					(CREDIT_CARD_COUNT) Like '%'||(#credit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_card_quota">
+					(TERMINAL_CARD_QUOTA) Like '%'||(#terminal_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="transfer_per_card_quota">
+					(TRANSFER_PER_CARD_QUOTA) Like '%'||(#transfer_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="transfer_card_quota">
+					(TRANSFER_CARD_QUOTA) Like '%'||(#transfer_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="transfer_card_count">
+					(TRANSFER_CARD_COUNT) Like '%'||(#transfer_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_transfer_card_quota">
+					(TERMINAL_TRANSFER_CARD_QUOTA) Like '%'||(#terminal_transfer_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_credit_per_card_quota">
+					(PAY_CREDIT_PER_CARD_QUOTA) Like '%'||(#pay_credit_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_credit_card_quota">
+					(PAY_CREDIT_CARD_QUOTA) Like '%'||(#pay_credit_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_credit_card_count">
+					(PAY_CREDIT_CARD_COUNT) Like '%'||(#pay_credit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time_begin">
+					(TRANS_TIME_BEGIN) Like '%'||(#trans_time_begin:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time_end">
+					(TRANS_TIME_END) Like '%'||(#trans_time_end:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_rules">
+					(TRANS_RULES) Like '%'||(#trans_rules:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="query_credit_card_count">
+					(QUERY_CREDIT_CARD_COUNT) Like '%'||(#query_credit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="query_debit_card_count">
+					(QUERY_DEBIT_CARD_COUNT) Like '%'||(#query_debit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="mer_trans_quota" prepend="and" >
+				    (MER_TRANS_QUOTA) =#mer_trans_quota#
+			    </isNotNull>
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_merRiskList_count" parameterClass="com.shiyue.bbs.model.MerRiskQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM MER_RISK
+			WHERE 1=1 AND MER_RISK.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="mid" prepend="and" >
+					(MID) =#mid#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="mer_sys_id" prepend="and" >
+					(MER_SYS_ID) =#mer_sys_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="sub_mer_name">
+					(SUB_MER_NAME) Like '%'||(#sub_mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="debit_per_card_quota">
+					(DEBIT_PER_CARD_QUOTA) Like '%'||(#debit_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="debit_card_quota">
+					(DEBIT_CARD_QUOTA) Like '%'||(#debit_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="debit_card_count">
+					(DEBIT_CARD_COUNT) Like '%'||(#debit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="credit_per_card_quota">
+					(CREDIT_PER_CARD_QUOTA) Like '%'||(#credit_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="credit_card_quota">
+					(CREDIT_CARD_QUOTA) Like '%'||(#credit_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="credit_card_count">
+					(CREDIT_CARD_COUNT) Like '%'||(#credit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_card_quota">
+					(TERMINAL_CARD_QUOTA) Like '%'||(#terminal_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="transfer_per_card_quota">
+					(TRANSFER_PER_CARD_QUOTA) Like '%'||(#transfer_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="transfer_card_quota">
+					(TRANSFER_CARD_QUOTA) Like '%'||(#transfer_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="transfer_card_count">
+					(TRANSFER_CARD_COUNT) Like '%'||(#transfer_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_transfer_card_quota">
+					(TERMINAL_TRANSFER_CARD_QUOTA) Like '%'||(#terminal_transfer_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_credit_per_card_quota">
+					(PAY_CREDIT_PER_CARD_QUOTA) Like '%'||(#pay_credit_per_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_credit_card_quota">
+					(PAY_CREDIT_CARD_QUOTA) Like '%'||(#pay_credit_card_quota:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="pay_credit_card_count">
+					(PAY_CREDIT_CARD_COUNT) Like '%'||(#pay_credit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time_begin">
+					(TRANS_TIME_BEGIN) Like '%'||(#trans_time_begin:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_time_end">
+					(TRANS_TIME_END) Like '%'||(#trans_time_end:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_rules">
+					(TRANS_RULES) Like '%'||(#trans_rules:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="query_credit_card_count">
+					(QUERY_CREDIT_CARD_COUNT) Like '%'||(#query_credit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="query_debit_card_count">
+					(QUERY_DEBIT_CARD_COUNT) Like '%'||(#query_debit_card_count:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="mer_trans_quota" prepend="and" >
+					(MER_TRANS_QUOTA) =#mer_trans_quota#
+				 </isNotNull>
+	 </select>
+
+
+</sqlMap>

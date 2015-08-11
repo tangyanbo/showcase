@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="cssConfig">
+
+  <!--用于模糊查询-->
+     <select id="select_cssConfigList" parameterClass="com.shiyue.bbs.model.CssConfigQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,CSS_NAME  <!---->
+		  		,CSS_URL  <!---->
+		  		,CSS_ID  <!---->
+		  		,RESERVED1  <!---->
+		  		,RESERVED2  <!---->
+		  		,RESERVED3  <!---->
+		  		,REMARK  <!---->
+		  FROM CSS_CONFIG
+		  WHERE 1=1 AND CSS_CONFIG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="css_name">
+					(CSS_NAME) Like '%'||(#css_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="css_url">
+					(CSS_URL) Like '%'||(#css_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="css_id">
+					(CSS_ID) Like '%'||(#css_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_cssConfigList_count" parameterClass="com.shiyue.bbs.model.CssConfigQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM CSS_CONFIG
+			WHERE 1=1 AND CSS_CONFIG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="css_name">
+					(CSS_NAME) Like '%'||(#css_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="css_url">
+					(CSS_URL) Like '%'||(#css_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="css_id">
+					(CSS_ID) Like '%'||(#css_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="remark">
+					(REMARK) Like '%'||(#remark:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

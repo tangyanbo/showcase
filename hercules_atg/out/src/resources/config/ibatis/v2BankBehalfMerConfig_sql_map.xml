@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="v2BankBehalfMerConfig">
+
+  <!--用于模糊查询-->
+     <select id="select_v2BankBehalfMerConfigList" parameterClass="com.shiyue.bbs.model.V2BankBehalfMerConfigQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		MER_ID  <!---->
+		  		,BALANCE  <!---->
+		  		,FEE  <!---->
+		  		,RATE  <!---->
+		  		,STATUS  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,FINISH_TIME  <!---->
+		  		,BACK_URL  <!---->
+		  		,MER_NAME  <!---->
+		  		,AVAILABLE_BALANCE  <!---->
+		  		,BLOCKED_BALANCES  <!---->
+		  		,AVAILABLE_FEE  <!---->
+		  		,BLOCKED_FEE  <!---->
+		  		,PAY_TRACT  <!---->
+		  		,MER_SYS_ID  <!---->
+		  		,MER_TYPE  <!---->
+		  		,TRANS_MER_ID  <!---->
+		  		,ACCOUNT_NO  <!---->
+		  FROM V2_BANK_BEHALF_MER_CONFIG
+		  WHERE 1=1 AND V2_BANK_BEHALF_MER_CONFIG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="mer_id" prepend="and" >
+				    (MER_ID) =#mer_id#
+			    </isNotNull>
+				<isNotNull property="balance" prepend="and" >
+				    (BALANCE) =#balance#
+			    </isNotNull>
+				<isNotNull property="fee" prepend="and" >
+				    (FEE) =#fee#
+			    </isNotNull>
+				<isNotNull property="rate" prepend="and" >
+				    (RATE) =#rate#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="back_url">
+					(BACK_URL) Like '%'||(#back_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_name">
+					(MER_NAME) Like '%'||(#mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="available_balance" prepend="and" >
+				    (AVAILABLE_BALANCE) =#available_balance#
+			    </isNotNull>
+				<isNotNull property="blocked_balances" prepend="and" >
+				    (BLOCKED_BALANCES) =#blocked_balances#
+			    </isNotNull>
+				<isNotNull property="available_fee" prepend="and" >
+				    (AVAILABLE_FEE) =#available_fee#
+			    </isNotNull>
+				<isNotNull property="blocked_fee" prepend="and" >
+				    (BLOCKED_FEE) =#blocked_fee#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="pay_tract">
+					(PAY_TRACT) Like '%'||(#pay_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_sys_id">
+					(MER_SYS_ID) Like '%'||(#mer_sys_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_mer_id">
+					(TRANS_MER_ID) Like '%'||(#trans_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="account_no">
+					(ACCOUNT_NO) Like '%'||(#account_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_v2BankBehalfMerConfigList_count" parameterClass="com.shiyue.bbs.model.V2BankBehalfMerConfigQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM V2_BANK_BEHALF_MER_CONFIG
+			WHERE 1=1 AND V2_BANK_BEHALF_MER_CONFIG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="mer_id" prepend="and" >
+					(MER_ID) =#mer_id#
+				 </isNotNull>
+				 <isNotNull property="balance" prepend="and" >
+					(BALANCE) =#balance#
+				 </isNotNull>
+				 <isNotNull property="fee" prepend="and" >
+					(FEE) =#fee#
+				 </isNotNull>
+				 <isNotNull property="rate" prepend="and" >
+					(RATE) =#rate#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="back_url">
+					(BACK_URL) Like '%'||(#back_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_name">
+					(MER_NAME) Like '%'||(#mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="available_balance" prepend="and" >
+					(AVAILABLE_BALANCE) =#available_balance#
+				 </isNotNull>
+				 <isNotNull property="blocked_balances" prepend="and" >
+					(BLOCKED_BALANCES) =#blocked_balances#
+				 </isNotNull>
+				 <isNotNull property="available_fee" prepend="and" >
+					(AVAILABLE_FEE) =#available_fee#
+				 </isNotNull>
+				 <isNotNull property="blocked_fee" prepend="and" >
+					(BLOCKED_FEE) =#blocked_fee#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="pay_tract">
+					(PAY_TRACT) Like '%'||(#pay_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_sys_id">
+					(MER_SYS_ID) Like '%'||(#mer_sys_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_mer_id">
+					(TRANS_MER_ID) Like '%'||(#trans_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="account_no">
+					(ACCOUNT_NO) Like '%'||(#account_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

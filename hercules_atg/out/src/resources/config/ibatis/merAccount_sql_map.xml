@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="merAccount">
+
+  <!--用于模糊查询-->
+     <select id="select_merAccountList" parameterClass="com.shiyue.bbs.model.MerAccountQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,MER_SYS_ID  <!---->
+		  		,SETT_ACCOUNT_NAME  <!---->
+		  		,SETT_ACCOUNT_NO  <!---->
+		  		,SETT_AGENCY  <!---->
+		  		,SETT_ACC_TYPE  <!---->
+		  		,STATUS  <!---->
+		  		,RESERVED1  <!---->
+		  		,RESERVED2  <!---->
+		  		,RESERVED3  <!---->
+		  		,RESERVED4  <!---->
+		  		,RESERVED5  <!---->
+		  		,SETT_AGENCY_NAME  <!---->
+		  		,DEDUCTION_TYPE  <!---->
+		  FROM MER_ACCOUNT
+		  WHERE 1=1 AND MER_ACCOUNT.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="mer_sys_id" prepend="and" >
+				    (MER_SYS_ID) =#mer_sys_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="sett_account_name">
+					(SETT_ACCOUNT_NAME) Like '%'||(#sett_account_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_account_no">
+					(SETT_ACCOUNT_NO) Like '%'||(#sett_account_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_agency">
+					(SETT_AGENCY) Like '%'||(#sett_agency:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_acc_type">
+					(SETT_ACC_TYPE) Like '%'||(#sett_acc_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved4">
+					(RESERVED4) Like '%'||(#reserved4:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved5">
+					(RESERVED5) Like '%'||(#reserved5:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_agency_name">
+					(SETT_AGENCY_NAME) Like '%'||(#sett_agency_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="deduction_type" prepend="and" >
+				    (DEDUCTION_TYPE) =#deduction_type#
+			    </isNotNull>
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_merAccountList_count" parameterClass="com.shiyue.bbs.model.MerAccountQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM MER_ACCOUNT
+			WHERE 1=1 AND MER_ACCOUNT.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="mer_sys_id" prepend="and" >
+					(MER_SYS_ID) =#mer_sys_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="sett_account_name">
+					(SETT_ACCOUNT_NAME) Like '%'||(#sett_account_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_account_no">
+					(SETT_ACCOUNT_NO) Like '%'||(#sett_account_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_agency">
+					(SETT_AGENCY) Like '%'||(#sett_agency:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_acc_type">
+					(SETT_ACC_TYPE) Like '%'||(#sett_acc_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved4">
+					(RESERVED4) Like '%'||(#reserved4:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved5">
+					(RESERVED5) Like '%'||(#reserved5:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sett_agency_name">
+					(SETT_AGENCY_NAME) Like '%'||(#sett_agency_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="deduction_type" prepend="and" >
+					(DEDUCTION_TYPE) =#deduction_type#
+				 </isNotNull>
+	 </select>
+
+
+</sqlMap>

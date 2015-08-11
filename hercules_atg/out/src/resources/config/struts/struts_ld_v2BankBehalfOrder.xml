@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_v2BankBehalfOrder"  extends="struts_common">
+	  
+	  	<!-- V2BankBehalfOrder列表信息 -->
+        <action name="searchV2BankBehalfOrderAction" class="searchV2BankBehalfOrderAction">
+			<result name="success" >/jsp/demo/searchV2BankBehalfOrderPage.jsp</result>
+		</action>
+		
+        <!-- V2BankBehalfOrder新增页面-->
+        <action name="addV2BankBehalfOrderPage" class="addV2BankBehalfOrderPage">
+			<result name="success" >/jsp/demo/addV2BankBehalfOrderPage.jsp</result>
+		</action>
+		
+		<!-- V2BankBehalfOrder新增动作	-->
+        <action name="addV2BankBehalfOrderAction" class="addV2BankBehalfOrderAction"> 
+			<result name="success" type="chain"><param name="actionName">searchV2BankBehalfOrderAction</param> </result>
+		</action>
+		
+		<!-- V2BankBehalfOrder编辑页面 -->
+		<action name="editV2BankBehalfOrderPage" class="editV2BankBehalfOrderPage">
+			<result name="success" >/jsp/demo/editV2BankBehalfOrderPage.jsp</result>
+		</action>
+
+		
+		<!-- V2BankBehalfOrder编辑动作-->
+		<action name="editV2BankBehalfOrderAction" class="editV2BankBehalfOrderAction">
+			<result name="success" type="chain"><param name="actionName">searchV2BankBehalfOrderAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailV2BankBehalfOrderPage" class="detailV2BankBehalfOrderPage">
+			<result name="success" >/jsp/demo/detailV2BankBehalfOrderPage.jsp</result>
+		</action>
+		
+		
+		<!-- V2BankBehalfOrder删除页面	-->
+		<action name="delV2BankBehalfOrderAction" class="delV2BankBehalfOrderAction">
+			<result name="success" type="chain"><param name="actionName">searchV2BankBehalfOrderAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

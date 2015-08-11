@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="merProfitStatictis">
+
+  <!--用于模糊查询-->
+     <select id="select_merProfitStatictisList" parameterClass="com.shiyue.bbs.model.MerProfitStatictisQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,MID  <!---->
+		  		,MER_TYPE  <!---->
+		  		,MER_SYS_ID  <!---->
+		  		,AGENT_SYS_ID  <!---->
+		  		,MER_NAME  <!---->
+		  		,SETTLE_DATE  <!---->
+		  		,SUM_AMT  <!---->
+		  		,PROFIT  <!---->
+		  		,SUM_TRANS_FEE  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,CLEAR_STATUS  <!---->
+		  		,CLEAR_ORDER_ID  <!---->
+		  		,FAILE_AMT  <!---->
+		  		,BP_SERIAL_NUMBER  <!---->
+		  		,COUNT_FEE  <!---->
+		  FROM MER_PROFIT_STATICTIS
+		  WHERE 1=1 AND MER_PROFIT_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="mid" prepend="and" >
+				    (MID) =#mid#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="mer_sys_id" prepend="and" >
+				    (MER_SYS_ID) =#mer_sys_id#
+			    </isNotNull>
+				<isNotNull property="agent_sys_id" prepend="and" >
+				    (AGENT_SYS_ID) =#agent_sys_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_name">
+					(MER_NAME) Like '%'||(#mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sum_amt">
+					(SUM_AMT) Like '%'||(#sum_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="profit">
+					(PROFIT) Like '%'||(#profit:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="sum_trans_fee" prepend="and" >
+				    (SUM_TRANS_FEE) =#sum_trans_fee#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_order_id">
+					(CLEAR_ORDER_ID) Like '%'||(#clear_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="faile_amt">
+					(FAILE_AMT) Like '%'||(#faile_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bp_serial_number">
+					(BP_SERIAL_NUMBER) Like '%'||(#bp_serial_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="count_fee">
+					(COUNT_FEE) Like '%'||(#count_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_merProfitStatictisList_count" parameterClass="com.shiyue.bbs.model.MerProfitStatictisQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM MER_PROFIT_STATICTIS
+			WHERE 1=1 AND MER_PROFIT_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="mid" prepend="and" >
+					(MID) =#mid#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_type">
+					(MER_TYPE) Like '%'||(#mer_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="mer_sys_id" prepend="and" >
+					(MER_SYS_ID) =#mer_sys_id#
+				 </isNotNull>
+				 <isNotNull property="agent_sys_id" prepend="and" >
+					(AGENT_SYS_ID) =#agent_sys_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_name">
+					(MER_NAME) Like '%'||(#mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sum_amt">
+					(SUM_AMT) Like '%'||(#sum_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="profit">
+					(PROFIT) Like '%'||(#profit:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="sum_trans_fee" prepend="and" >
+					(SUM_TRANS_FEE) =#sum_trans_fee#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_order_id">
+					(CLEAR_ORDER_ID) Like '%'||(#clear_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="faile_amt">
+					(FAILE_AMT) Like '%'||(#faile_amt:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bp_serial_number">
+					(BP_SERIAL_NUMBER) Like '%'||(#bp_serial_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="count_fee">
+					(COUNT_FEE) Like '%'||(#count_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

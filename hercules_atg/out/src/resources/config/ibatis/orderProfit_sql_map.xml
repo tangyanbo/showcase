@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="orderProfit">
+
+  <!--用于模糊查询-->
+     <select id="select_orderProfitList" parameterClass="com.shiyue.bbs.model.OrderProfitQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,ORDER_ID  <!---->
+		  		,MER_SYS_ID  <!---->
+		  		,MER_AMT  <!---->
+		  		,MER_PROFIT  <!---->
+		  		,MER_RATE  <!---->
+		  		,MER_HIGHT_FEE  <!---->
+		  		,AGENT_L1_ID  <!---->
+		  		,AGENT1_PROFIT  <!---->
+		  		,AGENT1_RATE  <!---->
+		  		,AGENT1_HIGHT_FEE  <!---->
+		  		,AGENT_L2_ID  <!---->
+		  		,AGENT2_PROFIT  <!---->
+		  		,AGENT2_RATE  <!---->
+		  		,AGENT2_HIGHT_FEE  <!---->
+		  		,PLAT_ID  <!---->
+		  		,PLAT_PROFIT  <!---->
+		  		,BYPAY_PROFIT  <!---->
+		  		,TRACT_FEE  <!---->
+		  		,TRACT_BYPAY_PROFIT  <!---->
+		  		,TRACT_ACQBANK_PROFIT  <!---->
+		  		,TRACT_COST  <!---->
+		  		,RESERVED  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,SUB_MER_RATE  <!---->
+		  		,SUB_MER_HIGHT_FEE  <!---->
+		  		,CREATE_DATE  <!---->
+		  FROM ORDER_PROFIT
+		  WHERE 1=1 AND ORDER_PROFIT.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="order_id" prepend="and" >
+				    (ORDER_ID) =#order_id#
+			    </isNotNull>
+				<isNotNull property="mer_sys_id" prepend="and" >
+				    (MER_SYS_ID) =#mer_sys_id#
+			    </isNotNull>
+				<isNotNull property="mer_amt" prepend="and" >
+				    (MER_AMT) =#mer_amt#
+			    </isNotNull>
+				<isNotNull property="mer_profit" prepend="and" >
+				    (MER_PROFIT) =#mer_profit#
+			    </isNotNull>
+				<isNotNull property="mer_rate" prepend="and" >
+				    (MER_RATE) =#mer_rate#
+			    </isNotNull>
+				<isNotNull property="mer_hight_fee" prepend="and" >
+				    (MER_HIGHT_FEE) =#mer_hight_fee#
+			    </isNotNull>
+				<isNotNull property="agent_l1_id" prepend="and" >
+				    (AGENT_L1_ID) =#agent_l1_id#
+			    </isNotNull>
+				<isNotNull property="agent1_profit" prepend="and" >
+				    (AGENT1_PROFIT) =#agent1_profit#
+			    </isNotNull>
+				<isNotNull property="agent1_rate" prepend="and" >
+				    (AGENT1_RATE) =#agent1_rate#
+			    </isNotNull>
+				<isNotNull property="agent1_hight_fee" prepend="and" >
+				    (AGENT1_HIGHT_FEE) =#agent1_hight_fee#
+			    </isNotNull>
+				<isNotNull property="agent_l2_id" prepend="and" >
+				    (AGENT_L2_ID) =#agent_l2_id#
+			    </isNotNull>
+				<isNotNull property="agent2_profit" prepend="and" >
+				    (AGENT2_PROFIT) =#agent2_profit#
+			    </isNotNull>
+				<isNotNull property="agent2_rate" prepend="and" >
+				    (AGENT2_RATE) =#agent2_rate#
+			    </isNotNull>
+				<isNotNull property="agent2_hight_fee" prepend="and" >
+				    (AGENT2_HIGHT_FEE) =#agent2_hight_fee#
+			    </isNotNull>
+				<isNotNull property="plat_id" prepend="and" >
+				    (PLAT_ID) =#plat_id#
+			    </isNotNull>
+				<isNotNull property="plat_profit" prepend="and" >
+				    (PLAT_PROFIT) =#plat_profit#
+			    </isNotNull>
+				<isNotNull property="bypay_profit" prepend="and" >
+				    (BYPAY_PROFIT) =#bypay_profit#
+			    </isNotNull>
+				<isNotNull property="tract_fee" prepend="and" >
+				    (TRACT_FEE) =#tract_fee#
+			    </isNotNull>
+				<isNotNull property="tract_bypay_profit" prepend="and" >
+				    (TRACT_BYPAY_PROFIT) =#tract_bypay_profit#
+			    </isNotNull>
+				<isNotNull property="tract_acqbank_profit" prepend="and" >
+				    (TRACT_ACQBANK_PROFIT) =#tract_acqbank_profit#
+			    </isNotNull>
+				<isNotNull property="tract_cost" prepend="and" >
+				    (TRACT_COST) =#tract_cost#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="sub_mer_rate" prepend="and" >
+				    (SUB_MER_RATE) =#sub_mer_rate#
+			    </isNotNull>
+				<isNotNull property="sub_mer_hight_fee" prepend="and" >
+				    (SUB_MER_HIGHT_FEE) =#sub_mer_hight_fee#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_orderProfitList_count" parameterClass="com.shiyue.bbs.model.OrderProfitQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM ORDER_PROFIT
+			WHERE 1=1 AND ORDER_PROFIT.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="order_id" prepend="and" >
+					(ORDER_ID) =#order_id#
+				 </isNotNull>
+				 <isNotNull property="mer_sys_id" prepend="and" >
+					(MER_SYS_ID) =#mer_sys_id#
+				 </isNotNull>
+				 <isNotNull property="mer_amt" prepend="and" >
+					(MER_AMT) =#mer_amt#
+				 </isNotNull>
+				 <isNotNull property="mer_profit" prepend="and" >
+					(MER_PROFIT) =#mer_profit#
+				 </isNotNull>
+				 <isNotNull property="mer_rate" prepend="and" >
+					(MER_RATE) =#mer_rate#
+				 </isNotNull>
+				 <isNotNull property="mer_hight_fee" prepend="and" >
+					(MER_HIGHT_FEE) =#mer_hight_fee#
+				 </isNotNull>
+				 <isNotNull property="agent_l1_id" prepend="and" >
+					(AGENT_L1_ID) =#agent_l1_id#
+				 </isNotNull>
+				 <isNotNull property="agent1_profit" prepend="and" >
+					(AGENT1_PROFIT) =#agent1_profit#
+				 </isNotNull>
+				 <isNotNull property="agent1_rate" prepend="and" >
+					(AGENT1_RATE) =#agent1_rate#
+				 </isNotNull>
+				 <isNotNull property="agent1_hight_fee" prepend="and" >
+					(AGENT1_HIGHT_FEE) =#agent1_hight_fee#
+				 </isNotNull>
+				 <isNotNull property="agent_l2_id" prepend="and" >
+					(AGENT_L2_ID) =#agent_l2_id#
+				 </isNotNull>
+				 <isNotNull property="agent2_profit" prepend="and" >
+					(AGENT2_PROFIT) =#agent2_profit#
+				 </isNotNull>
+				 <isNotNull property="agent2_rate" prepend="and" >
+					(AGENT2_RATE) =#agent2_rate#
+				 </isNotNull>
+				 <isNotNull property="agent2_hight_fee" prepend="and" >
+					(AGENT2_HIGHT_FEE) =#agent2_hight_fee#
+				 </isNotNull>
+				 <isNotNull property="plat_id" prepend="and" >
+					(PLAT_ID) =#plat_id#
+				 </isNotNull>
+				 <isNotNull property="plat_profit" prepend="and" >
+					(PLAT_PROFIT) =#plat_profit#
+				 </isNotNull>
+				 <isNotNull property="bypay_profit" prepend="and" >
+					(BYPAY_PROFIT) =#bypay_profit#
+				 </isNotNull>
+				 <isNotNull property="tract_fee" prepend="and" >
+					(TRACT_FEE) =#tract_fee#
+				 </isNotNull>
+				 <isNotNull property="tract_bypay_profit" prepend="and" >
+					(TRACT_BYPAY_PROFIT) =#tract_bypay_profit#
+				 </isNotNull>
+				 <isNotNull property="tract_acqbank_profit" prepend="and" >
+					(TRACT_ACQBANK_PROFIT) =#tract_acqbank_profit#
+				 </isNotNull>
+				 <isNotNull property="tract_cost" prepend="and" >
+					(TRACT_COST) =#tract_cost#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="sub_mer_rate" prepend="and" >
+					(SUB_MER_RATE) =#sub_mer_rate#
+				 </isNotNull>
+				 <isNotNull property="sub_mer_hight_fee" prepend="and" >
+					(SUB_MER_HIGHT_FEE) =#sub_mer_hight_fee#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

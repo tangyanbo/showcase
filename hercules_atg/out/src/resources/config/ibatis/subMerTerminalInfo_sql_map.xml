@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerTerminalInfo">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerTerminalInfoList" parameterClass="com.shiyue.bbs.model.SubMerTerminalInfoQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,TERMINAL_ID  <!---->
+		  		,SUB_MER_ID  <!---->
+		  		,TSN  <!---->
+		  		,TERMINAL_TYPE  <!---->
+		  		,RESERVED1  <!---->
+		  		,RESERVED2  <!---->
+		  		,RESERVED3  <!---->
+		  		,FACTORY_ID  <!---->
+		  FROM SUB_MER_TERMINAL_INFO
+		  WHERE 1=1 AND SUB_MER_TERMINAL_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="tsn">
+					(TSN) Like '%'||(#tsn:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_type">
+					(TERMINAL_TYPE) Like '%'||(#terminal_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="factory_id">
+					(FACTORY_ID) Like '%'||(#factory_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerTerminalInfoList_count" parameterClass="com.shiyue.bbs.model.SubMerTerminalInfoQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_TERMINAL_INFO
+			WHERE 1=1 AND SUB_MER_TERMINAL_INFO.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="terminal_id">
+					(TERMINAL_ID) Like '%'||(#terminal_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="tsn">
+					(TSN) Like '%'||(#tsn:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="terminal_type">
+					(TERMINAL_TYPE) Like '%'||(#terminal_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="factory_id">
+					(FACTORY_ID) Like '%'||(#factory_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

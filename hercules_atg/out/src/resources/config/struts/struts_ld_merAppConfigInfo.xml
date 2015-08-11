@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_merAppConfigInfo"  extends="struts_common">
+	  
+	  	<!-- MerAppConfigInfo列表信息 -->
+        <action name="searchMerAppConfigInfoAction" class="searchMerAppConfigInfoAction">
+			<result name="success" >/jsp/demo/searchMerAppConfigInfoPage.jsp</result>
+		</action>
+		
+        <!-- MerAppConfigInfo新增页面-->
+        <action name="addMerAppConfigInfoPage" class="addMerAppConfigInfoPage">
+			<result name="success" >/jsp/demo/addMerAppConfigInfoPage.jsp</result>
+		</action>
+		
+		<!-- MerAppConfigInfo新增动作	-->
+        <action name="addMerAppConfigInfoAction" class="addMerAppConfigInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchMerAppConfigInfoAction</param> </result>
+		</action>
+		
+		<!-- MerAppConfigInfo编辑页面 -->
+		<action name="editMerAppConfigInfoPage" class="editMerAppConfigInfoPage">
+			<result name="success" >/jsp/demo/editMerAppConfigInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- MerAppConfigInfo编辑动作-->
+		<action name="editMerAppConfigInfoAction" class="editMerAppConfigInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchMerAppConfigInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailMerAppConfigInfoPage" class="detailMerAppConfigInfoPage">
+			<result name="success" >/jsp/demo/detailMerAppConfigInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- MerAppConfigInfo删除页面	-->
+		<action name="delMerAppConfigInfoAction" class="delMerAppConfigInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchMerAppConfigInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

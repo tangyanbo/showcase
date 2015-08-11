@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="merInfoUpdateLog">
+
+  <!--用于模糊查询-->
+     <select id="select_merInfoUpdateLogList" parameterClass="com.shiyue.bbs.model.MerInfoUpdateLogQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,MER_ID  <!---->
+		  		,MER_TYPE  <!---->
+		  		,ORG_VALUE  <!---->
+		  		,NEW_VALUE  <!---->
+		  		,ORG_TIME  <!---->
+		  		,UPDATE_TIME  <!---->
+		  		,RESERVED1  <!---->
+		  		,RESERVED2  <!---->
+		  		,RESERVED3  <!---->
+		  FROM MER_INFO_UPDATE_LOG
+		  WHERE 1=1 AND MER_INFO_UPDATE_LOG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="mer_id" prepend="and" >
+				    (MER_ID) =#mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="org_value">
+					(ORG_VALUE) Like '%'||(#org_value:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="new_value">
+					(NEW_VALUE) Like '%'||(#new_value:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="org_time">
+					(ORG_TIME) Like '%'||(#org_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="update_time">
+					(UPDATE_TIME) Like '%'||(#update_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_merInfoUpdateLogList_count" parameterClass="com.shiyue.bbs.model.MerInfoUpdateLogQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM MER_INFO_UPDATE_LOG
+			WHERE 1=1 AND MER_INFO_UPDATE_LOG.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="mer_id" prepend="and" >
+					(MER_ID) =#mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="org_value">
+					(ORG_VALUE) Like '%'||(#org_value:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="new_value">
+					(NEW_VALUE) Like '%'||(#new_value:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="org_time">
+					(ORG_TIME) Like '%'||(#org_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="update_time">
+					(UPDATE_TIME) Like '%'||(#update_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

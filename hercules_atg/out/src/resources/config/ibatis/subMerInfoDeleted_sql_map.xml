@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerInfoDeleted">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerInfoDeletedList" parameterClass="com.shiyue.bbs.model.SubMerInfoDeletedQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,SUB_MER_ID  <!---->
+		  		,PREFIX_ID  <!---->
+		  		,SUFFIX_ID  <!---->
+		  		,RESERVED  <!---->
+		  FROM SUB_MER_INFO_DELETED
+		  WHERE 1=1 AND SUB_MER_INFO_DELETED.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="prefix_id">
+					(PREFIX_ID) Like '%'||(#prefix_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="suffix_id">
+					(SUFFIX_ID) Like '%'||(#suffix_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerInfoDeletedList_count" parameterClass="com.shiyue.bbs.model.SubMerInfoDeletedQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_INFO_DELETED
+			WHERE 1=1 AND SUB_MER_INFO_DELETED.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="prefix_id">
+					(PREFIX_ID) Like '%'||(#prefix_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="suffix_id">
+					(SUFFIX_ID) Like '%'||(#suffix_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

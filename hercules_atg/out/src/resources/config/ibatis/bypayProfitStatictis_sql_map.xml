@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="bypayProfitStatictis">
+
+  <!--用于模糊查询-->
+     <select id="select_bypayProfitStatictisList" parameterClass="com.shiyue.bbs.model.BypayProfitStatictisQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		ID  <!---->
+		  		,SETTLE_DATE  <!---->
+		  		,SUM_AMT  <!---->
+		  		,SUM_FEE_AMT  <!---->
+		  		,SUM_COUNT  <!---->
+		  		,SUM_CAMT  <!---->
+		  		,SUM_FEE_CAMT  <!---->
+		  		,SUM_CCOUNT  <!---->
+		  		,SUM_RAMT  <!---->
+		  		,SUM_FEE_RAMT  <!---->
+		  		,SUM_RCOUNT  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,SUM_TRACT_FEE  <!---->
+		  		,TRACT_BYPAY_PROFIT  <!---->
+		  		,BYPAY_PROFIT  <!---->
+		  		,RESERVED1  <!---->
+		  		,RESERVED2  <!---->
+		  		,RESERVED3  <!---->
+		  FROM BYPAY_PROFIT_STATICTIS
+		  WHERE 1=1 AND BYPAY_PROFIT_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="id" prepend="and" >
+				    (ID) =#id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="sum_amt" prepend="and" >
+				    (SUM_AMT) =#sum_amt#
+			    </isNotNull>
+				<isNotNull property="sum_fee_amt" prepend="and" >
+				    (SUM_FEE_AMT) =#sum_fee_amt#
+			    </isNotNull>
+				<isNotNull property="sum_count" prepend="and" >
+				    (SUM_COUNT) =#sum_count#
+			    </isNotNull>
+				<isNotNull property="sum_camt" prepend="and" >
+				    (SUM_CAMT) =#sum_camt#
+			    </isNotNull>
+				<isNotNull property="sum_fee_camt" prepend="and" >
+				    (SUM_FEE_CAMT) =#sum_fee_camt#
+			    </isNotNull>
+				<isNotNull property="sum_ccount" prepend="and" >
+				    (SUM_CCOUNT) =#sum_ccount#
+			    </isNotNull>
+				<isNotNull property="sum_ramt" prepend="and" >
+				    (SUM_RAMT) =#sum_ramt#
+			    </isNotNull>
+				<isNotNull property="sum_fee_ramt" prepend="and" >
+				    (SUM_FEE_RAMT) =#sum_fee_ramt#
+			    </isNotNull>
+				<isNotNull property="sum_rcount" prepend="and" >
+				    (SUM_RCOUNT) =#sum_rcount#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="sum_tract_fee" prepend="and" >
+				    (SUM_TRACT_FEE) =#sum_tract_fee#
+			    </isNotNull>
+				<isNotNull property="tract_bypay_profit" prepend="and" >
+				    (TRACT_BYPAY_PROFIT) =#tract_bypay_profit#
+			    </isNotNull>
+				<isNotNull property="bypay_profit" prepend="and" >
+				    (BYPAY_PROFIT) =#bypay_profit#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_bypayProfitStatictisList_count" parameterClass="com.shiyue.bbs.model.BypayProfitStatictisQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM BYPAY_PROFIT_STATICTIS
+			WHERE 1=1 AND BYPAY_PROFIT_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="id" prepend="and" >
+					(ID) =#id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="sum_amt" prepend="and" >
+					(SUM_AMT) =#sum_amt#
+				 </isNotNull>
+				 <isNotNull property="sum_fee_amt" prepend="and" >
+					(SUM_FEE_AMT) =#sum_fee_amt#
+				 </isNotNull>
+				 <isNotNull property="sum_count" prepend="and" >
+					(SUM_COUNT) =#sum_count#
+				 </isNotNull>
+				 <isNotNull property="sum_camt" prepend="and" >
+					(SUM_CAMT) =#sum_camt#
+				 </isNotNull>
+				 <isNotNull property="sum_fee_camt" prepend="and" >
+					(SUM_FEE_CAMT) =#sum_fee_camt#
+				 </isNotNull>
+				 <isNotNull property="sum_ccount" prepend="and" >
+					(SUM_CCOUNT) =#sum_ccount#
+				 </isNotNull>
+				 <isNotNull property="sum_ramt" prepend="and" >
+					(SUM_RAMT) =#sum_ramt#
+				 </isNotNull>
+				 <isNotNull property="sum_fee_ramt" prepend="and" >
+					(SUM_FEE_RAMT) =#sum_fee_ramt#
+				 </isNotNull>
+				 <isNotNull property="sum_rcount" prepend="and" >
+					(SUM_RCOUNT) =#sum_rcount#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="sum_tract_fee" prepend="and" >
+					(SUM_TRACT_FEE) =#sum_tract_fee#
+				 </isNotNull>
+				 <isNotNull property="tract_bypay_profit" prepend="and" >
+					(TRACT_BYPAY_PROFIT) =#tract_bypay_profit#
+				 </isNotNull>
+				 <isNotNull property="bypay_profit" prepend="and" >
+					(BYPAY_PROFIT) =#bypay_profit#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="reserved1">
+					(RESERVED1) Like '%'||(#reserved1:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved2">
+					(RESERVED2) Like '%'||(#reserved2:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved3">
+					(RESERVED3) Like '%'||(#reserved3:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

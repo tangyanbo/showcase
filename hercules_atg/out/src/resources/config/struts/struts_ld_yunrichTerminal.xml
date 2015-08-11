@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_yunrichTerminal"  extends="struts_common">
+	  
+	  	<!-- YunrichTerminal列表信息 -->
+        <action name="searchYunrichTerminalAction" class="searchYunrichTerminalAction">
+			<result name="success" >/jsp/demo/searchYunrichTerminalPage.jsp</result>
+		</action>
+		
+        <!-- YunrichTerminal新增页面-->
+        <action name="addYunrichTerminalPage" class="addYunrichTerminalPage">
+			<result name="success" >/jsp/demo/addYunrichTerminalPage.jsp</result>
+		</action>
+		
+		<!-- YunrichTerminal新增动作	-->
+        <action name="addYunrichTerminalAction" class="addYunrichTerminalAction"> 
+			<result name="success" type="chain"><param name="actionName">searchYunrichTerminalAction</param> </result>
+		</action>
+		
+		<!-- YunrichTerminal编辑页面 -->
+		<action name="editYunrichTerminalPage" class="editYunrichTerminalPage">
+			<result name="success" >/jsp/demo/editYunrichTerminalPage.jsp</result>
+		</action>
+
+		
+		<!-- YunrichTerminal编辑动作-->
+		<action name="editYunrichTerminalAction" class="editYunrichTerminalAction">
+			<result name="success" type="chain"><param name="actionName">searchYunrichTerminalAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailYunrichTerminalPage" class="detailYunrichTerminalPage">
+			<result name="success" >/jsp/demo/detailYunrichTerminalPage.jsp</result>
+		</action>
+		
+		
+		<!-- YunrichTerminal删除页面	-->
+		<action name="delYunrichTerminalAction" class="delYunrichTerminalAction">
+			<result name="success" type="chain"><param name="actionName">searchYunrichTerminalAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

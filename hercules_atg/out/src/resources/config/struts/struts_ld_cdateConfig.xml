@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_cdateConfig"  extends="struts_common">
+	  
+	  	<!-- CdateConfig列表信息 -->
+        <action name="searchCdateConfigAction" class="searchCdateConfigAction">
+			<result name="success" >/jsp/demo/searchCdateConfigPage.jsp</result>
+		</action>
+		
+        <!-- CdateConfig新增页面-->
+        <action name="addCdateConfigPage" class="addCdateConfigPage">
+			<result name="success" >/jsp/demo/addCdateConfigPage.jsp</result>
+		</action>
+		
+		<!-- CdateConfig新增动作	-->
+        <action name="addCdateConfigAction" class="addCdateConfigAction"> 
+			<result name="success" type="chain"><param name="actionName">searchCdateConfigAction</param> </result>
+		</action>
+		
+		<!-- CdateConfig编辑页面 -->
+		<action name="editCdateConfigPage" class="editCdateConfigPage">
+			<result name="success" >/jsp/demo/editCdateConfigPage.jsp</result>
+		</action>
+
+		
+		<!-- CdateConfig编辑动作-->
+		<action name="editCdateConfigAction" class="editCdateConfigAction">
+			<result name="success" type="chain"><param name="actionName">searchCdateConfigAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailCdateConfigPage" class="detailCdateConfigPage">
+			<result name="success" >/jsp/demo/detailCdateConfigPage.jsp</result>
+		</action>
+		
+		
+		<!-- CdateConfig删除页面	-->
+		<action name="delCdateConfigAction" class="delCdateConfigAction">
+			<result name="success" type="chain"><param name="actionName">searchCdateConfigAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

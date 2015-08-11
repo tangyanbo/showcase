@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_subMerTerminal"  extends="struts_common">
+	  
+	  	<!-- SubMerTerminal列表信息 -->
+        <action name="searchSubMerTerminalAction" class="searchSubMerTerminalAction">
+			<result name="success" >/jsp/demo/searchSubMerTerminalPage.jsp</result>
+		</action>
+		
+        <!-- SubMerTerminal新增页面-->
+        <action name="addSubMerTerminalPage" class="addSubMerTerminalPage">
+			<result name="success" >/jsp/demo/addSubMerTerminalPage.jsp</result>
+		</action>
+		
+		<!-- SubMerTerminal新增动作	-->
+        <action name="addSubMerTerminalAction" class="addSubMerTerminalAction"> 
+			<result name="success" type="chain"><param name="actionName">searchSubMerTerminalAction</param> </result>
+		</action>
+		
+		<!-- SubMerTerminal编辑页面 -->
+		<action name="editSubMerTerminalPage" class="editSubMerTerminalPage">
+			<result name="success" >/jsp/demo/editSubMerTerminalPage.jsp</result>
+		</action>
+
+		
+		<!-- SubMerTerminal编辑动作-->
+		<action name="editSubMerTerminalAction" class="editSubMerTerminalAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerTerminalAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailSubMerTerminalPage" class="detailSubMerTerminalPage">
+			<result name="success" >/jsp/demo/detailSubMerTerminalPage.jsp</result>
+		</action>
+		
+		
+		<!-- SubMerTerminal删除页面	-->
+		<action name="delSubMerTerminalAction" class="delSubMerTerminalAction">
+			<result name="success" type="chain"><param name="actionName">searchSubMerTerminalAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

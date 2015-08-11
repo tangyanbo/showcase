@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_cardBin"  extends="struts_common">
+	  
+	  	<!-- CardBin列表信息 -->
+        <action name="searchCardBinAction" class="searchCardBinAction">
+			<result name="success" >/jsp/demo/searchCardBinPage.jsp</result>
+		</action>
+		
+        <!-- CardBin新增页面-->
+        <action name="addCardBinPage" class="addCardBinPage">
+			<result name="success" >/jsp/demo/addCardBinPage.jsp</result>
+		</action>
+		
+		<!-- CardBin新增动作	-->
+        <action name="addCardBinAction" class="addCardBinAction"> 
+			<result name="success" type="chain"><param name="actionName">searchCardBinAction</param> </result>
+		</action>
+		
+		<!-- CardBin编辑页面 -->
+		<action name="editCardBinPage" class="editCardBinPage">
+			<result name="success" >/jsp/demo/editCardBinPage.jsp</result>
+		</action>
+
+		
+		<!-- CardBin编辑动作-->
+		<action name="editCardBinAction" class="editCardBinAction">
+			<result name="success" type="chain"><param name="actionName">searchCardBinAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailCardBinPage" class="detailCardBinPage">
+			<result name="success" >/jsp/demo/detailCardBinPage.jsp</result>
+		</action>
+		
+		
+		<!-- CardBin删除页面	-->
+		<action name="delCardBinAction" class="delCardBinAction">
+			<result name="success" type="chain"><param name="actionName">searchCardBinAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

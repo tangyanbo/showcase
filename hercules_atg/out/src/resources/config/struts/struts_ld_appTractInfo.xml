@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_appTractInfo"  extends="struts_common">
+	  
+	  	<!-- AppTractInfo列表信息 -->
+        <action name="searchAppTractInfoAction" class="searchAppTractInfoAction">
+			<result name="success" >/jsp/demo/searchAppTractInfoPage.jsp</result>
+		</action>
+		
+        <!-- AppTractInfo新增页面-->
+        <action name="addAppTractInfoPage" class="addAppTractInfoPage">
+			<result name="success" >/jsp/demo/addAppTractInfoPage.jsp</result>
+		</action>
+		
+		<!-- AppTractInfo新增动作	-->
+        <action name="addAppTractInfoAction" class="addAppTractInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchAppTractInfoAction</param> </result>
+		</action>
+		
+		<!-- AppTractInfo编辑页面 -->
+		<action name="editAppTractInfoPage" class="editAppTractInfoPage">
+			<result name="success" >/jsp/demo/editAppTractInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- AppTractInfo编辑动作-->
+		<action name="editAppTractInfoAction" class="editAppTractInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchAppTractInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailAppTractInfoPage" class="detailAppTractInfoPage">
+			<result name="success" >/jsp/demo/detailAppTractInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- AppTractInfo删除页面	-->
+		<action name="delAppTractInfoAction" class="delAppTractInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchAppTractInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

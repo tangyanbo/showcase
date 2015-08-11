@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="subMerRate">
+
+  <!--用于模糊查询-->
+     <select id="select_subMerRateList" parameterClass="com.shiyue.bbs.model.SubMerRateQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		  FROM SUB_MER_RATE
+		  WHERE 1=1 AND SUB_MER_RATE.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="rate_type">
+					(RATE_TYPE) Like '%'||(#rate_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_rate">
+					(TRANS_RATE) Like '%'||(#trans_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_rate_h">
+					(TRANS_RATE_H) Like '%'||(#trans_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_highest_fee">
+					(TRANS_HIGHEST_FEE) Like '%'||(#trans_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="lowest_fee">
+					(LOWEST_FEE) Like '%'||(#lowest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_rate">
+					(AGENT_L1_RATE) Like '%'||(#agent_l1_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_rate_h">
+					(AGENT_L1_RATE_H) Like '%'||(#agent_l1_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_highest_fee">
+					(AGENT_L1_HIGHEST_FEE) Like '%'||(#agent_l1_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_profit_rate">
+					(AGENT_L1_PROFIT_RATE) Like '%'||(#agent_l1_profit_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_rate">
+					(AGENT_L2_RATE) Like '%'||(#agent_l2_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_rate_h">
+					(AGENT_L2_RATE_H) Like '%'||(#agent_l2_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_highest_fee">
+					(AGENT_L2_HIGHEST_FEE) Like '%'||(#agent_l2_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_profit_rate">
+					(AGENT_L2_PROFIT_RATE) Like '%'||(#agent_l2_profit_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract">
+					(SUB_MER_TRACT) Like '%'||(#sub_mer_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mcc_category_id">
+					(MCC_CATEGORY_ID) Like '%'||(#mcc_category_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_rate">
+					(SIGN_RATE) Like '%'||(#sign_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_rate_h">
+					(SIGN_RATE_H) Like '%'||(#sign_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_highest_fee">
+					(SIGN_HIGHEST_FEE) Like '%'||(#sign_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_lowest_fee">
+					(SIGN_LOWEST_FEE) Like '%'||(#sign_lowest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_subMerRateList_count" parameterClass="com.shiyue.bbs.model.SubMerRateQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM SUB_MER_RATE
+			WHERE 1=1 AND SUB_MER_RATE.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="rate_type">
+					(RATE_TYPE) Like '%'||(#rate_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_rate">
+					(TRANS_RATE) Like '%'||(#trans_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_rate_h">
+					(TRANS_RATE_H) Like '%'||(#trans_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_highest_fee">
+					(TRANS_HIGHEST_FEE) Like '%'||(#trans_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="lowest_fee">
+					(LOWEST_FEE) Like '%'||(#lowest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_rate">
+					(AGENT_L1_RATE) Like '%'||(#agent_l1_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_rate_h">
+					(AGENT_L1_RATE_H) Like '%'||(#agent_l1_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_highest_fee">
+					(AGENT_L1_HIGHEST_FEE) Like '%'||(#agent_l1_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l1_profit_rate">
+					(AGENT_L1_PROFIT_RATE) Like '%'||(#agent_l1_profit_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_rate">
+					(AGENT_L2_RATE) Like '%'||(#agent_l2_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_rate_h">
+					(AGENT_L2_RATE_H) Like '%'||(#agent_l2_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_highest_fee">
+					(AGENT_L2_HIGHEST_FEE) Like '%'||(#agent_l2_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="agent_l2_profit_rate">
+					(AGENT_L2_PROFIT_RATE) Like '%'||(#agent_l2_profit_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_tract">
+					(SUB_MER_TRACT) Like '%'||(#sub_mer_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mcc_category_id">
+					(MCC_CATEGORY_ID) Like '%'||(#mcc_category_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_rate">
+					(SIGN_RATE) Like '%'||(#sign_rate:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_rate_h">
+					(SIGN_RATE_H) Like '%'||(#sign_rate_h:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_highest_fee">
+					(SIGN_HIGHEST_FEE) Like '%'||(#sign_highest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sign_lowest_fee">
+					(SIGN_LOWEST_FEE) Like '%'||(#sign_lowest_fee:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

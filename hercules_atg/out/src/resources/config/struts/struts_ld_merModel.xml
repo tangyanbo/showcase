@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_merModel"  extends="struts_common">
+	  
+	  	<!-- MerModel列表信息 -->
+        <action name="searchMerModelAction" class="searchMerModelAction">
+			<result name="success" >/jsp/demo/searchMerModelPage.jsp</result>
+		</action>
+		
+        <!-- MerModel新增页面-->
+        <action name="addMerModelPage" class="addMerModelPage">
+			<result name="success" >/jsp/demo/addMerModelPage.jsp</result>
+		</action>
+		
+		<!-- MerModel新增动作	-->
+        <action name="addMerModelAction" class="addMerModelAction"> 
+			<result name="success" type="chain"><param name="actionName">searchMerModelAction</param> </result>
+		</action>
+		
+		<!-- MerModel编辑页面 -->
+		<action name="editMerModelPage" class="editMerModelPage">
+			<result name="success" >/jsp/demo/editMerModelPage.jsp</result>
+		</action>
+
+		
+		<!-- MerModel编辑动作-->
+		<action name="editMerModelAction" class="editMerModelAction">
+			<result name="success" type="chain"><param name="actionName">searchMerModelAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailMerModelPage" class="detailMerModelPage">
+			<result name="success" >/jsp/demo/detailMerModelPage.jsp</result>
+		</action>
+		
+		
+		<!-- MerModel删除页面	-->
+		<action name="delMerModelAction" class="delMerModelAction">
+			<result name="success" type="chain"><param name="actionName">searchMerModelAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

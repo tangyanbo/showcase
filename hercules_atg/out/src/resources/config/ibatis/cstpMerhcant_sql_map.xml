@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="cstpMerhcant">
+
+  <!--用于模糊查询-->
+     <select id="select_cstpMerhcantList" parameterClass="com.shiyue.bbs.model.CstpMerhcantQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		CM_ID  <!---->
+		  		,MERCHANT_ID  <!---->
+		  		,MERCHANT_NAME  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,PRIMERY_KEY  <!---->
+		  		,DEVELOP_ID  <!---->
+		  		,SP_ID  <!---->
+		  FROM CSTP_MERHCANT
+		  WHERE 1=1 AND CSTP_MERHCANT.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="cm_id" prepend="and" >
+				    (CM_ID) =#cm_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="merchant_id">
+					(MERCHANT_ID) Like '%'||(#merchant_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_name">
+					(MERCHANT_NAME) Like '%'||(#merchant_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="primery_key">
+					(PRIMERY_KEY) Like '%'||(#primery_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="develop_id">
+					(DEVELOP_ID) Like '%'||(#develop_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sp_id">
+					(SP_ID) Like '%'||(#sp_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_cstpMerhcantList_count" parameterClass="com.shiyue.bbs.model.CstpMerhcantQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM CSTP_MERHCANT
+			WHERE 1=1 AND CSTP_MERHCANT.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="cm_id" prepend="and" >
+					(CM_ID) =#cm_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="merchant_id">
+					(MERCHANT_ID) Like '%'||(#merchant_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="merchant_name">
+					(MERCHANT_NAME) Like '%'||(#merchant_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="primery_key">
+					(PRIMERY_KEY) Like '%'||(#primery_key:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="develop_id">
+					(DEVELOP_ID) Like '%'||(#develop_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sp_id">
+					(SP_ID) Like '%'||(#sp_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

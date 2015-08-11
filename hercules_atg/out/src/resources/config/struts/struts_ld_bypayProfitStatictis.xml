@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_bypayProfitStatictis"  extends="struts_common">
+	  
+	  	<!-- BypayProfitStatictis列表信息 -->
+        <action name="searchBypayProfitStatictisAction" class="searchBypayProfitStatictisAction">
+			<result name="success" >/jsp/demo/searchBypayProfitStatictisPage.jsp</result>
+		</action>
+		
+        <!-- BypayProfitStatictis新增页面-->
+        <action name="addBypayProfitStatictisPage" class="addBypayProfitStatictisPage">
+			<result name="success" >/jsp/demo/addBypayProfitStatictisPage.jsp</result>
+		</action>
+		
+		<!-- BypayProfitStatictis新增动作	-->
+        <action name="addBypayProfitStatictisAction" class="addBypayProfitStatictisAction"> 
+			<result name="success" type="chain"><param name="actionName">searchBypayProfitStatictisAction</param> </result>
+		</action>
+		
+		<!-- BypayProfitStatictis编辑页面 -->
+		<action name="editBypayProfitStatictisPage" class="editBypayProfitStatictisPage">
+			<result name="success" >/jsp/demo/editBypayProfitStatictisPage.jsp</result>
+		</action>
+
+		
+		<!-- BypayProfitStatictis编辑动作-->
+		<action name="editBypayProfitStatictisAction" class="editBypayProfitStatictisAction">
+			<result name="success" type="chain"><param name="actionName">searchBypayProfitStatictisAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailBypayProfitStatictisPage" class="detailBypayProfitStatictisPage">
+			<result name="success" >/jsp/demo/detailBypayProfitStatictisPage.jsp</result>
+		</action>
+		
+		
+		<!-- BypayProfitStatictis删除页面	-->
+		<action name="delBypayProfitStatictisAction" class="delBypayProfitStatictisAction">
+			<result name="success" type="chain"><param name="actionName">searchBypayProfitStatictisAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="struts_ld_merInfo"  extends="struts_common">
+	  
+	  	<!-- MerInfo列表信息 -->
+        <action name="searchMerInfoAction" class="searchMerInfoAction">
+			<result name="success" >/jsp/demo/searchMerInfoPage.jsp</result>
+		</action>
+		
+        <!-- MerInfo新增页面-->
+        <action name="addMerInfoPage" class="addMerInfoPage">
+			<result name="success" >/jsp/demo/addMerInfoPage.jsp</result>
+		</action>
+		
+		<!-- MerInfo新增动作	-->
+        <action name="addMerInfoAction" class="addMerInfoAction"> 
+			<result name="success" type="chain"><param name="actionName">searchMerInfoAction</param> </result>
+		</action>
+		
+		<!-- MerInfo编辑页面 -->
+		<action name="editMerInfoPage" class="editMerInfoPage">
+			<result name="success" >/jsp/demo/editMerInfoPage.jsp</result>
+		</action>
+
+		
+		<!-- MerInfo编辑动作-->
+		<action name="editMerInfoAction" class="editMerInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchMerInfoAction</param> </result>
+			<result name="input">/jsp/demo/error.jsp</result>
+		</action>
+		
+		
+		<!-- 详细画面动作-->
+		<action name="detailMerInfoPage" class="detailMerInfoPage">
+			<result name="success" >/jsp/demo/detailMerInfoPage.jsp</result>
+		</action>
+		
+		
+		<!-- MerInfo删除页面	-->
+		<action name="delMerInfoAction" class="delMerInfoAction">
+			<result name="success" type="chain"><param name="actionName">searchMerInfoAction</param> </result>
+		</action>		
+
+      
+	</package>
+</struts>

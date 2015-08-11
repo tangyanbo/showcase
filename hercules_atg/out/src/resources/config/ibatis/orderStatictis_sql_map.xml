@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="orderStatictis">
+
+  <!--用于模糊查询-->
+     <select id="select_orderStatictisList" parameterClass="com.shiyue.bbs.model.OrderStatictisQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		SERIAL_NO  <!---->
+		  		,ORDER_ID  <!---->
+		  		,SUB_MER_ID  <!---->
+		  		,MER_AMT  <!---->
+		  		,TRANS_FEE  <!---->
+		  		,CLEAR_AMT  <!---->
+		  		,CLEAR_TYPE  <!---->
+		  		,CLEAR_TRACT  <!---->
+		  		,CLEAR_TIME  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,TRANS_TYPE  <!---->
+		  		,SETTLE_DATE  <!---->
+		  		,RESERVED  <!---->
+		  		,CREATE_DATE  <!---->
+		  		,CLEAR_BATCH_NO  <!---->
+		  FROM ORDER_STATICTIS
+		  WHERE 1=1 AND ORDER_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="serial_no" prepend="and" >
+				    (SERIAL_NO) =#serial_no#
+			    </isNotNull>
+				<isNotNull property="order_id" prepend="and" >
+				    (ORDER_ID) =#order_id#
+			    </isNotNull>
+				<isNotNull property="sub_mer_id" prepend="and" >
+				    (SUB_MER_ID) =#sub_mer_id#
+			    </isNotNull>
+				<isNotNull property="mer_amt" prepend="and" >
+				    (MER_AMT) =#mer_amt#
+			    </isNotNull>
+				<isNotNull property="trans_fee" prepend="and" >
+				    (TRANS_FEE) =#trans_fee#
+			    </isNotNull>
+				<isNotNull property="clear_amt" prepend="and" >
+				    (CLEAR_AMT) =#clear_amt#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="clear_type">
+					(CLEAR_TYPE) Like '%'||(#clear_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_tract">
+					(CLEAR_TRACT) Like '%'||(#clear_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_time">
+					(CLEAR_TIME) Like '%'||(#clear_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_batch_no">
+					(CLEAR_BATCH_NO) Like '%'||(#clear_batch_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_orderStatictisList_count" parameterClass="com.shiyue.bbs.model.OrderStatictisQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM ORDER_STATICTIS
+			WHERE 1=1 AND ORDER_STATICTIS.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="serial_no" prepend="and" >
+					(SERIAL_NO) =#serial_no#
+				 </isNotNull>
+				 <isNotNull property="order_id" prepend="and" >
+					(ORDER_ID) =#order_id#
+				 </isNotNull>
+				 <isNotNull property="sub_mer_id" prepend="and" >
+					(SUB_MER_ID) =#sub_mer_id#
+				 </isNotNull>
+				 <isNotNull property="mer_amt" prepend="and" >
+					(MER_AMT) =#mer_amt#
+				 </isNotNull>
+				 <isNotNull property="trans_fee" prepend="and" >
+					(TRANS_FEE) =#trans_fee#
+				 </isNotNull>
+				 <isNotNull property="clear_amt" prepend="and" >
+					(CLEAR_AMT) =#clear_amt#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="clear_type">
+					(CLEAR_TYPE) Like '%'||(#clear_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_tract">
+					(CLEAR_TRACT) Like '%'||(#clear_tract:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_time">
+					(CLEAR_TIME) Like '%'||(#clear_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_type">
+					(TRANS_TYPE) Like '%'||(#trans_type:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="settle_date">
+					(SETTLE_DATE) Like '%'||(#settle_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="reserved">
+					(RESERVED) Like '%'||(#reserved:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_date">
+					(CREATE_DATE) Like '%'||(#create_date:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="clear_batch_no">
+					(CLEAR_BATCH_NO) Like '%'||(#clear_batch_no:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>

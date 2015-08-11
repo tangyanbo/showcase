@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="sequence">
+
+  <!--用于模糊查询-->
+     <select id="select_sequenceList" parameterClass="com.shiyue.bbs.model.SequenceQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		NAME  <!---->
+		  		,INCREMENT  <!---->
+		  		,MIN_VALUE  <!---->
+		  		,MAX_VALUE  <!---->
+		  		,CUR_VALUE  <!---->
+		  		,CYCLE  <!---->
+		  FROM sequence
+		  WHERE 1=1 AND sequence.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				 <isNotEmpty prepend=" and " property="name">
+					(NAME) Like '%'||(#name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				<isNotNull property="increment" prepend="and" >
+				    (INCREMENT) =#increment#
+			    </isNotNull>
+				<isNotNull property="min_value" prepend="and" >
+				    (MIN_VALUE) =#min_value#
+			    </isNotNull>
+				<isNotNull property="max_value" prepend="and" >
+				    (MAX_VALUE) =#max_value#
+			    </isNotNull>
+				<isNotNull property="cur_value" prepend="and" >
+				    (CUR_VALUE) =#cur_value#
+			    </isNotNull>
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_sequenceList_count" parameterClass="com.shiyue.bbs.model.SequenceQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM sequence
+			WHERE 1=1 AND sequence.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotEmpty prepend=" and " property="name">
+					(NAME) Like '%'||(#name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotNull property="increment" prepend="and" >
+					(INCREMENT) =#increment#
+				 </isNotNull>
+				 <isNotNull property="min_value" prepend="and" >
+					(MIN_VALUE) =#min_value#
+				 </isNotNull>
+				 <isNotNull property="max_value" prepend="and" >
+					(MAX_VALUE) =#max_value#
+				 </isNotNull>
+				 <isNotNull property="cur_value" prepend="and" >
+					(CUR_VALUE) =#cur_value#
+				 </isNotNull>
+	 </select>
+
+
+</sqlMap>

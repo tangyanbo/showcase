@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="v2BankBehalfOrder">
+
+  <!--用于模糊查询-->
+     <select id="select_v2BankBehalfOrderList" parameterClass="com.shiyue.bbs.model.V2BankBehalfOrderQueryBean" resultClass="java.util.HashMap">
+          SELECT  
+		 		BEHALF_ORDER_ID  <!---->
+		  		,MER_ORDER_ID  <!---->
+		  		,MER_ORDER_TIME  <!---->
+		  		,BUS_MER_ID  <!---->
+		  		,STATUS  <!---->
+		  		,CREATE_TIME  <!---->
+		  		,FINISH_TIME  <!---->
+		  		,TOTAL_NUMBER  <!---->
+		  		,SUCCESS_MUMBER  <!---->
+		  		,FAIL_NUMBER  <!---->
+		  		,AMOUNT  <!---->
+		  		,TRANS_AMOUNT  <!---->
+		  		,BACK_URL  <!---->
+		  		,ORDER_ID  <!---->
+		  		,MER_NAME  <!---->
+		  		,SUB_MER_ID  <!---->
+		  FROM V2_BANK_BEHALF_ORDER
+		  WHERE 1=1 AND V2_BANK_BEHALF_ORDER.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	 
+				<isNotNull property="behalf_order_id" prepend="and" >
+				    (BEHALF_ORDER_ID) =#behalf_order_id#
+			    </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_order_id">
+					(MER_ORDER_ID) Like '%'||(#mer_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_order_time">
+					(MER_ORDER_TIME) Like '%'||(#mer_order_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_mer_id">
+					(BUS_MER_ID) Like '%'||(#bus_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="total_number">
+					(TOTAL_NUMBER) Like '%'||(#total_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="success_mumber">
+					(SUCCESS_MUMBER) Like '%'||(#success_mumber:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="fail_number">
+					(FAIL_NUMBER) Like '%'||(#fail_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="amount">
+					(AMOUNT) Like '%'||(#amount:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_amount">
+					(TRANS_AMOUNT) Like '%'||(#trans_amount:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="back_url">
+					(BACK_URL) Like '%'||(#back_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_id">
+					(ORDER_ID) Like '%'||(#order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_name">
+					(MER_NAME) Like '%'||(#mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_id">
+					(SUB_MER_ID) Like '%'||(#sub_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+			   <isNotEmpty property="orderStr">
+					$orderStr$
+			   </isNotEmpty>
+     </select>
+     
+     <!--用于查询总数-->
+     <select id="select_v2BankBehalfOrderList_count" parameterClass="com.shiyue.bbs.model.V2BankBehalfOrderQueryBean" resultClass="int">
+			SELECT  count(1)
+		    FROM V2_BANK_BEHALF_ORDER
+			WHERE 1=1 AND V2_BANK_BEHALF_ORDER.END_DATE=TO_DATE('9999-12-31', 'yyyy-MM-dd')	
+				 <isNotNull property="behalf_order_id" prepend="and" >
+					(BEHALF_ORDER_ID) =#behalf_order_id#
+				 </isNotNull>
+				 <isNotEmpty prepend=" and " property="mer_order_id">
+					(MER_ORDER_ID) Like '%'||(#mer_order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_order_time">
+					(MER_ORDER_TIME) Like '%'||(#mer_order_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="bus_mer_id">
+					(BUS_MER_ID) Like '%'||(#bus_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="status">
+					(STATUS) Like '%'||(#status:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="create_time">
+					(CREATE_TIME) Like '%'||(#create_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="finish_time">
+					(FINISH_TIME) Like '%'||(#finish_time:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="total_number">
+					(TOTAL_NUMBER) Like '%'||(#total_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="success_mumber">
+					(SUCCESS_MUMBER) Like '%'||(#success_mumber:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="fail_number">
+					(FAIL_NUMBER) Like '%'||(#fail_number:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="amount">
+					(AMOUNT) Like '%'||(#amount:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="trans_amount">
+					(TRANS_AMOUNT) Like '%'||(#trans_amount:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="back_url">
+					(BACK_URL) Like '%'||(#back_url:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="order_id">
+					(ORDER_ID) Like '%'||(#order_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="mer_name">
+					(MER_NAME) Like '%'||(#mer_name:VARCHAR#)||'%'
+			    </isNotEmpty>    
+				 <isNotEmpty prepend=" and " property="sub_mer_id">
+					(SUB_MER_ID) Like '%'||(#sub_mer_id:VARCHAR#)||'%'
+			    </isNotEmpty>    
+	 </select>
+
+
+</sqlMap>
