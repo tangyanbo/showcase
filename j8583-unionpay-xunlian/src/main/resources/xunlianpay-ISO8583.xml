@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iso8583 type="8583">
+	<!-- 这个是信息类型(MTI), 是一个四位的数字, 这里为"0200", 传输时用BCD表示即为"02h,00h"(如果用ASCII呢？看看上面的内容). 
+		这个四位数字，每一位都有它的意义, 第一位:8583 version number,第二位:message class,第三位:message sub-class,第四位:transaction 
+		originator -->
+	<field num="1" name="messageType" type="BCD" length="4" />
+	<!-- <70 1C 04 00 00 C1 90 01>bit map域, 指示哪些域存在, 容易计算出, 下面几个域存在:2, 3, 4, 
+		12, 13, 14, 22, 41,42,48,49,52,64 -->
+	<!-- <19 06 20 51 32 00 00 00 02 61 20> field 2, 账号, n..19, LLVAR, 一字节表示长度(19), 
+		账号是19位, 前面补0后, 用10字节BCD表示. -->
+	<field num="2" name="pan" type="BCD" format="LLVAR" length="19" />
+	<!-- <60 00 00>field 3, 处理码, n6, 定长, 用3字节BCD表示 -->
+	<field num="3" name="process_code" type="BCD" length="6" />
+	<!-- <00 00 00 02 00 00>field 4, 交易金额, n12, 定长, 用6字节BCD表示, 这里的金额是200.00元 -->
+	<field num="4" name="amount" type="BCD" length="12" />
+	<!-- 4.8 域11 系统跟踪号 -->
+	<field num="11" name="systemTraceAuditNumber" type="BCD" length="6" />
+	<field num="12" name="tran_time" type="BCD" format="hhmmss"
+		length="6" />
+	<field num="13" name="tran_date" type="BCD" format="MMDD" length="4" />
+	<field num="14" name="card_valildate" type="BCD" format="YYMM"
+		length="4" />
+	<field num="15" name="settledate" type="BCD" format="MMDD"
+		length="4" />
+	<field num="22" name="bit22" type="BCD" length="3" />
+	<field num="23" name="cardSequenceNumber" type="LBCD" length="3" />
+	<field num="25" name="bit22" type="BCD" length="2" />
+	<field num="26" name="bit26" type="BCD" length="2" />
+	<field num="32" name="bit35" type="BCD" format="LLVAR" length="11" />
+	<field num="33" name="bit33" type="BCD" format="LLVAR" length="11" />
+	<field num="35" name="bit35" type="BCD" format="LLVAR" length="37" />
+	<field num="36" name="bit36" type="BCD" format="LLLVAR" length="104" />
+	<field num="37" name="retrievalReferenceNumber" type="ASCII"
+		length="12" />
+	<field num="38" name="authorizationIdentificationResponse" type="ASCII"
+		length="6" />
+	<field num="39" name="bit39" type="ASCII" length="2" />
+	<!-- <30 30 30 30 31 31 31 31>field 41, 终端号, ans8, 定长, ASCII表示, 这里终端号为"00001111" -->
+	<field num="41" name="tid" type="ASCII" length="8" />
+	<!-- <31 30 32 32 35 30 31 35 33 31 31 31 31 31 31>field 42, 商户号, ans15, 
+		定长, ASCII表示, 这里商户号为"102250153111111" -->
+	<field num="42" name="mid" type="ASCII" length="15" />
+	<field num="44" name="mid" type="ASCII" format="LLVAR" length="15" />
+	<field num="46" name="bit46" type="ASCII" format="LLLVAR" length="128" />
+	<field num="48" name="bit48" type="ASCII" length="128" />
+	<!-- <01 56>field 49, 货币代码, n3, 定长, 前面补0后，用两字节BCD表示, 这里货币代码为"156" -->
+	<field num="49" name="bit49" type="ASCII" length="3" />
+	<field num="52" name="bit52" type="BCD" length="16" />
+	<!-- 可用余额 -->
+	<field num="53" name="bit54" type="BCD" length="16" />
+	<field num="56" name="bit54" type="ASCII" format="LLLVAR" length="40" />
+	<field num="54" name="bit54" type="ASCII" format="LLLVAR" length="12" />
+	<field num="55" name="bit55" type="BCD" format="ENCRYPT" length="255" />
+	<field num="60" name="custom" type="BCD" format="LLLVAR" length="999" />
+	<field num="61" name="custom" type="BCD" format="LLLVAR" length="999" />
+	<field num="62" name="custom" type="BINARY" format="LLLVAR"
+		length="60" />
+	<field num="63" name="custom" type="ASCII" format="LLLVAR"
+		length="999" />
+	<!-- mac -->
+	<field num="64" name="bit64" type="BINARY" length="8" />
+</iso8583>
