@@ -117,6 +117,7 @@ public class TestTftUms
 		param.put(41, terid);
 		param.put(42, merid);
 		param.put(49, "156");
+		param.put(36, "156");
 		param.put(60, "00000001" );
 		param.put(61, "000001"+"719480" );//原始交易批次号+原始交易流水号
 		param.put(64, "00000000");

@@ -290,6 +290,14 @@ public class DataConverter {
 		return bitMap;
 	}
 
+	/**
+	 * 计算出位图
+	 * @author 唐延波
+	 * @date 2015年8月14日
+	 * @param domainNo 有数据的位,没数据则不在集合中
+	 * @param bitMap
+	 * @return
+	 */
 	public static byte[] packBigMap(Set<Integer> domainNo, byte[] bitMap) {
 		//TODO
 		for (Iterator<Integer> it = domainNo.iterator(); it.hasNext();) {
@@ -302,18 +310,15 @@ public class DataConverter {
 			if ((bitMapBit == 0) && (bitMapNum != 0)) {
 				bitMapNum--;
 			}
-			//
-			//byte b = (byte)(bitMap[bitMapNum] & 0xFF);
-			
-			
-			//
 			if (bitMapBit == 0){
-				//余数为0则在byte的最低位0000 0001
+				//余数为0则在byte的最低位0000 0001,即第8,16,24等位置
 				//& 0xFF没有什么作用，只是转换为16进制
 				bitMap[bitMapNum] = ((byte) (bitMap[bitMapNum] & 0xFF | 0x1));
 			}				
 			else {
-				//余数不为0,则从高位算起,第bitMapbit位置1,即右移bitMapBit - 1位
+				//余数不为0,则从高位算起,第bitMapbit位置1,即128右移bitMapBit - 1位
+				//128:1000 0000
+				//如余位是3 : 0010 0000
 				bitMap[bitMapNum] = ((byte) ((bitMap[bitMapNum] & 0xFF) | (128 >>> bitMapBit - 1)));
 				String byteToBinary = byteToBinary(bitMap[bitMapNum]);
 				System.out.println(byteToBinary);
