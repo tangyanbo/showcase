@@ -320,7 +320,7 @@ public class DataConverter {
 				//128:1000 0000
 				//如余位是3 : 0010 0000
 				bitMap[bitMapNum] = ((byte) ((bitMap[bitMapNum] & 0xFF) | (128 >>> bitMapBit - 1)));
-				String byteToBinary = byteToBinary(bitMap[bitMapNum]);
+				String byteToBinary = byteToBinaryString(bitMap[bitMapNum]);
 				System.out.println(byteToBinary);
 			}
 
@@ -377,7 +377,7 @@ public class DataConverter {
 	 * @param bytes
 	 * @return
 	 */
-	public static String byteToBinary(byte[] bytes) {
+	public static String byteToBinaryString(byte[] bytes) {
 		StringBuilder sb = new StringBuilder(bytes.length * Byte.SIZE);
 		for (int i = 0; i < Byte.SIZE * bytes.length; i++)
 			sb.append((bytes[i / Byte.SIZE] << i % Byte.SIZE & 0x80) == 0 ? '0' : '1');
@@ -390,10 +390,10 @@ public class DataConverter {
 	 * @date 2015年8月14日
 	 * @return
 	 */
-	public static String byteToBinary(byte b) {
+	public static String byteToBinaryString(byte b) {
 		byte[] bytes = new byte[1];
 		bytes[0] = b;
-		return byteToBinary(bytes);
+		return byteToBinaryString(bytes);
 	}
 	
 	/**
@@ -530,7 +530,7 @@ public class DataConverter {
 	   */
 	  public static String intToBinary(int value){
 		  byte[] intToByteArray = intToByteArray(value);
-		  return byteToBinary(intToByteArray);
+		  return byteToBinaryString(intToByteArray);
 	  }
 
 	  public static byte[] toUnsignedByteArray(byte[] source)
@@ -649,9 +649,9 @@ public class DataConverter {
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		byte a = 0x20;
-		String byteToBinary = byteToBinary(a);
+		String byteToBinary = byteToBinaryString(a);
 		byte b = (byte) (a & 0xFF);
-		String bb = byteToBinary(b);
+		String bb = byteToBinaryString(b);
 		System.out.println(byteToBinary);
 		System.out.println(bb);
 		int i = 128;
