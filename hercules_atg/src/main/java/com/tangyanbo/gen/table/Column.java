@@ -1,6 +1,11 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.table;
 
 import java.sql.Types;
+
+import org.apache.ibatis.type.JdbcType;
+
+import com.tangyanbo.gen.core.StringUtil;
+import com.tangyanbo.gen.core.TypeNameTranslator;
 
 /**
  * Column
@@ -47,9 +52,19 @@ public class Column {
 	final static String IS_PK_YES="YES";
 	final static String IS_PK_NO="NO";
 	
-	String  columnName;
+	/**
+	 * 数据库字段名称
+	 */
+	public String columnName;
+	
 	int dataType;
-	String type_name; 		
+	
+	/**
+	 * 数据库字段类型名称
+	 */
+	private String typeName;
+	
+	
 	int column_size; 
 	int decimal_digits;
 	int num_prec_radix;
@@ -248,18 +263,20 @@ public class Column {
 	 * # TYPE_NAME String => 数据源依赖的类型名称，对于 UDT，该类型名称是完全限定的
 	 * @return
 	 */
-	public String getTypeName() {
-		return type_name;
+	public String getJdbcType() {
+		return JdbcType.forCode(dataType).name();
 	}
 	/**
 	 * # TYPE_NAME String => 数据源依赖的类型名称，对于 UDT，该类型名称是完全限定的
 	 * @param type_name
 	 */
-	public void setTypeName(String type_name) {
-		this.type_name = type_name;
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}	
+	
+	public String getTypeName() {
+		return typeName;
 	}
-	
-	
 	public String getJavaType() {
 		if(dataType==Types.NUMERIC || dataType==Types.DECIMAL){
 				if(column_size<10){
@@ -271,7 +288,7 @@ public class Column {
 		
 		//INTEGER 作为Long 处理
 		if(dataType==Types.INTEGER){
-			return java.lang.Long.class.getSimpleName();
+			return java.lang.Integer.class.getSimpleName();
 		}
 		return TypeNameTranslator.getJavaType(dataType);
 	}
@@ -350,8 +367,8 @@ public class Column {
 
 	
 	public static void main(String[] args) {
-		String simpleName = Integer.class.getSimpleName();
-		System.out.println(simpleName);
+		
+		System.out.println(JdbcType.forCode(4).name());
 	}
 			
 }

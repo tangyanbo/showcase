@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.core;
 import java.io.File;
 import java.io.IOException;
 import freemarker.template.Configuration;
@@ -23,7 +23,7 @@ public class TemplateConfiguration {
 	 * @return
 	 */
 	public static TemplateConfiguration getTemplateConfiguration(){
-		String path =  (String) com.zhenwudi.autogeneration.core.Configuration.getConfiguration().get(com.zhenwudi.autogeneration.core.Configuration.FTL_SOURCE);
+		String path =  (String) com.tangyanbo.gen.core.Configuration.getConfiguration().get(com.tangyanbo.gen.core.Configuration.FTL_SOURCE);
 		if(cfg==null){
 			Configuration conf = new Configuration();
 			conf.setObjectWrapper(new DefaultObjectWrapper());

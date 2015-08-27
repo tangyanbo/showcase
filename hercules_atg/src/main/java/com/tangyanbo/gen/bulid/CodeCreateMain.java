@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.bulid;
+package com.tangyanbo.gen.bulid;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,12 +14,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import com.zhenwudi.autogeneration.core.Configuration;
-import com.zhenwudi.autogeneration.core.DatabaseIntrospector;
-import com.zhenwudi.autogeneration.core.FileConfiguration;
-import com.zhenwudi.autogeneration.core.Table;
-import com.zhenwudi.autogeneration.core.TemplateConfiguration;
-import com.zhenwudi.autogeneration.tools.FileUtils;
+
+import com.tangyanbo.gen.core.Configuration;
+import com.tangyanbo.gen.core.FileConfiguration;
+import com.tangyanbo.gen.core.TemplateConfiguration;
+import com.tangyanbo.gen.table.DatabaseIntrospector;
+import com.tangyanbo.gen.table.Table;
+import com.tangyanbo.gen.tools.FileUtils;
+
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 

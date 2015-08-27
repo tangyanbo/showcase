@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.tools;
+package com.tangyanbo.gen.tools;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;

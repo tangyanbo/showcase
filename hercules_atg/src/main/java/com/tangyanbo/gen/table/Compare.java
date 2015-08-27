@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.table;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;

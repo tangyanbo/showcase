@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.core;
 
 import java.io.File;
 import java.io.FileInputStream;

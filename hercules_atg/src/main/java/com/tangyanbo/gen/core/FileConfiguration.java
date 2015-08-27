@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.core;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,7 +6,8 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.Map;
 import java.util.Properties;
-import com.zhenwudi.autogeneration.tools.StringTemplateLoader;
+
+import com.tangyanbo.gen.tools.StringTemplateLoader;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

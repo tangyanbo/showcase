@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.tools;
+package com.tangyanbo.gen.tools;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

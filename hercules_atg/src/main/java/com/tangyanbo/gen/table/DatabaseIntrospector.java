@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.table;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import com.tangyanbo.gen.core.StringUtil;
 /**
  * @author chenjia
  */
@@ -158,7 +160,7 @@ public class DatabaseIntrospector {
 
 			String columnName = rs.getString(Column.COLUMN_NAME);
 			Column column = findColumn(columnName, table.getColumns());
-
+			column.setIsPk(Column.IS_PK_YES);
 			columns.add(column);
 		}
 		rs.close();

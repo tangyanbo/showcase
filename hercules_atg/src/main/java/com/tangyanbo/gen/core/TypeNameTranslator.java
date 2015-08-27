@@ -1,4 +1,4 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.core;
 import java.sql.Types;
 import java.util.HashMap;
 import java.util.Map;

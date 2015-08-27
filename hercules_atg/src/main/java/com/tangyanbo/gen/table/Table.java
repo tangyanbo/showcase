@@ -1,7 +1,9 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.table;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import com.tangyanbo.gen.core.StringUtil;
 /**
  * @author chenjia
  */

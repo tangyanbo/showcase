@@ -1,59 +1,53 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.hercules</groupId>
-  <artifactId>hercules_atg</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
-  <name>hercules_atg</name>
-  <url>http://maven.apache.org</url>
+	<groupId>com.hercules</groupId>
+	<artifactId>hercules_atg</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>hercules_atg</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    
-   <dependency>
-  			<groupId>org.freemarker</groupId>
-  			<artifactId>freemarker</artifactId>
-  			<version>2.3.23</version>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.23</version>
+		</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.22</version>
 		</dependency>
-    
-    <!--add by chenjia postgresql -->
-    <!-- <dependency>
-    	<groupId>postgresql</groupId>
-    	<artifactId>postgresql</artifactId>
-    	<version>9.1-901-1.jdbc4</version>
-    </dependency> -->
-    		
-    <!-- add by chenjia db sqlserver2008-->
-   <!--  <dependency>
-	 <groupId>net.sourceforge.jtds</groupId>
-	 <artifactId>jtds</artifactId>
-	 <version>1.2.4</version>
- 	</dependency> -->
- 	
- 	<!-- add by chenjia db oarcle 11g-->
- 	
+		
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.8</version>
+		</dependency>
+		
+		<dependency>
+  			<groupId>org.freemarker</groupId>
+  			<artifactId>freemarker</artifactId>
+  			<version>2.3.23</version>
+		</dependency>
 
- 	
-  </dependencies>
-  
-  <build>
+	</dependencies>
+
+	<build>
 		<plugins>
 			<!-- 编译插件 -->
 			<plugin>

@@ -1,4 +1,6 @@
-package com.zhenwudi.autogeneration.core;
+package com.tangyanbo.gen.table;
+
+import com.tangyanbo.gen.core.StringUtil;
 
 /** 
  * @author chenjia
