@@ -123,7 +123,7 @@ public class CodeCreateMain {
 
 	/***
 	 * 生成模板文件主调用
-	 * @param root
+	 * @param root table信息，config信息
 	 * @param encoding
 	 */
 	public static void generate(Map root, String encoding) {
@@ -134,14 +134,21 @@ public class CodeCreateMain {
 		// 1.循环目录下所有FTL文件 调用生成接口
 		List<File> files = new FileUtils().getTypeFiles(ftlSource, ".ftl");
 		for (File _file : files) {
-			generate_file(_file, root, encoding);
+			generateFile(_file, root, encoding);
 		}
 	}
 
 	
 	
-	
-	public static void generate_file(File file, Map root, String encoding) {
+	/**
+	 * 生成文件
+	 * @author 唐延波
+	 * @date 2015年8月18日
+	 * @param file 模板文件
+	 * @param root table信息，config信息
+	 * @param encoding
+	 */
+	public static void generateFile(File file, Map root, String encoding) {
 		// 1.检查文件有效性
 		if (!(file != null && file.getName().trim().length() > 0)) {
 			return;

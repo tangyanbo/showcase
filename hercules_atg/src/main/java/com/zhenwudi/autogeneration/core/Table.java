@@ -30,6 +30,8 @@ public class Table {
 	final static String SELF_REFERENCING_COL_NAME="SELF_REFERENCING_COL_NAME";
 	final static String REF_GENERATION="REF_GENERATION";
 	
+	final static String tablePrefix = "bbs_";
+	
 	
 	String tableCat;
 	String tableSchem;
@@ -230,6 +232,7 @@ public class Table {
 	
 	
 	public String getClassName(){
+		//String tbName = tableName.substring(tablePrefix.length());
 		return StringUtil.getCamelCaseString(tableName, true);
 	}
 	

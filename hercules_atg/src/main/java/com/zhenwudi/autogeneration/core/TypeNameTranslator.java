@@ -1,13 +1,12 @@
 package com.zhenwudi.autogeneration.core;
 import java.sql.Types;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
- * @author chenjia
- *
+ * TypeNameTranslator
+ * @author 唐延波
+ * @date 2015年8月18日
  */
 public class TypeNameTranslator {
     
@@ -81,36 +80,36 @@ public class TypeNameTranslator {
         nameToType.put("VARCHAR", Types.VARCHAR); //$NON-NLS-1$
         
         typeMap = new HashMap<Integer, String>();        
-        typeMap.put(Types.ARRAY, Object.class.getName());
-        typeMap.put(Types.BIGINT, Long.class.getName());
+        typeMap.put(Types.ARRAY, Object.class.getSimpleName());
+        typeMap.put(Types.BIGINT, Long.class.getSimpleName());
         typeMap.put(Types.BINARY, "byte[]"); //$NON-NLS-1$
-        typeMap.put(Types.BIT, Boolean.class.getName());
+        typeMap.put(Types.BIT, Boolean.class.getSimpleName());
         typeMap.put(Types.BLOB, "byte[]"); //$NON-NLS-1$
-        typeMap.put(Types.BOOLEAN, Boolean.class.getName());
-        typeMap.put(Types.CHAR, String.class.getName());
-        typeMap.put(Types.CLOB, String.class.getName());
-        typeMap.put(Types.DATALINK, Object.class.getName());
-        typeMap.put(Types.DATE, java.sql.Date.class.getName());
-        typeMap.put(Types.DISTINCT, Object.class.getName());
-        typeMap.put(Types.DOUBLE, Double.class.getName());
-        typeMap.put(Types.FLOAT, Float.class.getName());
-        typeMap.put(Types.INTEGER, Integer.class.getName());
-        typeMap.put(Types.JAVA_OBJECT, Object.class.getName());
+        typeMap.put(Types.BOOLEAN, Boolean.class.getSimpleName());
+        typeMap.put(Types.CHAR, String.class.getSimpleName());
+        typeMap.put(Types.CLOB, String.class.getSimpleName());
+        typeMap.put(Types.DATALINK, Object.class.getSimpleName());
+        typeMap.put(Types.DATE, java.sql.Date.class.getSimpleName());
+        typeMap.put(Types.DISTINCT, Object.class.getSimpleName());
+        typeMap.put(Types.DOUBLE, Double.class.getSimpleName());
+        typeMap.put(Types.FLOAT, Float.class.getSimpleName());
+        typeMap.put(Types.INTEGER, Integer.class.getSimpleName());
+        typeMap.put(Types.JAVA_OBJECT, Object.class.getSimpleName());
         typeMap.put(Types.LONGVARBINARY, "byte[]"); //$NON-NLS-1$
-        typeMap.put(Types.LONGVARCHAR, String.class.getName());
-        typeMap.put(Types.NULL, Object.class.getName());
-        typeMap.put(Types.OTHER, Object.class.getName());
-        typeMap.put(Types.REAL, Float.class.getName());
-        typeMap.put(Types.REF, Object.class.getName());
-        typeMap.put(Types.SMALLINT, Short.class.getName());
-        typeMap.put(Types.STRUCT, Object.class.getName());
-        typeMap.put(Types.TIME, java.sql.Time.class.getName());
-        typeMap.put(Types.TIMESTAMP, java.sql.Timestamp.class.getName());
-        typeMap.put(Types.TINYINT, Byte.class.getName());
+        typeMap.put(Types.LONGVARCHAR, String.class.getSimpleName());
+        typeMap.put(Types.NULL, Object.class.getSimpleName());
+        typeMap.put(Types.OTHER, Object.class.getSimpleName());
+        typeMap.put(Types.REAL, Float.class.getSimpleName());
+        typeMap.put(Types.REF, Object.class.getSimpleName());
+        typeMap.put(Types.SMALLINT, Short.class.getSimpleName());
+        typeMap.put(Types.STRUCT, Object.class.getSimpleName());
+        typeMap.put(Types.TIME, java.sql.Time.class.getSimpleName());
+        typeMap.put(Types.TIMESTAMP, java.util.Date.class.getSimpleName());
+        typeMap.put(Types.TINYINT, Byte.class.getSimpleName());
         typeMap.put(Types.VARBINARY, "byte[]"); //$NON-NLS-1$
-        typeMap.put(Types.VARCHAR, String.class.getName());
-        typeMap.put(Types.DECIMAL,Long.class.getName()); //$NON-NLS-1$--------
-        typeMap.put(Types.NUMERIC,java.math.BigDecimal.class.getName()); 
+        typeMap.put(Types.VARCHAR, String.class.getSimpleName());
+        typeMap.put(Types.DECIMAL,Long.class.getSimpleName()); //$NON-NLS-1$--------
+        typeMap.put(Types.NUMERIC,java.math.BigDecimal.class.getSimpleName()); 
        
     }
 

@@ -1,9 +1,19 @@
 package com.zhenwudi.autogeneration.core;
 
 /**
- * @author chenjia
+ * 
+ * @author 唐延波
+ * @date 2015年8月18日
  */
 public class StringUtil {
+	/**
+	 * 
+	 * @author 唐延波
+	 * @date 2015年8月18日
+	 * @param inputString
+	 * @param firstCharacterUppercase true：首字母大写,false：首字母小写
+	 * @return
+	 */
 	public static String getCamelCaseString(String inputString,
 			boolean firstCharacterUppercase) {
 		StringBuilder sb = new StringBuilder();

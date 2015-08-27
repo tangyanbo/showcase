@@ -1,8 +1,11 @@
 package com.zhenwudi.autogeneration.core;
 
 import java.sql.Types;
+
 /**
- * @author chenjia
+ * Column
+ * @author 唐延波
+ * @date 2015年8月18日
  */
 public class Column {
 	/*
@@ -110,6 +113,17 @@ public class Column {
 	public void setColumnDef(String columnDef) {
 		this.columnDef = columnDef;
 	}
+	
+	/**
+	 * 列对应的属性名
+	 * @author 唐延波
+	 * @date 2015年8月18日
+	 * @return
+	 */
+	public String getColumnFieldName(){
+		return StringUtil.getCamelCaseString(columnName, false);
+	}
+	
 	/**
 	 *  COLUMN_NAME String => 列名称
 	 * @return
@@ -244,7 +258,31 @@ public class Column {
 	public void setTypeName(String type_name) {
 		this.type_name = type_name;
 	}
+	
+	
 	public String getJavaType() {
+		if(dataType==Types.NUMERIC || dataType==Types.DECIMAL){
+				if(column_size<10){
+					return decimal_digits==0? Integer.class.getSimpleName() :TypeNameTranslator.getJavaType(dataType);
+				}
+				//带有小数精度的都作为  BigDecimal 处理
+				return decimal_digits==0? Long.class.getSimpleName():java.math.BigDecimal.class.getSimpleName();
+		}
+		
+		//INTEGER 作为Long 处理
+		if(dataType==Types.INTEGER){
+			return java.lang.Long.class.getSimpleName();
+		}
+		return TypeNameTranslator.getJavaType(dataType);
+	}
+	
+	/**
+	 * 备份
+	 * @author 唐延波
+	 * @date 2015年8月18日
+	 * @return
+	 */
+	public String getJavaType2() {
 		if(dataType==Types.NUMERIC || dataType==Types.DECIMAL){
 				if(column_size<10){
 					return decimal_digits==0? Integer.class.getName():TypeNameTranslator.getJavaType(dataType);
@@ -287,7 +325,7 @@ public class Column {
 	
 	public String getColumnNameFcu()
 	{
-		return getUpperCaseFirst(columnName.toLowerCase());
+		return getUpperCaseFirst(this.getColumnFieldName());
 	}
 	public String getColumnNameUpperCase()
 	{
@@ -311,5 +349,9 @@ public class Column {
 	}
 
 	
-	
+	public static void main(String[] args) {
+		String simpleName = Integer.class.getSimpleName();
+		System.out.println(simpleName);
+	}
+			
 }
