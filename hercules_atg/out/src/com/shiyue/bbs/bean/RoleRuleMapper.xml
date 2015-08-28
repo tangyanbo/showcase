@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shiyue.bbs.dao.RoleRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.shiyue.bbs.dao.RoleRule" >
+  	<id column="id" property="id" jdbcType="BIGINT" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	<result column="role_id" property="roleId" jdbcType="BIGINT" />
+	<result column="rule_id" property="ruleId" jdbcType="BIGINT" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.bypay.forpay.dao.RoleRule" >
+  insert into role_rule (
+		  id,
+		  version,
+		  create_time,
+		  update_time,
+		  role_id,
+		  rule_id
+    )
+  values (
+		  #{id,jdbcType=BIGINT},		  		  
+		  #{version,jdbcType=INTEGER},		  		  
+		  #{createTime,jdbcType=TIMESTAMP},		  		  
+		  #{updateTime,jdbcType=TIMESTAMP},		  		  
+		  #{roleId,jdbcType=BIGINT},		  		  
+		  #{ruleId,jdbcType=BIGINT}		  		  
+		  )
+</insert>
+</mapper>

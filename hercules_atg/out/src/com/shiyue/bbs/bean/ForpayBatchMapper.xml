@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shiyue.bbs.dao.ForpayBatchMapper" >
+  <resultMap id="BaseResultMap" type="com.shiyue.bbs.dao.ForpayBatch" >
+  	<id column="id" property="id" jdbcType="BIGINT" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	<result column="temp_batch_id" property="tempBatchId" jdbcType="BIGINT" />
+	<result column="row" property="row" jdbcType="INTEGER" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.bypay.forpay.dao.ForpayBatch" >
+  insert into forpay_batch (
+		  id,
+		  version,
+		  create_time,
+		  update_time,
+		  temp_batch_id,
+		  row,
+		  status
+    )
+  values (
+		  #{id,jdbcType=BIGINT},		  		  
+		  #{version,jdbcType=INTEGER},		  		  
+		  #{createTime,jdbcType=TIMESTAMP},		  		  
+		  #{updateTime,jdbcType=TIMESTAMP},		  		  
+		  #{tempBatchId,jdbcType=BIGINT},		  		  
+		  #{row,jdbcType=INTEGER},		  		  
+		  #{status,jdbcType=INTEGER}		  		  
+		  )
+</insert>
+</mapper>

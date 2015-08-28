@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shiyue.bbs.dao.MessageMapper" >
+  <resultMap id="BaseResultMap" type="com.shiyue.bbs.dao.Message" >
+  	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="message" property="message" jdbcType="VARCHAR" />
+	<result column="message_md5" property="messageMd5" jdbcType="VARCHAR" />
+	<result column="create_date" property="createDate" jdbcType="VARCHAR" />
+	<result column="mobile" property="mobile" jdbcType="VARCHAR" />
+	<result column="finish_time" property="finishTime" jdbcType="VARCHAR" />
+	<result column="status" property="status" jdbcType="CHAR" />
+	<result column="reserved" property="reserved" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.bypay.forpay.dao.Message" >
+  insert into message (
+		  id,
+		  message,
+		  message_md5,
+		  create_date,
+		  mobile,
+		  finish_time,
+		  status,
+		  reserved
+    )
+  values (
+		  #{id,jdbcType=INTEGER},		  		  
+		  #{message,jdbcType=VARCHAR},		  		  
+		  #{messageMd5,jdbcType=VARCHAR},		  		  
+		  #{createDate,jdbcType=VARCHAR},		  		  
+		  #{mobile,jdbcType=VARCHAR},		  		  
+		  #{finishTime,jdbcType=VARCHAR},		  		  
+		  #{status,jdbcType=CHAR},		  		  
+		  #{reserved,jdbcType=VARCHAR}		  		  
+		  )
+</insert>
+</mapper>

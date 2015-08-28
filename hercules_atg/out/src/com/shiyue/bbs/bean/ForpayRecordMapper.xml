@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shiyue.bbs.dao.ForpayRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.shiyue.bbs.dao.ForpayRecord" >
+  	<id column="id" property="id" jdbcType="BIGINT" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	<result column="temp_batch_id" property="tempBatchId" jdbcType="BIGINT" />
+	<result column="batch_id" property="batchId" jdbcType="BIGINT" />
+	<result column="merchant_order_id" property="merchantOrderId" jdbcType="VARCHAR" />
+	<result column="merchant_id" property="merchantId" jdbcType="VARCHAR" />
+	<result column="merchant_name" property="merchantName" jdbcType="VARCHAR" />
+	<result column="account_name" property="accountName" jdbcType="VARCHAR" />
+	<result column="acocunt_no" property="acocuntNo" jdbcType="VARCHAR" />
+	<result column="amount" property="amount" jdbcType="DECIMAL" />
+	<result column="currency" property="currency" jdbcType="VARCHAR" />
+	<result column="cell_phone" property="cellPhone" jdbcType="VARCHAR" />
+	<result column="remark" property="remark" jdbcType="VARCHAR" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.bypay.forpay.dao.ForpayRecord" >
+  insert into forpay_record (
+		  id,
+		  version,
+		  create_time,
+		  update_time,
+		  temp_batch_id,
+		  batch_id,
+		  merchant_order_id,
+		  merchant_id,
+		  merchant_name,
+		  account_name,
+		  acocunt_no,
+		  amount,
+		  currency,
+		  cell_phone,
+		  remark,
+		  status
+    )
+  values (
+		  #{id,jdbcType=BIGINT},		  		  
+		  #{version,jdbcType=INTEGER},		  		  
+		  #{createTime,jdbcType=TIMESTAMP},		  		  
+		  #{updateTime,jdbcType=TIMESTAMP},		  		  
+		  #{tempBatchId,jdbcType=BIGINT},		  		  
+		  #{batchId,jdbcType=BIGINT},		  		  
+		  #{merchantOrderId,jdbcType=VARCHAR},		  		  
+		  #{merchantId,jdbcType=VARCHAR},		  		  
+		  #{merchantName,jdbcType=VARCHAR},		  		  
+		  #{accountName,jdbcType=VARCHAR},		  		  
+		  #{acocuntNo,jdbcType=VARCHAR},		  		  
+		  #{amount,jdbcType=DECIMAL},		  		  
+		  #{currency,jdbcType=VARCHAR},		  		  
+		  #{cellPhone,jdbcType=VARCHAR},		  		  
+		  #{remark,jdbcType=VARCHAR},		  		  
+		  #{status,jdbcType=INTEGER}		  		  
+		  )
+</insert>
+</mapper>

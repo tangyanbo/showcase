@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shiyue.bbs.dao.ForpayTempRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.shiyue.bbs.dao.ForpayTempRecord" >
+  	<id column="id" property="id" jdbcType="BIGINT" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	<result column="batch_id" property="batchId" jdbcType="BIGINT" />
+	<result column="merchant_order_id" property="merchantOrderId" jdbcType="VARCHAR" />
+	<result column="account_name" property="accountName" jdbcType="VARCHAR" />
+	<result column="account_no" property="accountNo" jdbcType="VARCHAR" />
+	<result column="bank_no" property="bankNo" jdbcType="VARCHAR" />
+	<result column="pub_pri" property="pubPri" jdbcType="INTEGER" />
+	<result column="amount" property="amount" jdbcType="DECIMAL" />
+	<result column="cell_phone" property="cellPhone" jdbcType="VARCHAR" />
+	<result column="remark" property="remark" jdbcType="VARCHAR" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.bypay.forpay.dao.ForpayTempRecord" >
+  insert into forpay_temp_record (
+		  id,
+		  version,
+		  create_time,
+		  update_time,
+		  batch_id,
+		  merchant_order_id,
+		  account_name,
+		  account_no,
+		  bank_no,
+		  pub_pri,
+		  amount,
+		  cell_phone,
+		  remark,
+		  status
+    )
+  values (
+		  #{id,jdbcType=BIGINT},		  		  
+		  #{version,jdbcType=INTEGER},		  		  
+		  #{createTime,jdbcType=TIMESTAMP},		  		  
+		  #{updateTime,jdbcType=TIMESTAMP},		  		  
+		  #{batchId,jdbcType=BIGINT},		  		  
+		  #{merchantOrderId,jdbcType=VARCHAR},		  		  
+		  #{accountName,jdbcType=VARCHAR},		  		  
+		  #{accountNo,jdbcType=VARCHAR},		  		  
+		  #{bankNo,jdbcType=VARCHAR},		  		  
+		  #{pubPri,jdbcType=INTEGER},		  		  
+		  #{amount,jdbcType=DECIMAL},		  		  
+		  #{cellPhone,jdbcType=VARCHAR},		  		  
+		  #{remark,jdbcType=VARCHAR},		  		  
+		  #{status,jdbcType=INTEGER}		  		  
+		  )
+</insert>
+</mapper>

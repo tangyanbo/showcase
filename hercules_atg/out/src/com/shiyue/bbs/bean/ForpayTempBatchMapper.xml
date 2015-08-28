@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shiyue.bbs.dao.ForpayTempBatchMapper" >
+  <resultMap id="BaseResultMap" type="com.shiyue.bbs.dao.ForpayTempBatch" >
+  	<id column="id" property="id" jdbcType="BIGINT" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	<result column="invoke_type" property="invokeType" jdbcType="INTEGER" />
+	<result column="merchant_id" property="merchantId" jdbcType="VARCHAR" />
+	<result column="user_id" property="userId" jdbcType="BIGINT" />
+	<result column="remark" property="remark" jdbcType="VARCHAR" />
+	<result column="orig_file_name" property="origFileName" jdbcType="VARCHAR" />
+	<result column="temp_file_path" property="tempFilePath" jdbcType="VARCHAR" />
+	<result column="file_size" property="fileSize" jdbcType="INTEGER" />
+	<result column="file_type" property="fileType" jdbcType="INTEGER" />
+	<result column="total_row" property="totalRow" jdbcType="INTEGER" />
+	<result column="total_amount" property="totalAmount" jdbcType="DECIMAL" />
+	<result column="total_fee" property="totalFee" jdbcType="DECIMAL" />
+	<result column="error_row" property="errorRow" jdbcType="INTEGER" />
+	<result column="save_temp_count" property="saveTempCount" jdbcType="INTEGER" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.bypay.forpay.dao.ForpayTempBatch" >
+  insert into forpay_temp_batch (
+		  id,
+		  version,
+		  create_time,
+		  update_time,
+		  invoke_type,
+		  merchant_id,
+		  user_id,
+		  remark,
+		  orig_file_name,
+		  temp_file_path,
+		  file_size,
+		  file_type,
+		  total_row,
+		  total_amount,
+		  total_fee,
+		  error_row,
+		  save_temp_count,
+		  status
+    )
+  values (
+		  #{id,jdbcType=BIGINT},		  		  
+		  #{version,jdbcType=INTEGER},		  		  
+		  #{createTime,jdbcType=TIMESTAMP},		  		  
+		  #{updateTime,jdbcType=TIMESTAMP},		  		  
+		  #{invokeType,jdbcType=INTEGER},		  		  
+		  #{merchantId,jdbcType=VARCHAR},		  		  
+		  #{userId,jdbcType=BIGINT},		  		  
+		  #{remark,jdbcType=VARCHAR},		  		  
+		  #{origFileName,jdbcType=VARCHAR},		  		  
+		  #{tempFilePath,jdbcType=VARCHAR},		  		  
+		  #{fileSize,jdbcType=INTEGER},		  		  
+		  #{fileType,jdbcType=INTEGER},		  		  
+		  #{totalRow,jdbcType=INTEGER},		  		  
+		  #{totalAmount,jdbcType=DECIMAL},		  		  
+		  #{totalFee,jdbcType=DECIMAL},		  		  
+		  #{errorRow,jdbcType=INTEGER},		  		  
+		  #{saveTempCount,jdbcType=INTEGER},		  		  
+		  #{status,jdbcType=INTEGER}		  		  
+		  )
+</insert>
+</mapper>

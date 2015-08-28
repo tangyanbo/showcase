@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shiyue.bbs.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.shiyue.bbs.dao.User" >
+  	<id column="id" property="id" jdbcType="BIGINT" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	<result column="user_name" property="userName" jdbcType="VARCHAR" />
+	<result column="real_name" property="realName" jdbcType="VARCHAR" />
+	<result column="login_pwd" property="loginPwd" jdbcType="VARCHAR" />
+	<result column="oper_pwd" property="operPwd" jdbcType="VARCHAR" />
+	<result column="admin_flag" property="adminFlag" jdbcType="BIT" />
+	<result column="email" property="email" jdbcType="VARCHAR" />
+	<result column="cell_phone" property="cellPhone" jdbcType="VARCHAR" />
+	<result column="mer_id" property="merId" jdbcType="BIGINT" />
+	<result column="user_status" property="userStatus" jdbcType="CHAR" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.bypay.forpay.dao.User" >
+  insert into user (
+		  id,
+		  version,
+		  create_time,
+		  update_time,
+		  user_name,
+		  real_name,
+		  login_pwd,
+		  oper_pwd,
+		  admin_flag,
+		  email,
+		  cell_phone,
+		  mer_id,
+		  user_status
+    )
+  values (
+		  #{id,jdbcType=BIGINT},		  		  
+		  #{version,jdbcType=INTEGER},		  		  
+		  #{createTime,jdbcType=TIMESTAMP},		  		  
+		  #{updateTime,jdbcType=TIMESTAMP},		  		  
+		  #{userName,jdbcType=VARCHAR},		  		  
+		  #{realName,jdbcType=VARCHAR},		  		  
+		  #{loginPwd,jdbcType=VARCHAR},		  		  
+		  #{operPwd,jdbcType=VARCHAR},		  		  
+		  #{adminFlag,jdbcType=BIT},		  		  
+		  #{email,jdbcType=VARCHAR},		  		  
+		  #{cellPhone,jdbcType=VARCHAR},		  		  
+		  #{merId,jdbcType=BIGINT},		  		  
+		  #{userStatus,jdbcType=CHAR}		  		  
+		  )
+</insert>
+</mapper>
